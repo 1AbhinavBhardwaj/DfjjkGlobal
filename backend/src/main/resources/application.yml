@@ -1,0 +1,39 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: dfjjk-backend
+  
+  datasource:
+    # PostgreSQL Configuration (Default)
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/dfjjkglobal}
+    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+    password: ${SPRING_DATASOURCE_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+  
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  # H2 Fallback configuration profile if postgres is disabled
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+jwt:
+  secret: DFJJKGlobalSuperSecretKeyForJWTSigningAndAuthenticationTokenValidation2026!
+  expiration-ms: 86400000 # 24 hours
+
+logging:
+  level:
+    root: INFO
+    com.dfjjk: DEBUG
