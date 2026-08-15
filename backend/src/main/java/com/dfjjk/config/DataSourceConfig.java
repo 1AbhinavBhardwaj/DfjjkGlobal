@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.util.StringUtils;
 
 import javax.sql.DataSource;
+import java.net.URI;
 
 @Configuration
 public class DataSourceConfig {
@@ -20,36 +21,69 @@ public class DataSourceConfig {
     private String rawUrl;
 
     @Value("${SPRING_DATASOURCE_USERNAME:${spring.datasource.username:postgres}}")
-    private String username;
+    private String envUsername;
 
     @Value("${SPRING_DATASOURCE_PASSWORD:${spring.datasource.password:postgres}}")
-    private String password;
+    private String envPassword;
 
     @Bean
     @Primary
     public DataSource dataSource() {
-        String jdbcUrl = rawUrl;
+        String url = rawUrl;
+        String finalUser = envUsername;
+        String finalPass = envPassword;
 
-        // Convert standard URI (postgres:// or postgresql://) to JDBC format (jdbc:postgresql://)
-        if (StringUtils.hasText(jdbcUrl)) {
-            if (jdbcUrl.startsWith("postgres://")) {
-                jdbcUrl = "jdbc:postgresql://" + jdbcUrl.substring("postgres://".length());
-            } else if (jdbcUrl.startsWith("postgresql://")) {
-                jdbcUrl = "jdbc:postgresql://" + jdbcUrl.substring("postgresql://".length());
+        if (StringUtils.hasText(url)) {
+            String tempUrl = url;
+            if (tempUrl.startsWith("jdbc:")) {
+                tempUrl = tempUrl.substring(5);
+            }
+            if (tempUrl.startsWith("postgres://")) {
+                tempUrl = "postgresql://" + tempUrl.substring("postgres://".length());
+            }
+
+            try {
+                URI uri = URI.create(tempUrl);
+                if (uri.getHost() != null) {
+                    String host = uri.getHost();
+                    int port = uri.getPort() > 0 ? uri.getPort() : 5432;
+                    String path = uri.getPath() != null ? uri.getPath() : "";
+                    String query = uri.getQuery();
+
+                    // Extract user credentials if embedded in URI authority (user:pass@host)
+                    if (uri.getUserInfo() != null) {
+                        String[] userInfo = uri.getUserInfo().split(":", 2);
+                        finalUser = userInfo[0];
+                        if (userInfo.length > 1) {
+                            finalPass = userInfo[1];
+                        }
+                    }
+
+                    StringBuilder cleanJdbcUrl = new StringBuilder("jdbc:postgresql://");
+                    cleanJdbcUrl.append(host).append(":").append(port).append(path);
+                    if (StringUtils.hasText(query)) {
+                        cleanJdbcUrl.append("?").append(query);
+                    }
+
+                    url = cleanJdbcUrl.toString();
+                }
+            } catch (Exception e) {
+                log.warn("Could not parse URI for credentials extraction, keeping raw URL: {}", e.getMessage());
             }
         }
 
-        log.info("Configured JDBC DataSource URL: {}", jdbcUrl != null ? jdbcUrl.replaceAll(":[^/@]+@", ":****@") : "null");
+        log.info("Cleaned JDBC DataSource URL: {}", url);
+        log.info("DataSource Username: {}", finalUser);
 
         DataSourceBuilder<?> builder = DataSourceBuilder.create()
                 .driverClassName("org.postgresql.Driver")
-                .url(jdbcUrl);
+                .url(url);
 
-        if (StringUtils.hasText(username) && !"postgres".equals(username)) {
-            builder.username(username);
+        if (StringUtils.hasText(finalUser)) {
+            builder.username(finalUser);
         }
-        if (StringUtils.hasText(password) && !"postgres".equals(password)) {
-            builder.password(password);
+        if (StringUtils.hasText(finalPass)) {
+            builder.password(finalPass);
         }
 
         return builder.build();
