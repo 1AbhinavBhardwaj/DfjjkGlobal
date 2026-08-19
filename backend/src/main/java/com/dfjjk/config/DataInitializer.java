@@ -99,7 +99,7 @@ public class DataInitializer implements CommandLineRunner {
                     new BigDecimal("599.00"),
                     "10 Weeks",
                     "Artificial Intelligence",
-                    "https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=1200&q=80"
+                    "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80"
             );
             c3.getFaqs().addAll(List.of(
                     new CourseFaq(c3, "Do I need a GPU machine?", "No, cloud GPU notebooks (Google Colab Pro & Modal) will be provided for training runs.")
@@ -154,7 +154,7 @@ public class DataInitializer implements CommandLineRunner {
                     new BigDecimal("699.00"),
                     "16 Weeks",
                     "Data Science",
-                    "https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=1200&q=80"
+                    "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80"
             );
             ds3.getFaqs().addAll(List.of(
                     new CourseFaq(ds3, "Who is this program suitable for?", "This program is tailored for software engineers, data analysts, and IT professionals looking to transition into senior Data Science, Machine Learning, and AI Engineering roles."),

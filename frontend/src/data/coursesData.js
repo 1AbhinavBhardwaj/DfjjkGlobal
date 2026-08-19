@@ -351,7 +351,7 @@ export const CATALOG_COURSES = [
     price: '699.00',
     duration: '16 Weeks Comprehensive Program',
     category: 'Data Science',
-    imageUrl: 'https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=1200&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80',
     active: true,
     highlights: [
       'End-to-End AI & Data Science Program',
@@ -767,7 +767,7 @@ export const CATALOG_COURSES = [
     price: '599.00',
     duration: '10 Weeks',
     category: 'Artificial Intelligence',
-    imageUrl: 'https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=1200&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80',
     active: true,
     highlights: [
       '10-Week AI Engineering Immersion',
