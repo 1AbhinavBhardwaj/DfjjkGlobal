@@ -428,6 +428,7 @@ export const AdminDashboard = () => {
                     onChange={(e) => setCourseForm({ ...courseForm, category: e.target.value })}
                     className="form-select"
                   >
+                    <option value="Data Science">Data Science</option>
                     <option value="Software Engineering">Software Engineering</option>
                     <option value="Cloud & Infrastructure">Cloud & Infrastructure</option>
                     <option value="Artificial Intelligence">Artificial Intelligence</option>

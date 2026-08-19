@@ -216,6 +216,103 @@ h1, h2, h3, h4, h5, h6 {
   gap: 28px;
 }
 
+/* Category Filters Horizontal Scroll on Mobile */
+.category-filter-scroll {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-bottom: 4px;
+}
+
+.category-filter-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* Accordions for Curriculum & FAQs */
+.accordion-item {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+  margin-bottom: 12px;
+  overflow: hidden;
+  transition: all 0.25s ease;
+}
+
+.accordion-item:hover {
+  border-color: rgba(99, 102, 241, 0.3);
+}
+
+.accordion-header {
+  width: 100%;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  min-height: 52px;
+  transition: background 0.2s ease;
+}
+
+.accordion-header:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.accordion-header.active {
+  background: rgba(99, 102, 241, 0.08);
+  border-bottom: 1px solid var(--border-glass);
+}
+
+.accordion-body {
+  padding: 20px 24px;
+  background: rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.25s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Learning Journey Step Diagram */
+.journey-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+}
+
+.journey-step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-full);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.journey-arrow {
+  color: var(--accent-primary);
+  font-weight: bold;
+}
+
 /* Form Controls */
 .form-group {
   display: flex;
@@ -276,6 +373,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
+  height: 8px;
 }
 ::-webkit-scrollbar-track {
   background: var(--bg-main);
@@ -287,3 +385,124 @@ h1, h2, h3, h4, h5, h6 {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent-primary);
 }
+
+/* ==========================================================================
+   Responsive Breakpoints & Layout Adaptations (320px, 375px, 425px, 768px, 1024px, 1440px+)
+   ========================================================================== */
+
+/* Laptop & Large Desktop Utilities */
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1400px;
+  }
+}
+
+/* Tablet & Smaller Screens (<= 1024px) */
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+  
+  .course-detail-grid {
+    grid-template-columns: 1fr !important;
+    gap: 36px !important;
+  }
+}
+
+/* Tablet Portrait & Mobile Devices (<= 768px) */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .desktop-links {
+    display: none !important;
+  }
+
+  .mobile-toggle {
+    display: flex !important;
+  }
+
+  .grid-responsive {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .category-filter-scroll {
+    flex-wrap: nowrap;
+    width: 100%;
+  }
+
+  .journey-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .journey-arrow {
+    text-align: center;
+    transform: rotate(90deg);
+    margin: 4px 0;
+  }
+
+  .accordion-header {
+    font-size: 0.98rem;
+    padding: 14px 18px;
+  }
+
+  .accordion-body {
+    padding: 16px 18px;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 14px 20px;
+  }
+
+  .btn-sm {
+    width: auto;
+    padding: 8px 14px;
+  }
+
+  /* Responsive stats grid */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+}
+
+/* Mobile Devices (<= 480px) */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2rem !important;
+  }
+  h2 {
+    font-size: 1.6rem !important;
+  }
+  h3 {
+    font-size: 1.25rem !important;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .badge {
+    font-size: 0.72rem;
+    padding: 4px 10px;
+  }
+}
+
+/* Small Mobile Devices (320px - 375px) */
+@media (max-width: 375px) {
+  .container {
+    padding: 0 12px;
+  }
+
+  .btn {
+    font-size: 0.88rem;
+    padding: 12px 16px;
+  }
+}
+

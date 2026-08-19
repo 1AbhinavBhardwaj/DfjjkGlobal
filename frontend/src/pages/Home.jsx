@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import API from '../api';
+import { CATALOG_COURSES } from '../data/coursesData';
 import { 
   Sparkles, 
   ArrowRight, 
@@ -17,15 +18,22 @@ import {
 } from 'lucide-react';
 
 export const Home = () => {
-  const [courses, setCourses] = useState([]);
+  const [courses, setCourses] = useState(CATALOG_COURSES.slice(0, 3));
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     API.get('/courses')
       .then((res) => {
-        setCourses(res.data.slice(0, 3)); // Top 3 featured
+        if (res.data && Array.isArray(res.data) && res.data.length > 0) {
+          setCourses(res.data.slice(0, 3));
+        } else {
+          setCourses(CATALOG_COURSES.slice(0, 3));
+        }
       })
-      .catch((err) => console.error('Failed to load courses:', err))
+      .catch((err) => {
+        console.warn('Backend API connection offline/unreachable. Displaying catalog store:', err);
+        setCourses(CATALOG_COURSES.slice(0, 3));
+      })
       .finally(() => setLoading(false));
   }, []);
 
@@ -37,18 +45,18 @@ export const Home = () => {
 
       {/* Hero Section */}
       <section style={{ padding: '80px 0 100px', position: 'relative', zIndex: 1 }}>
-        <div className="container" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'center' }}>
+        <div className="container hero-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'center' }}>
           <div>
             <div className="badge badge-gradient" style={{ marginBottom: '24px' }}>
-              <Sparkles size={14} color="#A5B4FC" /> Next-Gen Technology Education
+              <Sparkles size={14} color="#A5B4FC" /> Enterprise Technology & Data Science
             </div>
 
             <h1 style={{ fontSize: '3.6rem', lineHeight: 1.1, marginBottom: '24px', fontWeight: 800 }}>
-              Master <span className="gradient-text">Enterprise Architecture</span> & Future Tech
+              Master <span className="gradient-text">Data Science</span>, AI & Architecture
             </h1>
 
             <p style={{ fontSize: '1.15rem', color: 'var(--text-secondary)', marginBottom: '36px', lineHeight: 1.7 }}>
-              Accelerate your engineering career with world-class masterclasses in Java Spring Boot, React, Cloud Native Infrastructure, AI Engineering, and Cybersecurity.
+              Accelerate your engineering career with world-class masterclasses in Power BI, SQL Analytics, Python to Generative AI, Java Spring Boot, and Cloud Architecture.
             </p>
 
             <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginBottom: '40px' }}>
@@ -61,12 +69,12 @@ export const Home = () => {
             </div>
 
             {/* Quick Badges */}
-            <div style={{ display: 'flex', gap: '24px', alignItems: 'center', color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
+            <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap', alignItems: 'center', color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <CheckCircle size={18} color="#34D399" /> Verified Certificates
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <CheckCircle size={18} color="#34D399" /> Hands-on Labs
+                <CheckCircle size={18} color="#34D399" /> Hands-on Projects
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <CheckCircle size={18} color="#34D399" /> 1-on-1 Mentorship
@@ -86,41 +94,41 @@ export const Home = () => {
               {/* Floating Stat Card 1 */}
               <div className="glass-card animate-float" style={{
                 position: 'absolute',
-                bottom: '-20px',
-                left: '-20px',
-                padding: '16px 24px',
+                bottom: '10px',
+                left: '10px',
+                padding: '12px 20px',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '16px',
-                background: 'rgba(17, 23, 38, 0.9)'
+                gap: '12px',
+                background: 'rgba(17, 23, 38, 0.95)'
               }}>
-                <div style={{ padding: '12px', background: 'rgba(99, 102, 241, 0.2)', borderRadius: '12px' }}>
-                  <Award size={24} color="#6366F1" />
+                <div style={{ padding: '10px', background: 'rgba(99, 102, 241, 0.2)', borderRadius: '10px' }}>
+                  <Award size={20} color="#6366F1" />
                 </div>
                 <div>
-                  <div style={{ fontSize: '1.3rem', fontWeight: 800, color: 'var(--text-primary)' }}>99.4%</div>
-                  <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>Career Graduation Rate</div>
+                  <div style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--text-primary)' }}>99.4%</div>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Graduation Rate</div>
                 </div>
               </div>
 
               {/* Floating Stat Card 2 */}
               <div className="glass-card animate-float" style={{
                 position: 'absolute',
-                top: '-15px',
-                right: '-15px',
-                padding: '14px 20px',
+                top: '10px',
+                right: '10px',
+                padding: '12px 18px',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '12px',
-                background: 'rgba(17, 23, 38, 0.9)',
+                gap: '10px',
+                background: 'rgba(17, 23, 38, 0.95)',
                 animationDelay: '3s'
               }}>
-                <div style={{ padding: '10px', background: 'rgba(6, 182, 212, 0.2)', borderRadius: '10px' }}>
-                  <Users size={20} color="#06B6D4" />
+                <div style={{ padding: '8px', background: 'rgba(6, 182, 212, 0.2)', borderRadius: '8px' }}>
+                  <Users size={18} color="#06B6D4" />
                 </div>
                 <div>
-                  <div style={{ fontSize: '1.1rem', fontWeight: 800 }}>15,000+</div>
-                  <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Global Engineers</div>
+                  <div style={{ fontSize: '1.05rem', fontWeight: 800 }}>15,000+</div>
+                  <div style={{ fontSize: '0.7rem', color: 'var(--text-secondary)' }}>Engineers Trained</div>
                 </div>
               </div>
             </div>
@@ -130,7 +138,7 @@ export const Home = () => {
 
       {/* Live Stats Section */}
       <section style={{ padding: '40px 0', borderTop: '1px solid var(--border-glass)', borderBottom: '1px solid var(--border-glass)', background: 'rgba(255,255,255,0.01)' }}>
-        <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '24px', textAlign: 'center' }}>
+        <div className="container stats-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '24px', textAlign: 'center' }}>
           <div>
             <div style={{ fontSize: '2.5rem', fontWeight: 800 }} className="gradient-text">15K+</div>
             <div style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Students Trained</div>

@@ -19,7 +19,7 @@ export const About = () => {
         </div>
 
         {/* Mission & Vision grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px', marginBottom: '80px' }}>
+        <div className="hero-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px', marginBottom: '80px' }}>
           <div className="glass-card" style={{ padding: '40px' }}>
             <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'rgba(99, 102, 241, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
               <Target size={24} color="#6366F1" />
@@ -44,7 +44,7 @@ export const About = () => {
         {/* Core Values */}
         <div className="glass-card" style={{ padding: '50px', marginBottom: '80px' }}>
           <h2 style={{ fontSize: '2rem', marginBottom: '32px', textAlign: 'center' }}>Our Core Pillars</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '28px' }}>
+          <div className="grid-responsive" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '28px' }}>
             <div>
               <div style={{ fontSize: '1.2rem', fontWeight: 700, marginBottom: '8px', color: 'var(--text-primary)' }}>1. Rigorous Engineering</div>
               <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>No superficial code snippets. Every course delivers production-grade repository practices.</p>

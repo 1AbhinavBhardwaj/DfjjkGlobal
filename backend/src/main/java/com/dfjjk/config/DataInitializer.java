@@ -116,7 +116,52 @@ public class DataInitializer implements CommandLineRunner {
                     "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80"
             );
 
-            courseRepository.saveAll(List.of(c1, c2, c3, c4));
+            Course ds1 = new Course(
+                    "DFJJK-DS-POWERBI",
+                    "Power BI: Data Visualization Excellence",
+                    "Master Power BI, Microsoft Fabric, advanced DAX, data modeling, and performance optimization to build executive-ready interactive dashboards.",
+                    "An end-to-end professional program transforming raw datasets into high-impact strategic insights. Learn Power Query (M Language), complex DAX calculations, semantic data modeling, Power BI Service administration, and Microsoft Fabric integration while preparing for the Microsoft PL-300 certification.",
+                    new BigDecimal("349.00"),
+                    "10–12 Live Interactive Sessions",
+                    "Data Science",
+                    "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80"
+            );
+            ds1.getFaqs().addAll(List.of(
+                    new CourseFaq(ds1, "Do I need prior coding knowledge for Power BI?", "No prior coding experience is required. We start from foundational data concepts before building up to advanced M code and DAX logic."),
+                    new CourseFaq(ds1, "Does this course prepare me for the PL-300 exam?", "Yes! The curriculum aligns directly with Microsoft PL-300 certification objectives.")
+            ));
+
+            Course ds2 = new Course(
+                    "DFJJK-DS-SQL",
+                    "SQL Unlocked: Path to Data Excellence",
+                    "Master hands-on SQL query writing, complex joins, CTEs, subqueries, and window functions to solve real-world analytical problems.",
+                    "A comprehensive, practice-intensive SQL masterclass designed for aspiring Data Analysts, Data Engineers, and BI Professionals. Go from fundamental data retrieval to advanced analytical queries, window functions, query optimization, and real-world enterprise database case studies.",
+                    new BigDecimal("299.00"),
+                    "10 Live Interactive Sessions",
+                    "Data Science",
+                    "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=1200&q=80"
+            );
+            ds2.getFaqs().addAll(List.of(
+                    new CourseFaq(ds2, "Which SQL dialect is used in this course?", "We cover ANSI SQL standards applicable to SQL Server, PostgreSQL, MySQL, Snowflake, and BigQuery."),
+                    new CourseFaq(ds2, "Will I get practice datasets?", "Yes! You will receive realistic e-commerce, banking, and SaaS datasets with millions of rows for hands-on practice.")
+            ));
+
+            Course ds3 = new Course(
+                    "DFJJK-DS-AI",
+                    "Python → AI → Machine Learning → Deep Learning → NLP → Generative AI",
+                    "A comprehensive end-to-end AI & Data Science program covering Python, Math, ML, Neural Networks, Transformers, LLMs, RAG, and Agentic AI Systems.",
+                    "The ultimate zero-to-hero engineering masterclass designed for developers, data scientists, and AI architects. Master Python programming, AI mathematics, Supervised & Unsupervised ML, Deep Learning with PyTorch & TensorFlow, Natural Language Processing with Transformers, and production Generative AI with RAG, Vector DBs, and Agentic Frameworks.",
+                    new BigDecimal("699.00"),
+                    "16 Weeks",
+                    "Data Science",
+                    "https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=1200&q=80"
+            );
+            ds3.getFaqs().addAll(List.of(
+                    new CourseFaq(ds3, "Who is this program suitable for?", "This program is tailored for software engineers, data analysts, and IT professionals looking to transition into senior Data Science, Machine Learning, and AI Engineering roles."),
+                    new CourseFaq(ds3, "Are cloud GPU resources provided for Deep Learning?", "Yes! All students get cloud GPU notebook environment access for model training and fine-tuning experiments.")
+            ));
+
+            courseRepository.saveAll(List.of(c1, c2, c3, c4, ds1, ds2, ds3));
         }
 
         // Seed Orders if empty
