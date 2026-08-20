@@ -3,6 +3,7 @@ import axios from 'axios';
 // Use production backend URL if set in env (Vercel), otherwise fallback to '/api' for local proxy
 const API = axios.create({
   baseURL: import.meta.env.VITE_API_URL || '/api',
+  timeout: 5000,
 });
 
 // Interceptor to attach Bearer token to requests

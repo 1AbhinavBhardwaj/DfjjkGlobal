@@ -130,9 +130,7 @@ export const Courses = () => {
         </div>
 
         {/* Course Grid */}
-        {loading ? (
-          <div style={{ textAlign: 'center', padding: '80px', color: 'var(--text-secondary)' }}>Loading catalog...</div>
-        ) : filteredCourses.length === 0 ? (
+        {filteredCourses.length === 0 ? (
           <div className="glass-card" style={{ padding: '60px', textAlign: 'center' }}>
             <h3 style={{ marginBottom: '12px' }}>No matching courses found</h3>
             <p style={{ color: 'var(--text-secondary)' }}>Try adjusting your search query or category filter.</p>

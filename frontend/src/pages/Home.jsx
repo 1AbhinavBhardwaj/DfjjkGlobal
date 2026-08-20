@@ -19,22 +19,38 @@ import {
 
 export const Home = () => {
   const [courses, setCourses] = useState(CATALOG_COURSES.slice(0, 3));
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     API.get('/courses')
       .then((res) => {
-        if (res.data && Array.isArray(res.data) && res.data.length > 0) {
-          setCourses(res.data.slice(0, 3));
-        } else {
-          setCourses(CATALOG_COURSES.slice(0, 3));
+        if (res && res.data && Array.isArray(res.data) && res.data.length > 0) {
+          const merged = res.data.map((apiCourse) => {
+            const apiSku = (apiCourse.sku || '').toUpperCase();
+            const local = CATALOG_COURSES.find(c => (c.sku || '').toUpperCase() === apiSku);
+            return {
+              ...apiCourse,
+              sku: apiCourse.sku || local?.sku || `CRS-${apiCourse.id}`,
+              name: apiCourse.name || local?.name || 'Untitled Course',
+              summary: apiCourse.summary || local?.summary || '',
+              category: apiCourse.category || local?.category || 'General',
+              duration: apiCourse.duration || local?.duration || 'Self-Paced',
+              price: apiCourse.price != null ? apiCourse.price : (local?.price || '0.00'),
+              imageUrl: apiCourse.imageUrl || local?.imageUrl || '',
+            };
+          });
+
+          CATALOG_COURSES.forEach(localCourse => {
+            const localSku = (localCourse.sku || '').toUpperCase();
+            if (!merged.some(m => (m.sku || '').toUpperCase() === localSku)) {
+              merged.push(localCourse);
+            }
+          });
+          setCourses(merged.slice(0, 6));
         }
       })
       .catch((err) => {
         console.warn('Backend API connection offline/unreachable. Displaying catalog store:', err);
-        setCourses(CATALOG_COURSES.slice(0, 3));
-      })
-      .finally(() => setLoading(false));
+      });
   }, []);
 
   return (
@@ -175,50 +191,46 @@ export const Home = () => {
             </Link>
           </div>
 
-          {loading ? (
-            <div style={{ textAlign: 'center', padding: '60px', color: 'var(--text-secondary)' }}>Loading Courses...</div>
-          ) : (
-            <div className="grid-responsive">
-              {courses.map((course) => (
-                <div key={course.id} className="glass-card" style={{ display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
-                  <div style={{ position: 'relative', height: '200px', overflow: 'hidden' }}>
-                    <img 
-                      src={course.imageUrl} 
-                      alt={course.name} 
-                      style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
-                    />
-                    <div style={{ position: 'absolute', top: '12px', left: '12px' }} className="badge badge-gradient">
-                      {course.category}
-                    </div>
-                  </div>
-
-                  <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-                    <div>
-                      <h3 style={{ fontSize: '1.25rem', marginBottom: '10px', color: 'var(--text-primary)' }}>{course.name}</h3>
-                      <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '20px' }}>
-                        {course.summary}
-                      </p>
-                    </div>
-
-                    <div>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '16px', borderTop: '1px solid var(--border-glass)', marginBottom: '18px' }}>
-                        <span style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-                          <Clock size={14} /> {course.duration}
-                        </span>
-                        <span style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--accent-secondary)' }}>
-                          ${course.price}
-                        </span>
-                      </div>
-
-                      <Link to={`/courses/${course.sku}`} className="btn btn-primary" style={{ width: '100%' }}>
-                        Enroll Now <ArrowRight size={16} />
-                      </Link>
-                    </div>
+          <div className="grid-responsive">
+            {courses.map((course) => (
+              <div key={course.id || course.sku} className="glass-card" style={{ display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+                <div style={{ position: 'relative', height: '200px', overflow: 'hidden' }}>
+                  <img 
+                    src={course.imageUrl} 
+                    alt={course.name} 
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
+                  />
+                  <div style={{ position: 'absolute', top: '12px', left: '12px' }} className="badge badge-gradient">
+                    {course.category}
                   </div>
                 </div>
-              ))}
-            </div>
-          )}
+
+                <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                  <div>
+                    <h3 style={{ fontSize: '1.25rem', marginBottom: '10px', color: 'var(--text-primary)' }}>{course.name}</h3>
+                    <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '20px' }}>
+                      {course.summary}
+                    </p>
+                  </div>
+
+                  <div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '16px', borderTop: '1px solid var(--border-glass)', marginBottom: '18px' }}>
+                      <span style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+                        <Clock size={14} /> {course.duration}
+                      </span>
+                      <span style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--accent-secondary)' }}>
+                        ${course.price}
+                      </span>
+                    </div>
+
+                    <Link to={`/courses/${course.sku}`} className="btn btn-primary" style={{ width: '100%' }}>
+                      Enroll Now <ArrowRight size={16} />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
