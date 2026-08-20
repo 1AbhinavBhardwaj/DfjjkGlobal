@@ -22,12 +22,20 @@ export const Courses = () => {
   useEffect(() => {
     API.get('/courses')
       .then((res) => {
-        if (res.data && Array.isArray(res.data) && res.data.length > 0) {
+        if (res && res.data && Array.isArray(res.data) && res.data.length > 0) {
           // Merge API results with rich local metadata
           const merged = res.data.map((apiCourse) => {
-            const local = CATALOG_COURSES.find(c => c.sku.toUpperCase() === apiCourse.sku.toUpperCase());
+            const apiSku = (apiCourse.sku || '').toUpperCase();
+            const local = CATALOG_COURSES.find(c => (c.sku || '').toUpperCase() === apiSku);
             return {
               ...apiCourse,
+              sku: apiCourse.sku || local?.sku || `CRS-${apiCourse.id}`,
+              name: apiCourse.name || local?.name || 'Untitled Course',
+              summary: apiCourse.summary || local?.summary || '',
+              category: apiCourse.category || local?.category || 'General',
+              duration: apiCourse.duration || local?.duration || 'Self-Paced',
+              price: apiCourse.price != null ? apiCourse.price : (local?.price || '0.00'),
+              imageUrl: apiCourse.imageUrl || local?.imageUrl || '',
               highlights: local?.highlights || [],
               learningJourney: local?.learningJourney || [],
               modules: local?.modules || [],
@@ -36,9 +44,10 @@ export const Courses = () => {
             };
           });
 
-          // Ensure any catalog courses missing from API (e.g. newly added Data Science courses) are present
+          // Ensure any catalog courses missing from API are present
           CATALOG_COURSES.forEach(localCourse => {
-            if (!merged.some(m => m.sku.toUpperCase() === localCourse.sku.toUpperCase())) {
+            const localSku = (localCourse.sku || '').toUpperCase();
+            if (!merged.some(m => (m.sku || '').toUpperCase() === localSku)) {
               merged.push(localCourse);
             }
           });
@@ -55,8 +64,11 @@ export const Courses = () => {
   }, []);
 
   const filteredCourses = courses.filter((c) => {
-    const matchesSearch = c.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
-                          (c.summary && c.summary.toLowerCase().includes(searchTerm.toLowerCase()));
+    const courseName = (c.name || '').toLowerCase();
+    const courseSummary = (c.summary || '').toLowerCase();
+    const query = searchTerm.toLowerCase();
+
+    const matchesSearch = courseName.includes(query) || courseSummary.includes(query);
     const matchesCategory = selectedCategory === 'All' || c.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });

@@ -59,8 +59,8 @@ public class DataInitializer implements CommandLineRunner {
             userRepository.saveAll(List.of(admin, student));
         }
 
-        // Seed Courses if empty
-        if (courseRepository.count() == 0) {
+        // Seed Courses if not all present
+        if (courseRepository.count() < 7) {
             Course c1 = new Course(
                     "DFJJK-FULLSTACK-101",
                     "Enterprise Full-Stack Architecture Masterclass",
@@ -161,7 +161,12 @@ public class DataInitializer implements CommandLineRunner {
                     new CourseFaq(ds3, "Are cloud GPU resources provided for Deep Learning?", "Yes! All students get cloud GPU notebook environment access for model training and fine-tuning experiments.")
             ));
 
-            courseRepository.saveAll(List.of(c1, c2, c3, c4, ds1, ds2, ds3));
+            List<Course> allCourses = List.of(c1, c2, c3, c4, ds1, ds2, ds3);
+            for (Course c : allCourses) {
+                if (courseRepository.findBySku(c.getSku()).isEmpty()) {
+                    courseRepository.save(c);
+                }
+            }
         }
 
         // Seed Orders if empty

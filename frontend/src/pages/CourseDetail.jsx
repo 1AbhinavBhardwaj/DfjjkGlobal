@@ -42,12 +42,22 @@ export const CourseDetail = () => {
 
   useEffect(() => {
     setLoading(true);
+    const cleanSku = (sku || '').trim().toUpperCase();
+    const localMeta = getCourseBySku(cleanSku);
+
     API.get(`/courses/${sku}`)
       .then((res) => {
-        const localMeta = getCourseBySku(sku);
-        if (res.data) {
+        if (res && res.data && typeof res.data === 'object' && res.data.name) {
           setCourse({
             ...res.data,
+            sku: res.data.sku || localMeta?.sku || cleanSku,
+            name: res.data.name || localMeta?.name || 'Untitled Course',
+            summary: res.data.summary || localMeta?.summary || '',
+            description: res.data.description || localMeta?.description || '',
+            price: res.data.price != null ? res.data.price : (localMeta?.price || '0.00'),
+            duration: res.data.duration || localMeta?.duration || 'Self-Paced',
+            category: res.data.category || localMeta?.category || 'General',
+            imageUrl: res.data.imageUrl || localMeta?.imageUrl || '',
             highlights: localMeta?.highlights || [],
             learningJourney: localMeta?.learningJourney || [],
             type: localMeta?.type || 'module',
@@ -59,11 +69,12 @@ export const CourseDetail = () => {
             interviewPrep: localMeta?.interviewPrep || [],
             faqs: (res.data.faqs && res.data.faqs.length > 0) ? res.data.faqs : (localMeta?.faqs || [])
           });
+        } else {
+          setCourse(localMeta);
         }
       })
       .catch((err) => {
-        console.warn('API error, retrieving from catalog store:', err);
-        const localMeta = getCourseBySku(sku);
+        console.warn('API error or offline, retrieving from local catalog store:', err);
         setCourse(localMeta);
       })
       .finally(() => setLoading(false));
