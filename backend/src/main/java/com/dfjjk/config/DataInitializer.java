@@ -161,7 +161,67 @@ public class DataInitializer implements CommandLineRunner {
                     new CourseFaq(ds3, "Are cloud GPU resources provided for Deep Learning?", "Yes! All students get cloud GPU notebook environment access for model training and fine-tuning experiments.")
             ));
 
-            List<Course> allCourses = List.of(c1, c2, c3, c4, ds1, ds2, ds3);
+            Course c5 = new Course(
+                    "DFJJK-AGILE-SM-101",
+                    "Scrum Master Certification & Ceremonies Masterclass",
+                    "Master Agile Scrum ceremonies, Daily Standups, Jira & Confluence workflows, and complete PSM / CSM exam preparation.",
+                    "A practical, industry-focused course designed for current and aspiring Scrum Masters. Master the Agile Manifesto, facilitate high-impact Scrum ceremonies (Daily Standups, Sprint Planning, Reviews, Retrospectives), manage team workflows in Jira & Confluence, and prepare thoroughly for PSM I / CSM certification.",
+                    new BigDecimal("349.00"),
+                    "4 Weeks",
+                    "Agile & Project Management",
+                    "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1200&q=80"
+            );
+            c5.getFaqs().addAll(List.of(
+                    new CourseFaq(c5, "Does this course prepare me for PSM I or CSM certifications?", "Yes! The curriculum aligns directly with Scrum.org (PSM I) and Scrum Alliance (CSM) competencies."),
+                    new CourseFaq(c5, "Will I get hands-on experience with Jira and Confluence?", "Yes, you will work directly inside live Jira & Confluence cloud instances.")
+            ));
+
+            Course c6 = new Course(
+                    "DFJJK-AGILE-PO-201",
+                    "Agile Product Owner Masterclass",
+                    "Master product vision, customer discovery, backlog management, user stories, acceptance criteria, and product roadmapping.",
+                    "An intensive masterclass for Product Owners, Product Managers, and Business Analysts. Learn to define compelling product visions, identify stakeholders, construct prioritized product backlogs based on value and risk, write clear user stories with acceptance criteria, and collaborate effectively with Scrum Developers and Scrum Masters.",
+                    new BigDecimal("399.00"),
+                    "6 Weeks",
+                    "Agile & Project Management",
+                    "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80"
+            );
+            c6.getFaqs().addAll(List.of(
+                    new CourseFaq(c6, "Who should enroll in this Product Owner course?", "Ideal for aspiring Product Owners, Product Managers, Business Analysts, Project Managers, and domain experts."),
+                    new CourseFaq(c6, "Will I learn prioritization frameworks like RICE and MoSCoW?", "Yes! You will apply RICE, MoSCoW, Kano Model, and WSJF frameworks.")
+            ));
+
+            Course c7 = new Course(
+                    "DFJJK-PM-PROFESSIONAL",
+                    "Comprehensive Project Management Professional (PMP, Agile & Hybrid)",
+                    "Master PM Fundamentals, Methodologies (Waterfall, Agile, Kanban, Hybrid), Initiation, Stakeholder RACI, Scope & WBS, and Scheduling.",
+                    "An intensive 8-module enterprise project management program. Go from project initiation to full project lifecycle execution covering the Triple Constraint, project charters, power/interest grids, scope baselines, requirements traceability matrices (RTM), Work Breakdown Structure (WBS) decomposition, and activity dependency scheduling.",
+                    new BigDecimal("449.00"),
+                    "8 Modules",
+                    "Agile & Project Management",
+                    "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80"
+            );
+            c7.getFaqs().addAll(List.of(
+                    new CourseFaq(c7, "Does this course align with PMI PMP standards?", "Yes! The course curriculum incorporates PMBOK 7th Edition concepts and Agile Practice Guide principles."),
+                    new CourseFaq(c7, "Are practical workshops included in every module?", "Yes! Every module includes hands-on workshops where you build real PM artifacts.")
+            ));
+
+            Course c8 = new Course(
+                    "DFJJK-CYBER-FULL-28",
+                    "Cybersecurity Professional Training Program (28 Modules & Capstone)",
+                    "Master end-to-end Cybersecurity: Fundamentals, Threat Landscape, Networking, OS Security, IAM, Cryptography, SOC, Forensics, Cloud, Zero Trust, GRC & Capstone.",
+                    "A comprehensive, zero-to-hero 28-module cybersecurity professional program taking students from foundational security principles to practical SOC operations, threat hunting, digital forensics, cloud security, zero trust architecture, GRC compliance frameworks (NIST, ISO 27001, CIS), ethical hacking, leadership, and certification pathways (Security+, CySA+, CISSP). Includes a full 4-phase capstone project.",
+                    new BigDecimal("599.00"),
+                    "12 Weeks",
+                    "Cybersecurity",
+                    "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80"
+            );
+            c8.getFaqs().addAll(List.of(
+                    new CourseFaq(c8, "Is this program suitable for beginners with no cybersecurity background?", "Yes! The 28-module program starts from foundational networking and OS principles."),
+                    new CourseFaq(c8, "Which certifications does this course prepare me for?", "The program directly prepares you for CompTIA Security+, CySA+, CEH, SSCP, CISSP, and CISM.")
+            ));
+
+            List<Course> allCourses = List.of(c1, c2, c3, c4, ds1, ds2, ds3, c5, c6, c7, c8);
             for (Course c : allCourses) {
                 if (courseRepository.findBySku(c.getSku()).isEmpty()) {
                     courseRepository.save(c);

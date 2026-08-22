@@ -12,11 +12,12 @@ export const Courses = () => {
 
   const categories = [
     'All', 
+    'Agile & Project Management',
+    'Cybersecurity',
     'Data Science', 
     'Software Engineering', 
     'Cloud & Infrastructure', 
-    'Artificial Intelligence', 
-    'Cybersecurity'
+    'Artificial Intelligence'
   ];
 
   useEffect(() => {

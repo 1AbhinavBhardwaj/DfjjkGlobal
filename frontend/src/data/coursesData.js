@@ -903,6 +903,694 @@ export const CATALOG_COURSES = [
         answer: 'All exercises are conducted in isolated sandbox environment labs owned by DFJJK Global.'
       }
     ]
+  },
+  {
+    id: 'scrum-master-certification',
+    sku: 'DFJJK-AGILE-SM-101',
+    name: 'Scrum Master Certification & Ceremonies Masterclass',
+    summary: 'Master Agile Scrum ceremonies, Daily Standups, Jira & Confluence workflows, and complete PSM / CSM exam preparation.',
+    description: 'A practical, industry-focused course designed for current and aspiring Scrum Masters. Master the Agile Manifesto, facilitate high-impact Scrum ceremonies (Daily Standups, Sprint Planning, Reviews, Retrospectives), manage team workflows in Jira & Confluence, and prepare thoroughly for PSM I / CSM certification.',
+    price: '349.00',
+    duration: '4 Weeks (6 Live Workshops)',
+    category: 'Agile & Project Management',
+    imageUrl: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1200&q=80',
+    active: true,
+    highlights: [
+      'Agile Manifesto & Scrum Values',
+      'Scrum Ceremonies Facilitation',
+      'Daily Standups & Retrospectives',
+      'Jira Board & Backlog Setup',
+      'Confluence Team Workspaces',
+      'PSM I / CSM Exam Preparation'
+    ],
+    learningJourney: [
+      'Module I: Agile Scrum Ceremonies',
+      'Module II: Jira & Confluence',
+      'Module III: Exam Prep & Certification'
+    ],
+    type: 'module',
+    modules: [
+      {
+        number: 'Module I',
+        title: 'What is Agile Scrum Ceremonies?',
+        topics: [
+          'Agile Manifesto Principles & Core Values',
+          'Daily Standups: Purpose, Facilitation & Common Pitfalls',
+          'Sprint Planning & Commitment Techniques',
+          'Sprint Review & Stakeholder Demo Practices',
+          'Sprint Retrospectives & Continuous Action Items'
+        ]
+      },
+      {
+        number: 'Module II',
+        title: 'Jira & Confluence Workflows',
+        topics: [
+          'Configuring Scrum Boards & Backlogs in Jira',
+          'Writing User Stories, Story Points & Estimation',
+          'Building Team Knowledge Bases in Confluence',
+          'Tracking Burndown Charts, Velocity & Sprint Reports'
+        ]
+      },
+      {
+        number: 'Module III',
+        title: 'Exam Prep and Certification',
+        topics: [
+          'PSM I / CSM Exam Structure, Strategy & Time Management',
+          'Full-Length Mock Exams with Detailed Question Analysis',
+          'Real-World Scenario Questions & Defensive Coaching'
+        ]
+      }
+    ],
+    learningOutcomes: [
+      'Facilitate effective Scrum events (Daily Standups, Planning, Reviews, Retrospectives)',
+      'Manage Agile project delivery using Jira boards and Confluence documentation',
+      'Coach cross-functional engineering teams on self-organization and velocity',
+      'Pass Professional Scrum Master (PSM I) or Certified ScrumMaster (CSM) exams'
+    ],
+    capstones: [
+      {
+        title: 'Enterprise Agile Transformation & Jira Workspace Setup',
+        description: 'Set up an end-to-end Agile Scrum workspace for a software product team in Jira and Confluence, including backlog grooming, sprint setup, burndown metrics, and retrospective action board.'
+      }
+    ],
+    interviewPrep: [
+      'Top 50 Scrum Master Interview Questions & Defensive Answers',
+      'Live Mock Retrospective & Conflict Facilitation Simulations',
+      'Agile Resume Optimization & LinkedIn Portfolio Setup'
+    ],
+    faqs: [
+      {
+        question: 'Does this course prepare me for PSM I or CSM certifications?',
+        answer: 'Yes! The curriculum aligns directly with Scrum.org (PSM I) and Scrum Alliance (CSM) competencies, complete with mock exam practice.'
+      },
+      {
+        question: 'Will I get hands-on experience with Jira and Confluence?',
+        answer: 'Yes, you will work directly inside live Jira & Confluence cloud instances to configure boards, backlogs, and team documentation.'
+      }
+    ]
+  },
+  {
+    id: 'product-owner-masterclass',
+    sku: 'DFJJK-AGILE-PO-201',
+    name: 'Agile Product Owner Masterclass',
+    summary: 'Master product vision, customer discovery, backlog management, user stories, acceptance criteria, and product roadmapping.',
+    description: 'An intensive masterclass for Product Owners, Product Managers, and Business Analysts. Learn to define compelling product visions, identify stakeholders, construct prioritized product backlogs based on value and risk, write clear user stories with acceptance criteria, and collaborate effectively with Scrum Developers and Scrum Masters.',
+    price: '399.00',
+    duration: '6 Weeks Interactive Program',
+    category: 'Agile & Project Management',
+    imageUrl: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80',
+    active: true,
+    highlights: [
+      'Agile Product Owner Role Foundations',
+      'Product Vision & Customer Personas',
+      'Product Backlog Management',
+      'User Story Writing & Acceptance Criteria',
+      'Value & Risk Prioritization Frameworks',
+      'Product Discovery & Roadmapping',
+      'Developer & Scrum Master Collaboration',
+      'Outcome Measurement & KPI Metrics'
+    ],
+    learningJourney: [
+      'Module I: Agile PO & Product Vision',
+      'Module II: Backlog & User Stories',
+      'Module III: Discovery & Roadmaps'
+    ],
+    type: 'module',
+    modules: [
+      {
+        number: 'Module I',
+        title: 'Agile Product Ownership & Vision',
+        topics: [
+          'Understand Agile, Scrum, and the Product Owner role.',
+          'Define and communicate a compelling product vision.',
+          'Identify customers, users, and stakeholders.'
+        ]
+      },
+      {
+        number: 'Module II',
+        title: 'Product Backlog & User Story Engineering',
+        topics: [
+          'Develop and manage a Product Backlog.',
+          'Write effective user stories and acceptance criteria.',
+          'Prioritize work based on value, risk, and customer needs.'
+        ]
+      },
+      {
+        number: 'Module III',
+        title: 'Product Discovery & Stakeholder Alignment',
+        topics: [
+          'Facilitate product discovery and stakeholder collaboration.',
+          'Create and communicate product goals and roadmaps.',
+          'Work effectively with Scrum Developers and Scrum Masters.',
+          'Measure product outcomes and continuously improve the product.'
+        ]
+      }
+    ],
+    learningOutcomes: [
+      'Craft clear, outcome-driven product visions aligned with business goals',
+      'Define target personas, user segments, and key enterprise stakeholders',
+      'Write high-quality user stories using Given-When-Then acceptance criteria',
+      'Prioritize backlogs using MoSCoW, RICE, and value vs. risk matrices',
+      'Build visual product roadmaps and facilitate continuous product discovery',
+      'Partner with Scrum Developers and Scrum Masters for predictable sprint execution'
+    ],
+    capstones: [
+      {
+        title: 'SaaS Product Roadmap & Backlog Master Blueprint',
+        description: 'Construct a complete Product Owner artifact package for a SaaS application: Product Vision Statement, User Personas, Prioritized Backlog (Epics & Stories with Acceptance Criteria), and a 12-Month Interactive Roadmap.'
+      }
+    ],
+    interviewPrep: [
+      'Product Owner & Product Manager Scenario Interview Guide',
+      'Mock User Story Grooming & Stakeholder Alignment Interviews',
+      'Product Portfolio Review & Resume Coaching'
+    ],
+    faqs: [
+      {
+        question: 'Who should enroll in this Product Owner course?',
+        answer: 'Ideal for aspiring Product Owners, Product Managers, Business Analysts, Project Managers, and domain experts moving into product leadership.'
+      },
+      {
+        question: 'Will I learn prioritization frameworks like RICE and MoSCoW?',
+        answer: 'Yes! You will apply RICE, MoSCoW, Kano Model, and WSJF frameworks directly on real product backlogs.'
+      }
+    ]
+  },
+  {
+    id: 'project-management-professional',
+    sku: 'DFJJK-PM-PROFESSIONAL',
+    name: 'Comprehensive Project Management Professional (PMP, Agile & Hybrid)',
+    summary: 'Master PM Fundamentals, Methodologies (Waterfall, Agile, Kanban, Hybrid), Initiation, Stakeholder RACI, Scope & WBS, and Scheduling.',
+    description: 'An intensive 8-module enterprise project management program. Go from project initiation to full project lifecycle execution covering the Triple Constraint, project charters, power/interest grids, scope baselines, requirements traceability matrices (RTM), Work Breakdown Structure (WBS) decomposition, and activity dependency scheduling.',
+    price: '449.00',
+    duration: '8 Modules Comprehensive Program',
+    category: 'Agile & Project Management',
+    imageUrl: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80',
+    active: true,
+    highlights: [
+      '8 PM Modules & Hands-on Workshops',
+      'Triple Constraint: Scope, Schedule & Cost',
+      'Waterfall, Agile, Scrum, Kanban & Hybrid',
+      'Complete Project Charter Development',
+      'Power/Interest Grid & RACI Matrix',
+      'Requirements Traceability Matrix (RTM)',
+      'Work Breakdown Structure (WBS)',
+      'Activity Dependencies & Critical Path'
+    ],
+    learningJourney: [
+      'Module 1: PM Fundamentals',
+      'Module 2: Methodologies',
+      'Module 3: Project Initiation',
+      'Module 4: Stakeholders',
+      'Module 5: Scope Management',
+      'Module 6: Requirements',
+      'Module 7: WBS',
+      'Module 8: Scheduling'
+    ],
+    type: 'module',
+    modules: [
+      {
+        number: 'MODULE 1',
+        title: 'Project Management Fundamentals',
+        topics: [
+          'What is a project?',
+          'What is project management?',
+          'Project vs. operations',
+          'Project manager responsibilities',
+          'Project lifecycle & success criteria',
+          'Project constraints & governance',
+          'Project management methodologies',
+          'The Triple Constraint: Scope, Schedule, Cost (Also consider Quality, Resources, Risk, Stakeholders)',
+          'Workshop: Identify the characteristics and constraints of a real-world project.'
+        ]
+      },
+      {
+        number: 'MODULE 2',
+        title: 'Project Management Methodologies',
+        topics: [
+          'Waterfall (Best used for stable requirements)',
+          'Agile (Best used for changing requirements)',
+          'Scrum (Best used for iterative product development)',
+          'Kanban (Best used for continuous flow)',
+          'Hybrid (Best used for combination of approaches)',
+          'Lean, Iterative & Incremental approaches',
+          'Workshop: Select the appropriate methodology for five different projects.'
+        ]
+      },
+      {
+        number: 'MODULE 3',
+        title: 'Project Initiation',
+        topics: [
+          'Project idea, Business case & Feasibility analysis',
+          'Project selection & objectives',
+          'Project charter, sponsor & manager authority',
+          'Initial stakeholder identification & high-level requirements',
+          'Developing Project Charter: Purpose, Objectives, Scope, Deliverables, Stakeholders, Budget/Schedule assumptions, Risks',
+          'Workshop: Create a complete Project Charter.'
+        ]
+      },
+      {
+        number: 'MODULE 4',
+        title: 'Stakeholder Management',
+        topics: [
+          'Identifying stakeholders & stakeholder analysis',
+          'Managing stakeholder expectations & influence',
+          'Stakeholder engagement & communication requirements',
+          'Managing difficult stakeholders',
+          'Tools: Stakeholder Register, Power/Interest Grid, RACI Matrix, Stakeholder Engagement Assessment',
+          'Workshop: Create a stakeholder management plan.'
+        ]
+      },
+      {
+        number: 'MODULE 5',
+        title: 'Project Scope Management',
+        topics: [
+          'Project scope vs. Product scope',
+          'Scope boundaries & Scope baseline',
+          'Scope validation, control & preventing scope creep',
+          'Scope Statement: In-scope, Out-of-scope, Deliverables, Assumptions, Constraints, Acceptance criteria',
+          'Workshop: Develop a Project Scope Statement.'
+        ]
+      },
+      {
+        number: 'MODULE 6',
+        title: 'Requirements Management',
+        topics: [
+          'Requirements gathering: Business, Functional & Non-functional requirements',
+          'Requirements analysis, prioritization, validation & traceability',
+          'Techniques: Interviews, Workshops, Surveys, Observation, Document analysis, Brainstorming',
+          'Workshop: Create a Requirements Traceability Matrix.'
+        ]
+      },
+      {
+        number: 'MODULE 7',
+        title: 'Work Breakdown Structure (WBS)',
+        topics: [
+          'What is a WBS? & WBS principles',
+          'Deliverable decomposition & Work packages',
+          'Activities & WBS Dictionary',
+          'Example WBS: Project → Planning → Design → Development → Testing → Deployment → Training → Project Closure',
+          'Workshop: Create a complete WBS for an IT project.'
+        ]
+      },
+      {
+        number: 'MODULE 8',
+        title: 'Project Scheduling',
+        topics: [
+          'Project activities & activity sequencing',
+          'Dependencies & milestones',
+          'Duration estimates & schedule development',
+          'Schedule baseline & schedule control',
+          'Dependency Types: Finish-to-Start (FS), Start-to-Start (SS), Finish-to-Finish (FF), Start-to-Finish (SF)'
+        ]
+      }
+    ],
+    learningOutcomes: [
+      'Distinguish between projects and operations while selecting appropriate methodologies (Waterfall, Agile, Hybrid)',
+      'Author robust Project Charters with business cases, budget/schedule assumptions, and sponsor sign-off',
+      'Build Stakeholder Registers, Power/Interest Grids, and RACI Matrices for organizational alignment',
+      'Create Project Scope Statements and implement change control to prevent scope creep',
+      'Conduct requirements gathering using 6 key techniques and build Requirements Traceability Matrices',
+      'Decompose enterprise projects into Work Breakdown Structures (WBS) and detailed WBS Dictionaries',
+      'Sequence project activities using 4 dependency types and construct schedule baselines'
+    ],
+    capstones: [
+      {
+        title: 'Enterprise IT Infrastructure & Software Project Management Blueprint',
+        description: 'Build a full project management execution binder for an enterprise IT project: Business Case, Project Charter, RACI Matrix, Scope Statement, Requirements Traceability Matrix, WBS Dictionary, and Activity Schedule Baseline.'
+      }
+    ],
+    interviewPrep: [
+      'PMP Scenario-Based Technical Interview Questions & Solutions',
+      'Mock Project Manager Stakeholder & Risk Mitigation Discussions',
+      'Project Management Resume & PMO Portfolio Coaching'
+    ],
+    faqs: [
+      {
+        question: 'Does this course align with PMI PMP standards?',
+        answer: 'Yes! The course curriculum incorporates PMBOK 7th Edition concepts, Agile Practice Guide principles, and hybrid project management frameworks.'
+      },
+      {
+        question: 'Are practical workshops included in every module?',
+        answer: 'Yes! Every module includes hands-on workshops where you build real PM artifacts like Charters, RACI matrices, WBS diagrams, and RTMs.'
+      }
+    ]
+  },
+  {
+    id: 'cybersecurity-professional-program',
+    sku: 'DFJJK-CYBER-FULL-28',
+    name: 'Cybersecurity Professional Training Program (28 Modules & Capstone)',
+    summary: 'Master end-to-end Cybersecurity: Fundamentals, Threat Landscape, Networking, OS Security, IAM, Cryptography, SOC, Forensics, Cloud, Zero Trust, GRC & Capstone.',
+    description: 'A comprehensive, zero-to-hero 28-module cybersecurity professional program taking students from foundational security principles to practical SOC operations, threat hunting, digital forensics, cloud security, zero trust architecture, GRC compliance frameworks (NIST, ISO 27001, CIS), ethical hacking, leadership, and certification pathways (Security+, CySA+, CISSP). Includes a full 4-phase capstone project.',
+    price: '599.00',
+    duration: '12-Week Comprehensive Program',
+    category: 'Cybersecurity',
+    imageUrl: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80',
+    active: true,
+    highlights: [
+      '28 Modules + 4-Phase Capstone Project',
+      '12-Week Structured Learning Path',
+      'CIA Triad & Threat Actor Analysis',
+      'Networking & Operating System Security',
+      'IAM, RBAC, MFA & SSO Implementation',
+      'Cryptography, PKI & TLS Security',
+      'SOC Operations & SIEM (Splunk, Sentinel)',
+      'Incident Response & Digital Forensics',
+      'Cloud Security (AWS, Azure, GCP)',
+      'Zero Trust Security Architecture',
+      'GRC Frameworks (NIST CSF/RMF, ISO 27001, CIS)',
+      'Privacy (GDPR, CCPA, HIPAA) & BCP/DR',
+      'Hands-on Tools (Wireshark, Nmap, Splunk, Nessus)',
+      'Ethical Hacking & Defensive Security',
+      'Career Prep & Certifications (Security+, CISSP)'
+    ],
+    learningJourney: [
+      'Week 1: Fundamentals & Threats (Mod 1–2)',
+      'Week 2: Networking & OS Security (Mod 3–4)',
+      'Week 3: IAM & Cryptography (Mod 5–6)',
+      'Week 4: Network, Endpoint & Malware (Mod 7–9)',
+      'Week 5: Phishing & Vulnerability (Mod 10–11)',
+      'Week 6: SOC, IR & Forensics (Mod 12–14)',
+      'Week 7: Cloud, App & Data Security (Mod 15–17)',
+      'Week 8: Wireless, Zero Trust & Risk (Mod 18–20)',
+      'Week 9: GRC, Privacy & DR (Mod 21–23)',
+      'Week 10: Awareness, Tools & Hacking (Mod 24–26)',
+      'Week 11: Leadership & Career Prep (Mod 27–28)',
+      'Week 12: Cybersecurity Capstone Project'
+    ],
+    type: 'module',
+    modules: [
+      {
+        number: 'MODULE 1',
+        title: 'Introduction to Cybersecurity',
+        topics: [
+          'What is cybersecurity?',
+          'Information security vs. cybersecurity',
+          'Cybersecurity career landscape & objectives',
+          'Threats, vulnerabilities, and risks',
+          'Security controls, policies, and security awareness',
+          'CIA Triad: Confidentiality, Integrity, Availability',
+          'Workshop: Analyze a simulated security breach and identify CIA issues.'
+        ]
+      },
+      {
+        number: 'MODULE 2',
+        title: 'Cybersecurity Threat Landscape',
+        topics: [
+          'Threat actors: Cybercriminals, Insider threats, Nation-states, Hacktivists, Organized cybercrime',
+          'Attack surfaces & Cyber kill chain concepts',
+          'Common Threats: Phishing, Malware, Ransomware, Credential theft, Social engineering, DoS, Data breaches, Supply-chain attacks',
+          'Workshop: Analyze a fictional cyberattack and identify attacker objectives and methods.'
+        ]
+      },
+      {
+        number: 'MODULE 3',
+        title: 'Networking Fundamentals',
+        topics: [
+          'LAN/WAN, TCP/IP, OSI 7-Layer model, IP addresses, Subnets, DNS, DHCP, HTTP/HTTPS, TCP/UDP, Ports and protocols',
+          'Routers, Switches, Firewalls, VPNs',
+          'Practical Lab: Use a controlled lab environment to examine network traffic and identify protocols.'
+        ]
+      },
+      {
+        number: 'MODULE 4',
+        title: 'Operating System Security',
+        topics: [
+          'Windows and Linux security fundamentals',
+          'User accounts, Permissions, File systems, Processes, Services',
+          'System logs, Security updates, Patch management, Configuration management',
+          'Practical Lab: Review operating-system security settings in a sandbox environment.'
+        ]
+      },
+      {
+        number: 'MODULE 5',
+        title: 'Identity & Access Management (IAM)',
+        topics: [
+          'Authentication, Authorization, Accounting (AAA)',
+          'Identity lifecycle, User provisioning, Access reviews, Least privilege, Privileged accounts',
+          'Role-Based Access Control (RBAC), Multi-Factor Authentication (MFA), Single Sign-On (SSO)',
+          'Practical Exercise: Design an access-control model for a fictional organization.'
+        ]
+      },
+      {
+        number: 'MODULE 6',
+        title: 'Cryptography',
+        topics: [
+          'Encryption fundamentals: Symmetric vs. Asymmetric encryption',
+          'Hashing, Digital signatures, Certificates, Public Key Infrastructure (PKI)',
+          'TLS, Encryption at rest & in transit, Key management',
+          'Practical Exercise: Compare encryption, hashing, and digital signatures and determine usage.'
+        ]
+      },
+      {
+        number: 'MODULE 7',
+        title: 'Network Security',
+        topics: [
+          'Firewalls, IDS, IPS, Network segmentation, VLANs, VPN, Proxy servers',
+          'Secure network architecture, Zero Trust, Network Access Control, Wireless security',
+          'Practical Lab: Design a secure network architecture for a small company.'
+        ]
+      },
+      {
+        number: 'MODULE 8',
+        title: 'Endpoint Security',
+        topics: [
+          'Endpoint protection, Antivirus, EDR, Mobile device security & management',
+          'Patch management, Application control, Host-based firewalls, Endpoint monitoring',
+          'Workshop: Develop an endpoint security policy for an organization.'
+        ]
+      },
+      {
+        number: 'MODULE 9',
+        title: 'Malware & Ransomware',
+        topics: [
+          'Viruses, Worms, Trojans, Spyware, Rootkits, Keyloggers, Ransomware, Botnets',
+          'Malware delivery mechanisms, prevention & response strategies',
+          'Case Study: Analyze a fictional ransomware incident and develop a response plan.'
+        ]
+      },
+      {
+        number: 'MODULE 10',
+        title: 'Social Engineering & Phishing',
+        topics: [
+          'Phishing, Spear phishing, Whaling, Smishing, Vishing, Business Email Compromise (BEC)',
+          'Social engineering tactics, Credential harvesting, Security awareness training',
+          'Practical Exercise: Analyze simulated email examples and identify suspicious indicators.'
+        ]
+      },
+      {
+        number: 'MODULE 11',
+        title: 'Vulnerability Management',
+        topics: [
+          'Vulnerability, Threat, Risk, Exposure concepts',
+          'Vulnerability identification, scanning, Risk scoring (CVE, CVSS)',
+          'Patch management, Remediation & Verification workflows',
+          'Practical Lab: Perform a vulnerability assessment against intentionally vulnerable systems.'
+        ]
+      },
+      {
+        number: 'MODULE 12',
+        title: 'Security Operations Center (SOC)',
+        topics: [
+          'What is a SOC?, SOC roles, Security monitoring, Alert management',
+          'Log management, Event correlation, Threat detection & Escalation workflows',
+          'SIEM Concepts: Log collection, Event correlation, Alerts, Dashboards, Detection rules',
+          'Practical Lab: Analyze sample security logs and identify suspicious activity.'
+        ]
+      },
+      {
+        number: 'MODULE 13',
+        title: 'Incident Response',
+        topics: [
+          'Incident identification, classification & Incident response lifecycle',
+          'Lifecycle steps: Preparation → Detection → Analysis → Containment → Eradication → Recovery → Lessons Learned',
+          'Incident documentation & Evidence preservation',
+          'Workshop: Respond to a simulated cybersecurity incident.'
+        ]
+      },
+      {
+        number: 'MODULE 14',
+        title: 'Digital Forensics Fundamentals',
+        topics: [
+          'Digital evidence, Evidence handling & Chain of custody',
+          'Disk images, File metadata, System logs, Network evidence, Timeline analysis, Forensic reporting',
+          'Practical Lab: Examine a provided forensic dataset in a controlled environment.'
+        ]
+      },
+      {
+        number: 'MODULE 15',
+        title: 'Cloud Security',
+        topics: [
+          'Cloud fundamentals (IaaS, PaaS, SaaS) & Shared responsibility model',
+          'Cloud identity, access controls, encryption, logging & security monitoring',
+          'Misconfiguration risks across AWS, Azure, and Google Cloud',
+          'Workshop: Develop a basic cloud security architecture.'
+        ]
+      },
+      {
+        number: 'MODULE 16',
+        title: 'Application Security & OWASP Top 10',
+        topics: [
+          'Secure Software Development Lifecycle (SSDL) & Secure coding',
+          'Application vulnerabilities, Authentication, Authorization, Input validation, Session & API security',
+          'OWASP Top 10 Risks: Broken access control, Injection, Authentication failures, Security misconfiguration, Cryptographic failures',
+          'Lab: Identify security weaknesses in an intentionally vulnerable training application.'
+        ]
+      },
+      {
+        number: 'MODULE 17',
+        title: 'Database & Data Security',
+        topics: [
+          'Database security, Data loss prevention (DLP), Data encryption, Access controls, Auditing',
+          'Data classification levels: Public, Internal, Confidential, Restricted',
+          'Backup security, Data retention & Data destruction policies',
+          'Workshop: Create a data classification policy.'
+        ]
+      },
+      {
+        number: 'MODULE 18',
+        title: 'Mobile & Wireless Security',
+        topics: [
+          'Wireless & Wi-Fi security (WPA2/WPA3), Mobile security & BYOD',
+          'Mobile app security, Device encryption, Mobile Device Management (MDM), Remote wipe',
+          'Workshop: Develop a secure BYOD policy.'
+        ]
+      },
+      {
+        number: 'MODULE 19',
+        title: 'Zero Trust Security',
+        topics: [
+          'Zero Trust core principles ("Never trust, always verify")',
+          'Identity-based security, Least privilege, Continuous verification',
+          'Micro-segmentation, Device trust & Application access controls',
+          'Workshop: Transform a traditional network architecture into a Zero Trust model.'
+        ]
+      },
+      {
+        number: 'MODULE 20',
+        title: 'Cybersecurity Risk Management',
+        topics: [
+          'Risk identification, assessment, analysis & treatment (Acceptance, Mitigation, Transfer, Avoidance)',
+          'Risk register & Risk Formula: Risk = Likelihood × Impact',
+          'Workshop: Create a cybersecurity risk register and risk treatment plan.'
+        ]
+      },
+      {
+        number: 'MODULE 21',
+        title: 'Governance, Risk & Compliance (GRC)',
+        topics: [
+          'Cybersecurity governance: Policies, Standards, Procedures, Controls',
+          'Risk management, Compliance & Auditing',
+          'Security Frameworks: NIST Cybersecurity Framework, NIST RMF, ISO 27001, CIS Controls, COBIT, SOC 2',
+          'Workshop: Map organizational security controls to a cybersecurity framework.'
+        ]
+      },
+      {
+        number: 'MODULE 22',
+        title: 'Privacy & Data Protection',
+        topics: [
+          'Data privacy, Personal information, Sensitive data & Privacy principles',
+          'Data minimization, retention, consent & breach notification concepts',
+          'Regulations: GDPR, CCPA/CPRA, HIPAA security/privacy, State privacy laws'
+        ]
+      },
+      {
+        number: 'MODULE 23',
+        title: 'Business Continuity & Disaster Recovery',
+        topics: [
+          'Business continuity & Disaster recovery planning',
+          'Business Impact Analysis (BIA), Recovery Time Objective (RTO), Recovery Point Objective (RPO)',
+          'Backup strategies, Disaster recovery testing & Crisis management',
+          'Workshop: Create a Business Continuity and Disaster Recovery plan.'
+        ]
+      },
+      {
+        number: 'MODULE 24',
+        title: 'Security Awareness & Human Risk',
+        topics: [
+          'Security awareness programs & Employee training',
+          'Password security, MFA, Phishing awareness & Social engineering prevention',
+          'Insider risk & Security culture building',
+          'Workshop: Create a cybersecurity awareness campaign for employees.'
+        ]
+      },
+      {
+        number: 'MODULE 25',
+        title: 'Cybersecurity Tools & Hands-On Labs',
+        topics: [
+          'Network Tools: Wireshark, Nmap',
+          'Security Monitoring: Splunk, Microsoft Sentinel',
+          'Vulnerability Management: Nessus scanner',
+          'Endpoint & OS: Microsoft Defender, Linux command line',
+          'Framework Resources: NIST resources, CIS Controls'
+        ]
+      },
+      {
+        number: 'MODULE 26',
+        title: 'Ethical Hacking Fundamentals',
+        topics: [
+          'Ethical hacking concepts, Authorization & Rules of engagement',
+          'Reconnaissance concepts & Vulnerability identification methodology',
+          'Penetration testing lifecycle, Reporting & Remediation',
+          'Emphasis on defensive security and authorized testing'
+        ]
+      },
+      {
+        number: 'MODULE 27',
+        title: 'Cybersecurity Leadership & Management',
+        topics: [
+          'Security leadership, program management & security policies',
+          'Security budgets, metrics & executive reporting',
+          'Security risk communication, Vendor risk & Third-party risk management',
+          'Cybersecurity strategy',
+          'Workshop: Create a cybersecurity strategy for a mid-sized organization.'
+        ]
+      },
+      {
+        number: 'MODULE 28',
+        title: 'Cybersecurity Career & Certification Preparation',
+        topics: [
+          'Entry-Level Paths: Security Analyst, SOC Analyst, GRC Analyst, Vulnerability Analyst, IAM Analyst, Security Admin',
+          'Beginner Certs: CompTIA Security+',
+          'Intermediate Certs: CySA+, SSCP, Certified Ethical Hacker (CEH)',
+          'Advanced Certs: CISSP, CISM, CRISC',
+          'Exam requirements & career preparation strategies'
+        ]
+      }
+    ],
+    learningOutcomes: [
+      'Explain core cybersecurity concepts and analyze cyber threats and vulnerabilities',
+      'Configure networking, operating system security, IAM, MFA, and SSO models',
+      'Apply cryptography, PKI, digital signatures, and TLS protocols',
+      'Operate SOC tools (Splunk, Sentinel, Wireshark, Nmap, Nessus) for threat detection and incident response',
+      'Develop incident response plans and perform digital forensics timeline analysis',
+      'Design cloud security, zero trust micro-segmentation, and endpoint security controls',
+      'Align organizational security to NIST CSF, ISO 27001, CIS Controls, GDPR, CCPA, and HIPAA',
+      'Formulate Business Continuity & Disaster Recovery plans with RTO/RPO targets',
+      'Conduct authorized ethical hacking penetration tests and present executive security strategies',
+      'Prepare for CompTIA Security+, CySA+, CEH, and CISSP certification exams'
+    ],
+    capstones: [
+      {
+        title: 'Simulated Enterprise Cybersecurity Engagement Capstone Project',
+        description: 'Comprehensive 4-phase simulated cybersecurity engagement for a fictional enterprise: Phase 1 (Asset, Threat & Risk Assessment), Phase 2 (Security Architecture for Network, IAM, Endpoint, Cloud & Data), Phase 3 (Incident Response simulation: Phishing → Credential Compromise → Unauthorized Access → Data Exposure), and Phase 4 (GRC Documentation: Security policies, Risk register, IR plan, BCP).'
+      }
+    ],
+    interviewPrep: [
+      'Cybersecurity Analyst & SOC Technical Mock Interviews',
+      'GRC Framework Mapping & Incident Response Scenario Practice',
+      'Cybersecurity Capstone Portfolio Review & Resume Preparation'
+    ],
+    faqs: [
+      {
+        question: 'Is this program suitable for beginners with no cybersecurity background?',
+        answer: 'Yes! The 28-module program starts from foundational networking and OS principles before advancing to SOC operations, cloud security, ethical hacking, and GRC.'
+      },
+      {
+        question: 'Which certifications does this course prepare me for?',
+        answer: 'The program directly prepares you for CompTIA Security+, CySA+, CEH, SSCP, and provides strong foundational knowledge for CISSP and CISM exams.'
+      }
+    ]
   }
 ];
 
@@ -910,3 +1598,4 @@ export const getCourseBySku = (sku) => {
   if (!sku) return null;
   return CATALOG_COURSES.find((c) => c.sku.toUpperCase() === sku.toUpperCase());
 };
+
