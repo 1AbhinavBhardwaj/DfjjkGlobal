@@ -18,7 +18,28 @@ import {
 } from 'lucide-react';
 
 export const Home = () => {
-  const [courses, setCourses] = useState(CATALOG_COURSES.slice(0, 3));
+  const getFeaturedCourses = (allList) => {
+    const preferredSkus = [
+      'DFJJK-CYBER-FULL-28',
+      'DFJJK-DS-AI',
+      'DFJJK-FULLSTACK-101',
+      'DFJJK-DS-POWERBI'
+    ];
+    const featured = preferredSkus
+      .map(sku => allList.find(c => (c.sku || '').toUpperCase() === sku))
+      .filter(Boolean);
+
+    if (featured.length < 4) {
+      allList.forEach(c => {
+        if (!featured.some(f => (f.sku || '').toUpperCase() === (c.sku || '').toUpperCase()) && featured.length < 4) {
+          featured.push(c);
+        }
+      });
+    }
+    return featured;
+  };
+
+  const [courses, setCourses] = useState(() => getFeaturedCourses(CATALOG_COURSES));
 
   useEffect(() => {
     API.get('/courses')
@@ -45,11 +66,12 @@ export const Home = () => {
               merged.push(localCourse);
             }
           });
-          setCourses(merged.slice(0, 6));
+          setCourses(getFeaturedCourses(merged));
         }
       })
       .catch((err) => {
         console.warn('Backend API connection offline/unreachable. Displaying catalog store:', err);
+        setCourses(getFeaturedCourses(CATALOG_COURSES));
       });
   }, []);
 
