@@ -83,19 +83,61 @@ export const Home = () => {
         '@type': 'EducationalOrganization',
         '@id': 'https://dfjjkglobal.com/#organization',
         'name': 'DFJJK Global',
-        'url': 'https://dfjjkglobal.com',
-        'logo': 'https://dfjjkglobal.com/favicon.ico',
-        'description': 'Industry-focused enterprise technology and data science learning platform offering masterclasses in Data Science, Power BI, SQL, AI, Cloud DevOps, Cybersecurity, and Project Management.',
-        'sameAs': []
+        'legalName': 'DFJJK Global',
+        'alternateName': ['DFJJK', 'dfjjk', 'dfjjkglobal', 'DFJJK Global Platform'],
+        'url': 'https://dfjjkglobal.com/',
+        'logo': {
+          '@type': 'ImageObject',
+          'url': 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80',
+          'caption': 'DFJJK Global Logo'
+        },
+        'description': 'DFJJK Global is the official enterprise technology learning and consulting platform offering professional masterclasses in Data Science, AI Engineering, Cloud DevOps, Cybersecurity, and Project Management.',
+        'contactPoint': {
+          '@type': 'ContactPoint',
+          'email': 'support@dfjjkglobal.com',
+          'contactType': 'customer service',
+          'availableLanguage': 'English'
+        }
       },
       {
         '@type': 'WebSite',
         '@id': 'https://dfjjkglobal.com/#website',
-        'url': 'https://dfjjkglobal.com',
+        'url': 'https://dfjjkglobal.com/',
         'name': 'DFJJK Global',
+        'alternateName': ['DFJJK', 'dfjjk', 'dfjjkglobal'],
         'publisher': {
           '@id': 'https://dfjjkglobal.com/#organization'
         }
+      },
+      {
+        '@type': 'FAQPage',
+        '@id': 'https://dfjjkglobal.com/#faq',
+        'mainEntity': [
+          {
+            '@type': 'Question',
+            'name': 'What is DFJJK Global?',
+            'acceptedAnswer': {
+              '@type': 'Answer',
+              'text': 'DFJJK Global (dfjjkglobal.com) is the official enterprise technology institute and training platform offering masterclasses in Data Science, Power BI, SQL, AI & Machine Learning, Cloud DevOps, Cybersecurity, and Project Management.'
+            }
+          },
+          {
+            '@type': 'Question',
+            'name': 'Is dfjjkglobal.com the official DFJJK website?',
+            'acceptedAnswer': {
+              '@type': 'Answer',
+              'text': 'Yes, https://dfjjkglobal.com is the official website for DFJJK Global course enrollments, verified certifications, enterprise services, and learning resources.'
+            }
+          },
+          {
+            '@type': 'Question',
+            'name': 'What courses are offered by DFJJK Global?',
+            'acceptedAnswer': {
+              '@type': 'Answer',
+              'text': 'DFJJK Global offers career-focused programs including Power BI Data Visualization, SQL Analytics, Python to Generative AI, Java Spring Boot Full-Stack Architecture, Cloud DevOps & Kubernetes, Cybersecurity 28-Module Program, and Project Management.'
+            }
+          }
+        ]
       }
     ]
   };
@@ -103,8 +145,8 @@ export const Home = () => {
   return (
     <div>
       <SEO 
-        title="DFJJK Global — Industry-Focused Courses & Career Training"
-        description="Master Data Science, Power BI, SQL, Python AI, Generative AI, Java Spring Boot, Cloud DevOps, Cybersecurity, and Project Management with DFJJK Global."
+        title="DFJJK Global — Official Website | Enterprise Learning & Career Platform"
+        description="Welcome to the official DFJJK Global website (dfjjkglobal.com). DFJJK Global is a premier technology institute providing enterprise masterclasses in Data Science, Power BI, SQL, Python AI, Java Full-Stack, Cloud DevOps, Cybersecurity, and Project Management."
         jsonLd={homeSchema}
       />
       {/* Glow Background Effects */}
@@ -116,15 +158,15 @@ export const Home = () => {
         <div className="container hero-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'center' }}>
           <div>
             <div className="badge badge-gradient" style={{ marginBottom: '24px' }}>
-              <Sparkles size={14} color="#A5B4FC" /> Enterprise Technology & Data Science
+              <Sparkles size={14} color="#A5B4FC" /> Official DFJJK Global Platform
             </div>
 
-            <h1 style={{ fontSize: '3.6rem', lineHeight: 1.1, marginBottom: '24px', fontWeight: 800 }}>
-              Master <span className="gradient-text">Data Science</span>, AI & Architecture
+            <h1 style={{ fontSize: '3.4rem', lineHeight: 1.1, marginBottom: '24px', fontWeight: 800 }}>
+              DFJJK Global — <span className="gradient-text">Data Science</span>, AI & Architecture
             </h1>
 
             <p style={{ fontSize: '1.15rem', color: 'var(--text-secondary)', marginBottom: '36px', lineHeight: 1.7 }}>
-              Accelerate your engineering career with world-class masterclasses in Power BI, SQL Analytics, Python to Generative AI, Java Spring Boot, and Cloud Architecture.
+              Welcome to the official DFJJK Global platform. Accelerate your career with world-class DFJJK Global masterclasses in Power BI, SQL Analytics, Python to Generative AI, Java Spring Boot, Cloud DevOps, Cybersecurity, and Project Management.
             </p>
 
             <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginBottom: '40px' }}>
