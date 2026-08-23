@@ -1594,8 +1594,11 @@ export const CATALOG_COURSES = [
   }
 ];
 
-export const getCourseBySku = (sku) => {
-  if (!sku) return null;
-  return CATALOG_COURSES.find((c) => c.sku.toUpperCase() === sku.toUpperCase());
+export const getCourseBySku = (skuOrId) => {
+  if (!skuOrId) return null;
+  const target = skuOrId.trim().toUpperCase();
+  return CATALOG_COURSES.find(
+    (c) => c.sku.toUpperCase() === target || (c.id && c.id.toUpperCase() === target)
+  );
 };
 

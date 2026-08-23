@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import API from '../api';
+import { SEO } from '../components/SEO';
 import { Mail, Phone, MapPin, Send, CheckCircle2, MessageSquare } from 'lucide-react';
 
 export const Contact = () => {
@@ -37,6 +38,10 @@ export const Contact = () => {
 
   return (
     <div style={{ padding: '60px 0 100px' }}>
+      <SEO 
+        title="Contact Us | DFJJK Global Admissions & Advisory"
+        description="Get in touch with DFJJK Global for admissions, enterprise training bootcamps, technical support, and partnership inquiries."
+      />
       <div className="container">
         <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 60px' }}>
           <div className="badge badge-gradient" style={{ marginBottom: '12px' }}>

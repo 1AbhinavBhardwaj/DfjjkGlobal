@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import API from '../api';
 import { CATALOG_COURSES } from '../data/coursesData';
+import { SEO } from '../components/SEO';
 import { Search, Clock, ArrowRight, BookOpen, Layers, Sparkles } from 'lucide-react';
 
 export const Courses = () => {
@@ -74,8 +75,30 @@ export const Courses = () => {
     return matchesSearch && matchesCategory;
   });
 
+  const catalogSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    'name': 'DFJJK Global Enterprise Learning Catalog',
+    'itemListElement': filteredCourses.map((c, index) => ({
+      '@type': 'ListItem',
+      'position': index + 1,
+      'item': {
+        '@type': 'Course',
+        'name': c.name,
+        'description': c.summary,
+        'courseCode': c.sku,
+        'url': `https://dfjjkglobal.com/courses/${c.sku}`
+      }
+    }))
+  };
+
   return (
     <div style={{ padding: '60px 0 100px' }}>
+      <SEO 
+        title="Courses Catalog | Data Science, AI, Cloud & Management | DFJJK Global"
+        description="Explore our complete catalog of industry-vetted masterclasses in Data Science, Power BI, SQL Analytics, Python AI & GenAI, Java Full-Stack, Cloud DevOps, Cybersecurity, and Project Management."
+        jsonLd={catalogSchema}
+      />
       <div className="container">
         {/* Header */}
         <div style={{ textAlign: 'center', maxWidth: '750px', margin: '0 auto 48px' }}>

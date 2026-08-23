@@ -15,6 +15,7 @@ import { Login } from './pages/Login';
 import { Register } from './pages/Register';
 import { UserDashboard } from './pages/UserDashboard';
 import { AdminDashboard } from './pages/AdminDashboard';
+import { NotFound } from './pages/NotFound';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -43,6 +44,7 @@ export const App = () => {
               <Route path="/register" element={<Register />} />
               <Route path="/dashboard" element={<UserDashboard />} />
               <Route path="/admin" element={<AdminDashboard />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
           <Footer />

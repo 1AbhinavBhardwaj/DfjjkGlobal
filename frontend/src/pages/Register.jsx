@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
+import { SEO } from '../components/SEO';
 import { UserPlus, Sparkles, Mail, Key, User as UserIcon, Phone, Globe } from 'lucide-react';
 
 export const Register = () => {
@@ -32,6 +33,11 @@ export const Register = () => {
 
   return (
     <div style={{ padding: '60px 0', minHeight: 'calc(100vh - 160px)', display: 'flex', alignItems: 'center' }}>
+      <SEO 
+        title="Student Registration | DFJJK Global"
+        description="Create your DFJJK Global student account."
+        noindex={true}
+      />
       <div className="container" style={{ maxWidth: '520px' }}>
         <div className="glass-card" style={{ padding: '40px' }}>
           <div style={{ textAlign: 'center', marginBottom: '32px' }}>

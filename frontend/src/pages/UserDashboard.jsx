@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import API from '../api';
+import { SEO } from '../components/SEO';
 import { 
   User as UserIcon, 
   BookOpen, 
@@ -45,7 +46,9 @@ export const UserDashboard = () => {
         setEnrolledCourses(coursesRes.data);
         setOrders(ordersRes.data);
       })
-      .catch((err) => console.error('Dashboard load error:', err))
+      .catch((err) => {
+        console.warn('Dashboard data fetch warning:', err);
+      })
       .finally(() => setLoading(false));
   }, [user]);
 

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import API from '../api';
 import { CATALOG_COURSES } from '../data/coursesData';
+import { SEO } from '../components/SEO';
 import { 
   Sparkles, 
   ArrowRight, 
@@ -75,8 +76,37 @@ export const Home = () => {
       });
   }, []);
 
+  const homeSchema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'EducationalOrganization',
+        '@id': 'https://dfjjkglobal.com/#organization',
+        'name': 'DFJJK Global',
+        'url': 'https://dfjjkglobal.com',
+        'logo': 'https://dfjjkglobal.com/favicon.ico',
+        'description': 'Industry-focused enterprise technology and data science learning platform offering masterclasses in Data Science, Power BI, SQL, AI, Cloud DevOps, Cybersecurity, and Project Management.',
+        'sameAs': []
+      },
+      {
+        '@type': 'WebSite',
+        '@id': 'https://dfjjkglobal.com/#website',
+        'url': 'https://dfjjkglobal.com',
+        'name': 'DFJJK Global',
+        'publisher': {
+          '@id': 'https://dfjjkglobal.com/#organization'
+        }
+      }
+    ]
+  };
+
   return (
     <div>
+      <SEO 
+        title="DFJJK Global — Industry-Focused Courses & Career Training"
+        description="Master Data Science, Power BI, SQL, Python AI, Generative AI, Java Spring Boot, Cloud DevOps, Cybersecurity, and Project Management with DFJJK Global."
+        jsonLd={homeSchema}
+      />
       {/* Glow Background Effects */}
       <div className="glow-bg" style={{ top: '-100px', left: '15%', width: '500px', height: '500px', background: 'rgba(99, 102, 241, 0.15)' }} />
       <div className="glow-bg" style={{ top: '400px', right: '10%', width: '400px', height: '400px', background: 'rgba(6, 182, 212, 0.12)' }} />

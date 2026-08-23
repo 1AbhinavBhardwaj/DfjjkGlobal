@@ -1,0 +1,13 @@
+# DFJJK Global Production Robots.txt
+User-agent: *
+Allow: /
+
+# Private & Application Routes
+Disallow: /login
+Disallow: /register
+Disallow: /dashboard
+Disallow: /admin
+Disallow: /checkout
+
+# Sitemap Reference
+Sitemap: https://dfjjkglobal.com/sitemap.xml

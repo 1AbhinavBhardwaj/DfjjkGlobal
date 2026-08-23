@@ -1,9 +1,14 @@
 import React from 'react';
+import { SEO } from '../components/SEO';
 import { Sparkles, Globe, Target, Award, CheckCircle } from 'lucide-react';
 
 export const About = () => {
   return (
     <div style={{ padding: '60px 0 100px' }}>
+      <SEO 
+        title="About DFJJK Global | Enterprise Technology & Learning Platform"
+        description="Learn about DFJJK Global mission, global engineering footprint, core pillars, and industry-focused technology training masterclasses."
+      />
       <div className="container">
         {/* Header */}
         <div style={{ textAlign: 'center', maxWidth: '750px', margin: '0 auto 60px' }}>

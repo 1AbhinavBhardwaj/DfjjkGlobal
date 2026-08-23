@@ -3,6 +3,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import API from '../api';
 import { getCourseBySku, CATALOG_COURSES } from '../data/coursesData';
 import { AuthContext } from '../context/AuthContext';
+import { SEO } from '../components/SEO';
 import { 
   Clock, 
   CheckCircle2, 
@@ -119,6 +120,11 @@ export const CourseDetail = () => {
   if (!course) {
     return (
       <div className="container" style={{ padding: '80px 0', textAlign: 'center' }}>
+        <SEO 
+          title="Course Not Found | DFJJK Global"
+          description="The requested course SKU or page does not exist in our catalog."
+          noindex={true}
+        />
         <h2>Course Not Found</h2>
         <p style={{ color: 'var(--text-secondary)', margin: '16px 0 24px' }}>The requested course SKU does not exist in our catalog.</p>
         <Link to="/courses" className="btn btn-primary">Back to Learning Catalog</Link>
@@ -126,13 +132,100 @@ export const CourseDetail = () => {
     );
   }
 
+  const courseCanonical = `https://dfjjkglobal.com/courses/${course.sku}`;
+  
+  const courseSchema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Course',
+        '@id': `${courseCanonical}#course`,
+        'name': course.name,
+        'description': course.description || course.summary,
+        'provider': {
+          '@type': 'EducationalOrganization',
+          'name': 'DFJJK Global',
+          'url': 'https://dfjjkglobal.com'
+        },
+        'courseCode': course.sku,
+        'offers': {
+          '@type': 'Offer',
+          'price': course.price,
+          'priceCurrency': 'USD',
+          'availability': 'https://schema.org/InStock',
+          'url': courseCanonical
+        },
+        'hasCourseInstance': {
+          '@type': 'CourseInstance',
+          'courseMode': 'Online',
+          'duration': course.duration
+        }
+      },
+      {
+        '@type': 'BreadcrumbList',
+        '@id': `${courseCanonical}#breadcrumb`,
+        'itemListElement': [
+          {
+            '@type': 'ListItem',
+            'position': 1,
+            'name': 'Home',
+            'item': 'https://dfjjkglobal.com/'
+          },
+          {
+            '@type': 'ListItem',
+            'position': 2,
+            'name': 'Courses',
+            'item': 'https://dfjjkglobal.com/courses'
+          },
+          {
+            '@type': 'ListItem',
+            'position': 3,
+            'name': course.name,
+            'item': courseCanonical
+          }
+        ]
+      },
+      ...(course.faqs && course.faqs.length > 0 ? [{
+        '@type': 'FAQPage',
+        '@id': `${courseCanonical}#faq`,
+        'mainEntity': course.faqs.map(faq => ({
+          '@type': 'Question',
+          'name': faq.question,
+          'acceptedAnswer': {
+            '@type': 'Answer',
+            'text': faq.answer
+          }
+        }))
+      }] : [])
+    ]
+  };
+
   return (
     <div style={{ padding: '40px 0 100px' }}>
+      <SEO 
+        title={`${course.name} | DFJJK Global`}
+        description={course.summary || course.description}
+        canonical={courseCanonical}
+        ogImage={course.imageUrl}
+        jsonLd={courseSchema}
+      />
       <div className="container">
-        {/* Back Link */}
-        <Link to="/courses" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: 'var(--text-secondary)', textDecoration: 'none', marginBottom: '28px', fontWeight: 600, fontSize: '0.9rem' }}>
-          <ArrowLeft size={16} /> Back to Catalog
-        </Link>
+        {/* Breadcrumb Navigation */}
+        <nav aria-label="Breadcrumb" style={{ marginBottom: '24px' }}>
+          <ol style={{ display: 'flex', alignItems: 'center', gap: '8px', listStyle: 'none', padding: 0, margin: 0, fontSize: '0.88rem', color: 'var(--text-secondary)', flexWrap: 'wrap' }}>
+            <li>
+              <Link to="/" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Home</Link>
+            </li>
+            <li style={{ color: 'var(--text-muted)' }}>/</li>
+            <li>
+              <Link to="/courses" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Courses</Link>
+            </li>
+            <li style={{ color: 'var(--text-muted)' }}>/</li>
+            <li style={{ color: 'var(--accent-secondary)', fontWeight: 600 }}>
+              {course.name}
+            </li>
+          </ol>
+        </nav>
 
         {/* 1. Hero Section */}
         <div className="course-detail-grid" style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '48px', alignItems: 'start' }}>
@@ -163,9 +256,9 @@ export const CourseDetail = () => {
             {/* 3. Course Highlights */}
             {course.highlights && course.highlights.length > 0 && (
               <div className="glass-card" style={{ padding: '32px', marginBottom: '40px' }}>
-                <h3 style={{ fontSize: '1.35rem', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <h2 style={{ fontSize: '1.35rem', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '10px' }}>
                   <Sparkles size={20} color="var(--accent-secondary)" /> Program Highlights
-                </h3>
+                </h2>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
                   {course.highlights.map((highlight, idx) => (
                     <div key={idx} style={{
@@ -191,9 +284,9 @@ export const CourseDetail = () => {
             {/* 4. Learning Journey */}
             {course.learningJourney && course.learningJourney.length > 0 && (
               <div className="glass-card" style={{ padding: '32px', marginBottom: '40px' }}>
-                <h3 style={{ fontSize: '1.35rem', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <h2 style={{ fontSize: '1.35rem', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '10px' }}>
                   <Layers size={20} color="var(--accent-primary)" /> Learning Journey Path
-                </h3>
+                </h2>
                 <div className="journey-container">
                   {course.learningJourney.map((step, idx) => (
                     <React.Fragment key={idx}>
@@ -214,7 +307,7 @@ export const CourseDetail = () => {
             <div className="glass-card" style={{ padding: '32px', marginBottom: '40px' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px', flexWrap: 'wrap', gap: '12px' }}>
                 <div>
-                  <h3 style={{ fontSize: '1.4rem' }}>Course Curriculum & Modules</h3>
+                  <h2 style={{ fontSize: '1.4rem' }}>Course Curriculum & Modules</h2>
                   <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>Expand each module to explore detailed topics and hands-on deliverables.</p>
                 </div>
                 <span className="badge badge-gradient">
@@ -372,9 +465,9 @@ export const CourseDetail = () => {
             {/* 6. Learning Outcomes */}
             {course.learningOutcomes && course.learningOutcomes.length > 0 && (
               <div className="glass-card" style={{ padding: '32px', marginBottom: '40px' }}>
-                <h3 style={{ fontSize: '1.4rem', marginBottom: '24px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <h2 style={{ fontSize: '1.4rem', marginBottom: '24px', display: 'flex', alignItems: 'center', gap: '10px' }}>
                   <Award size={22} color="#34D399" /> What You Will Achieve (Learning Outcomes)
-                </h3>
+                </h2>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px' }}>
                   {course.learningOutcomes.map((outcome, idx) => (
                     <div key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', padding: '14px', background: 'rgba(255, 255, 255, 0.02)', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-glass)' }}>
@@ -389,9 +482,9 @@ export const CourseDetail = () => {
             {/* 7. Capstone Projects */}
             {course.capstones && course.capstones.length > 0 && (
               <div className="glass-card" style={{ padding: '32px', marginBottom: '40px' }}>
-                <h3 style={{ fontSize: '1.4rem', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <h2 style={{ fontSize: '1.4rem', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '10px' }}>
                   <Briefcase size={22} color="var(--accent-secondary)" /> Real-World Capstone Projects
-                </h3>
+                </h2>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
                   {course.capstones.map((cap, idx) => (
                     <div key={idx} style={{ padding: '20px', background: 'rgba(17, 23, 38, 0.6)', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-glass)' }}>
@@ -413,9 +506,9 @@ export const CourseDetail = () => {
             {/* 8. Career / Interview Preparation */}
             {course.interviewPrep && course.interviewPrep.length > 0 && (
               <div className="glass-card" style={{ padding: '32px', marginBottom: '40px' }}>
-                <h3 style={{ fontSize: '1.4rem', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <h2 style={{ fontSize: '1.4rem', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '10px' }}>
                   <Zap size={20} color="#EC4899" /> Career & Interview Preparation
-                </h3>
+                </h2>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '16px' }}>
                   {course.interviewPrep.map((prep, idx) => (
                     <div key={idx} style={{ padding: '16px', background: 'rgba(236, 72, 153, 0.05)', border: '1px solid rgba(236, 72, 153, 0.2)', borderRadius: 'var(--radius-md)', display: 'flex', alignItems: 'center', gap: '12px' }}>
@@ -430,9 +523,9 @@ export const CourseDetail = () => {
             {/* 9. FAQs */}
             {course.faqs && course.faqs.length > 0 && (
               <div className="glass-card" style={{ padding: '32px' }}>
-                <h3 style={{ fontSize: '1.4rem', marginBottom: '24px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <h2 style={{ fontSize: '1.4rem', marginBottom: '24px', display: 'flex', alignItems: 'center', gap: '10px' }}>
                   <HelpCircle size={22} color="var(--accent-secondary)" /> Frequently Asked Questions
-                </h3>
+                </h2>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                   {course.faqs.map((faq, i) => (
                     <div key={i} style={{ padding: '20px', background: 'rgba(255,255,255,0.02)', borderRadius: '12px', border: '1px solid var(--border-glass)' }}>

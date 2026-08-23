@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
+import { SEO } from '../components/SEO';
 import { LogIn, Sparkles, Key, Mail, ShieldAlert } from 'lucide-react';
 
 export const Login = () => {
@@ -38,6 +39,11 @@ export const Login = () => {
 
   return (
     <div style={{ padding: '80px 0', minHeight: 'calc(100vh - 160px)', display: 'flex', alignItems: 'center' }}>
+      <SEO 
+        title="Student & Partner Login | DFJJK Global"
+        description="Log in to your DFJJK Global account."
+        noindex={true}
+      />
       <div className="container" style={{ maxWidth: '460px' }}>
         <div className="glass-card" style={{ padding: '40px' }}>
           <div style={{ textAlign: 'center', marginBottom: '32px' }}>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import API from '../api';
+import { SEO } from '../components/SEO';
 import { 
   ShieldCheck, 
   Users, 
@@ -40,8 +41,8 @@ export const AdminDashboard = () => {
     Promise.all([
       API.get('/admin/stats'),
       API.get('/courses'),
-      API.get('/users'),
-      API.get('/orders')
+      API.get('/admin/users'),
+      API.get('/admin/orders')
     ])
       .then(([statsRes, coursesRes, usersRes, ordersRes]) => {
         setStats(statsRes.data);
@@ -49,7 +50,9 @@ export const AdminDashboard = () => {
         setUsersList(usersRes.data);
         setOrdersList(ordersRes.data);
       })
-      .catch((err) => console.error('Admin data load error:', err))
+      .catch((err) => {
+        console.warn('Admin load error:', err);
+      })
       .finally(() => setLoading(false));
   };
 
@@ -133,6 +136,11 @@ export const AdminDashboard = () => {
 
   return (
     <div style={{ padding: '60px 0 100px' }}>
+      <SEO 
+        title="Admin Control Panel | DFJJK Global"
+        description="Private administrative management dashboard."
+        noindex={true}
+      />
       <div className="container">
         {/* Banner */}
         <div className="glass-card" style={{ padding: '36px', marginBottom: '40px', background: 'var(--gradient-card)' }}>

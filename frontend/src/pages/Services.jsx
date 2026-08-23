@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { SEO } from '../components/SEO';
 import { Server, ShieldCheck, Cpu, Code2, Users2, Cloud, ArrowRight } from 'lucide-react';
 
 export const Services = () => {
@@ -38,6 +39,10 @@ export const Services = () => {
 
   return (
     <div style={{ padding: '60px 0 100px' }}>
+      <SEO 
+        title="Enterprise Consulting & Technology Services | DFJJK Global"
+        description="Explore DFJJK Global enterprise tech services: Full-stack consulting, cloud DevOps infrastructure, custom AI/ML engineering, cybersecurity auditing, and corporate upskilling."
+      />
       <div className="container">
         <div style={{ textAlign: 'center', maxWidth: '750px', margin: '0 auto 60px' }}>
           <div className="badge badge-gradient" style={{ marginBottom: '12px' }}>

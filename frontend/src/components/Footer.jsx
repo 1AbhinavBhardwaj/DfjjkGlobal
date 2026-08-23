@@ -60,12 +60,14 @@ export const Footer = () => {
 
           {/* Programs */}
           <div>
-            <h4 style={{ fontSize: '1.05rem', marginBottom: '20px', color: 'var(--text-primary)' }}>Specializations</h4>
+            <h4 style={{ fontSize: '1.05rem', marginBottom: '20px', color: 'var(--text-primary)' }}>Featured Masterclasses</h4>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '12px' }}>
-              <li><Link to="/courses/DFJJK-FULLSTACK-101" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.9rem' }}>Full-Stack Architecture</Link></li>
-              <li><Link to="/courses/DFJJK-CLOUD-DEVOP" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.9rem' }}>Cloud DevOps & Kubernetes</Link></li>
-              <li><Link to="/courses/DFJJK-AI-DATA-301" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.9rem' }}>Applied AI & Machine Learning</Link></li>
-              <li><Link to="/courses/DFJJK-CYBER-SEC-202" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.9rem' }}>Offensive Security Hacking</Link></li>
+              <li><Link to="/courses/DFJJK-DS-POWERBI" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.9rem' }}>Power BI & Data Visualization</Link></li>
+              <li><Link to="/courses/DFJJK-DS-SQL" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.9rem' }}>SQL Analytics & Queries</Link></li>
+              <li><Link to="/courses/DFJJK-DS-AI" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.9rem' }}>Python AI & Generative AI</Link></li>
+              <li><Link to="/courses/DFJJK-CYBER-FULL-28" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.9rem' }}>Cybersecurity 28-Module Program</Link></li>
+              <li><Link to="/courses/DFJJK-PM-PROFESSIONAL" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.9rem' }}>Project Management & PMP</Link></li>
+              <li><Link to="/courses/DFJJK-FULLSTACK-101" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.9rem' }}>Full-Stack Java & React</Link></li>
             </ul>
           </div>
 
