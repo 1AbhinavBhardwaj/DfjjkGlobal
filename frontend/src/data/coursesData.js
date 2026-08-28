@@ -200,7 +200,7 @@ export const CATALOG_COURSES = [
     price: '$899.00',
     duration: '8–10 Weeks Hands-on Masterclass',
     category: 'AI & Machine Learning',
-    imageUrl: 'https://images.unsplash.com/photo-1680814908456-621666378270?auto=format&fit=crop&w=1200&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1200&q=80',
     active: true,
     isFlagship: true,
     featured: true,
@@ -897,7 +897,7 @@ export const CATALOG_COURSES = [
     price: '$899.00',
     duration: '12 Weeks Applied Program',
     category: 'AI & Machine Learning',
-    imageUrl: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80',
     active: true,
     highlights: [
       'Applied ML Algorithms',

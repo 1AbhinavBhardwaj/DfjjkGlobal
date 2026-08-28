@@ -91,7 +91,7 @@ public class DataInitializer implements CommandLineRunner {
                     new BigDecimal("899.00"),
                     "8–10 Weeks Hands-on Masterclass",
                     "AI & Machine Learning",
-                    "https://images.unsplash.com/photo-1680814908456-621666378270?auto=format&fit=crop&w=1200&q=80"
+                    "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1200&q=80"
             );
 
             Course cComp = new Course(
@@ -135,7 +135,7 @@ public class DataInitializer implements CommandLineRunner {
                     new BigDecimal("899.00"),
                     "12 Weeks",
                     "AI & Machine Learning",
-                    "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80"
+                    "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80"
             );
 
             Course c4 = new Course(
