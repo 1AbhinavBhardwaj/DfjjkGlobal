@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import API from '../api';
-import { CATALOG_COURSES } from '../data/coursesData';
+import { CATALOG_COURSES, getFlagshipCourses, getFeaturedCourses } from '../data/coursesData';
 import { SEO } from '../components/SEO';
+import { ReviewsSection } from '../components/ReviewsSection';
+import { TestimonialsSection } from '../components/TestimonialsSection';
 import { 
   Sparkles, 
   ArrowRight, 
@@ -15,32 +17,15 @@ import {
   Star,
   Globe2,
   Clock,
-  ChevronRight
+  ChevronRight,
+  Flame,
+  TrendingUp,
+  Layers
 } from 'lucide-react';
 
 export const Home = () => {
-  const getFeaturedCourses = (allList) => {
-    const preferredSkus = [
-      'DFJJK-CYBER-FULL-28',
-      'DFJJK-DS-AI',
-      'DFJJK-FULLSTACK-101',
-      'DFJJK-DS-POWERBI'
-    ];
-    const featured = preferredSkus
-      .map(sku => allList.find(c => (c.sku || '').toUpperCase() === sku))
-      .filter(Boolean);
-
-    if (featured.length < 4) {
-      allList.forEach(c => {
-        if (!featured.some(f => (f.sku || '').toUpperCase() === (c.sku || '').toUpperCase()) && featured.length < 4) {
-          featured.push(c);
-        }
-      });
-    }
-    return featured;
-  };
-
-  const [courses, setCourses] = useState(() => getFeaturedCourses(CATALOG_COURSES));
+  const [featuredCourses, setFeaturedCourses] = useState(() => getFeaturedCourses());
+  const flagshipCourses = getFlagshipCourses();
 
   useEffect(() => {
     API.get('/courses')
@@ -56,8 +41,10 @@ export const Home = () => {
               summary: apiCourse.summary || local?.summary || '',
               category: apiCourse.category || local?.category || 'General',
               duration: apiCourse.duration || local?.duration || 'Self-Paced',
-              price: apiCourse.price != null ? apiCourse.price : (local?.price || '0.00'),
+              price: local?.price ?? (apiCourse.price != null ? `₹${apiCourse.price}/-` : '₹0/-'),
               imageUrl: apiCourse.imageUrl || local?.imageUrl || '',
+              featured: local?.featured || false,
+              isFlagship: local?.isFlagship || false,
             };
           });
 
@@ -67,12 +54,12 @@ export const Home = () => {
               merged.push(localCourse);
             }
           });
-          setCourses(getFeaturedCourses(merged));
+          setFeaturedCourses(merged.filter(c => c.featured));
         }
       })
       .catch((err) => {
-        console.warn('Backend API connection offline/unreachable. Displaying catalog store:', err);
-        setCourses(getFeaturedCourses(CATALOG_COURSES));
+        console.warn('Backend API offline. Using local catalog:', err);
+        setFeaturedCourses(getFeaturedCourses());
       });
   }, []);
 
@@ -91,7 +78,7 @@ export const Home = () => {
           'url': 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80',
           'caption': 'DFJJK Global Logo'
         },
-        'description': 'DFJJK Global is the official enterprise technology learning and consulting platform offering professional masterclasses in Data Science, AI Engineering, Cloud DevOps, Cybersecurity, and Project Management.',
+        'description': 'DFJJK Global is the official enterprise technology learning platform offering professional masterclasses in Data Science, AI, Cloud DevOps, Cybersecurity, and Project Management.',
         'contactPoint': {
           '@type': 'ContactPoint',
           'email': 'support@dfjjkglobal.com',
@@ -105,9 +92,7 @@ export const Home = () => {
         'url': 'https://dfjjkglobal.com/',
         'name': 'DFJJK Global',
         'alternateName': ['DFJJK', 'dfjjk', 'dfjjkglobal'],
-        'publisher': {
-          '@id': 'https://dfjjkglobal.com/#organization'
-        }
+        'publisher': { '@id': 'https://dfjjkglobal.com/#organization' }
       },
       {
         '@type': 'FAQPage',
@@ -118,7 +103,7 @@ export const Home = () => {
             'name': 'What is DFJJK Global?',
             'acceptedAnswer': {
               '@type': 'Answer',
-              'text': 'DFJJK Global (dfjjkglobal.com) is the official enterprise technology institute and training platform offering masterclasses in Data Science, Power BI, SQL, AI & Machine Learning, Cloud DevOps, Cybersecurity, and Project Management.'
+              'text': 'DFJJK Global (dfjjkglobal.com) is the official enterprise technology institute offering masterclasses in Data Science, Power BI, SQL, AI & Machine Learning, Cloud DevOps, Cybersecurity, and Project Management.'
             }
           },
           {
@@ -134,13 +119,15 @@ export const Home = () => {
             'name': 'What courses are offered by DFJJK Global?',
             'acceptedAnswer': {
               '@type': 'Answer',
-              'text': 'DFJJK Global offers career-focused programs including Power BI Data Visualization, SQL Analytics, Python to Generative AI, Java Spring Boot Full-Stack Architecture, Cloud DevOps & Kubernetes, Cybersecurity 28-Module Program, and Project Management.'
+              'text': 'DFJJK Global offers Data Science & AI, Data Analytics, Agentic AI, Power BI, SQL, Full-Stack Development, Cloud Computing & DevOps, Cybersecurity, Scrum Master, Product Owner, PMP, and Computer Training programs.'
             }
           }
         ]
       }
     ]
   };
+
+  const flagshipIcons = [TrendingUp, Layers, Flame];
 
   return (
     <div>
@@ -149,28 +136,34 @@ export const Home = () => {
         description="Welcome to the official DFJJK Global website (dfjjkglobal.com). DFJJK Global is a premier technology institute providing enterprise masterclasses in Data Science, Power BI, SQL, Python AI, Java Full-Stack, Cloud DevOps, Cybersecurity, and Project Management."
         jsonLd={homeSchema}
       />
-      {/* Glow Background Effects */}
-      <div className="glow-bg" style={{ top: '-100px', left: '15%', width: '500px', height: '500px', background: 'rgba(99, 102, 241, 0.15)' }} />
-      <div className="glow-bg" style={{ top: '400px', right: '10%', width: '400px', height: '400px', background: 'rgba(6, 182, 212, 0.12)' }} />
 
-      {/* Hero Section */}
+      {/* Glow Background Effects */}
+      <div className="glow-bg" style={{ top: '-100px', left: '15%', width: '500px', height: '500px', background: 'rgba(79, 70, 229, 0.12)' }} />
+      <div className="glow-bg" style={{ top: '400px', right: '10%', width: '400px', height: '400px', background: 'rgba(2, 132, 199, 0.08)' }} />
+
+      {/* ===== HERO SECTION ===== */}
       <section style={{ padding: '80px 0 100px', position: 'relative', zIndex: 1 }}>
         <div className="container hero-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'center' }}>
           <div>
-            <div className="badge badge-gradient" style={{ marginBottom: '24px' }}>
-              <Sparkles size={14} color="#A5B4FC" /> Official DFJJK Global Platform
+            <div className="badge badge-gradient" style={{ marginBottom: '20px' }}>
+              <Sparkles size={14} color="var(--accent-primary)" /> Official DFJJK Global Platform
             </div>
 
-            <h1 style={{ fontSize: '3.4rem', lineHeight: 1.1, marginBottom: '24px', fontWeight: 800 }}>
-              DFJJK Global — <span className="gradient-text">Data Science</span>, AI & Architecture
+            <h1 style={{ fontSize: '3.4rem', lineHeight: 1.1, marginBottom: '16px', fontWeight: 800 }}>
+              DFJJK Global
             </h1>
 
-            <p style={{ fontSize: '1.15rem', color: 'var(--text-secondary)', marginBottom: '36px', lineHeight: 1.7 }}>
-              Welcome to the official DFJJK Global platform. Accelerate your career with world-class DFJJK Global masterclasses in Power BI, SQL Analytics, Python to Generative AI, Java Spring Boot, Cloud DevOps, Cybersecurity, and Project Management.
+            {/* Punchline */}
+            <p className="brand-punchline">
+              Learn today. Build tomorrow. The possibilities are yours.
+            </p>
+
+            <p style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', marginBottom: '36px', lineHeight: 1.75 }}>
+              Accelerate your career with world-class DFJJK Global masterclasses in Power BI, SQL Analytics, Python to Generative AI, Java Spring Boot, Cloud DevOps, Cybersecurity, Project Management, and more
             </p>
 
             <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginBottom: '40px' }}>
-              <Link to="/courses" className="btn btn-primary" style={{ padding: '16px 32px', fontSize: '1rem' }}>
+              <Link to="/courses" id="hero-explore-courses-btn" className="btn btn-primary" style={{ padding: '16px 32px', fontSize: '1rem' }}>
                 Explore Courses <ArrowRight size={18} />
               </Link>
               <Link to="/services" className="btn btn-secondary" style={{ padding: '16px 32px', fontSize: '1rem' }}>
@@ -178,67 +171,56 @@ export const Home = () => {
               </Link>
             </div>
 
-            {/* Quick Badges */}
             <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap', alignItems: 'center', color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <CheckCircle size={18} color="#34D399" /> Verified Certificates
+                <CheckCircle size={18} color="#10B981" /> Verified Certificates
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <CheckCircle size={18} color="#34D399" /> Hands-on Projects
+                <CheckCircle size={18} color="#10B981" /> Hands-on Projects
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <CheckCircle size={18} color="#34D399" /> 1-on-1 Mentorship
+                <CheckCircle size={18} color="#10B981" /> 1-on-1 Mentorship
               </div>
             </div>
           </div>
 
-          {/* Hero Visual Card */}
+          {/* Hero Visual */}
           <div style={{ position: 'relative' }}>
             <div className="glass-card" style={{ padding: '16px', overflow: 'hidden', position: 'relative' }}>
               <img 
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" 
-                alt="Engineering Team Collaboration" 
+                alt="DFJJK Global — Engineering Team Collaboration" 
                 style={{ width: '100%', height: '380px', objectFit: 'cover', borderRadius: 'var(--radius-md)' }}
               />
               
               {/* Floating Stat Card 1 */}
               <div className="glass-card animate-float" style={{
-                position: 'absolute',
-                bottom: '10px',
-                left: '10px',
-                padding: '12px 20px',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '12px',
-                background: 'rgba(17, 23, 38, 0.95)'
+                position: 'absolute', bottom: '10px', left: '10px',
+                padding: '12px 20px', display: 'flex', alignItems: 'center', gap: '12px',
+                background: 'rgba(255, 255, 255, 0.97)', border: '1px solid rgba(79, 70, 229, 0.2)'
               }}>
-                <div style={{ padding: '10px', background: 'rgba(99, 102, 241, 0.2)', borderRadius: '10px' }}>
-                  <Award size={20} color="#6366F1" />
+                <div style={{ padding: '10px', background: 'rgba(79, 70, 229, 0.12)', borderRadius: '10px' }}>
+                  <Award size={20} color="#4F46E5" />
                 </div>
                 <div>
-                  <div style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--text-primary)' }}>99.4%</div>
-                  <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Graduation Rate</div>
+                  <div style={{ fontSize: '1.2rem', fontWeight: 800, color: '#0F172A' }}>99.4%</div>
+                  <div style={{ fontSize: '0.75rem', color: '#64748B' }}>Graduation Rate</div>
                 </div>
               </div>
 
               {/* Floating Stat Card 2 */}
               <div className="glass-card animate-float" style={{
-                position: 'absolute',
-                top: '10px',
-                right: '10px',
-                padding: '12px 18px',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '10px',
-                background: 'rgba(17, 23, 38, 0.95)',
+                position: 'absolute', top: '10px', right: '10px',
+                padding: '12px 18px', display: 'flex', alignItems: 'center', gap: '10px',
+                background: 'rgba(255, 255, 255, 0.97)', border: '1px solid rgba(2, 132, 199, 0.2)',
                 animationDelay: '3s'
               }}>
-                <div style={{ padding: '8px', background: 'rgba(6, 182, 212, 0.2)', borderRadius: '8px' }}>
-                  <Users size={18} color="#06B6D4" />
+                <div style={{ padding: '8px', background: 'rgba(2, 132, 199, 0.12)', borderRadius: '8px' }}>
+                  <Users size={18} color="#0284C7" />
                 </div>
                 <div>
-                  <div style={{ fontSize: '1.05rem', fontWeight: 800 }}>15,000+</div>
-                  <div style={{ fontSize: '0.7rem', color: 'var(--text-secondary)' }}>Engineers Trained</div>
+                  <div style={{ fontSize: '1.05rem', fontWeight: 800, color: '#0F172A' }}>15,000+</div>
+                  <div style={{ fontSize: '0.7rem', color: '#64748B' }}>Engineers Trained</div>
                 </div>
               </div>
             </div>
@@ -246,8 +228,8 @@ export const Home = () => {
         </div>
       </section>
 
-      {/* Live Stats Section */}
-      <section style={{ padding: '40px 0', borderTop: '1px solid var(--border-glass)', borderBottom: '1px solid var(--border-glass)', background: 'rgba(255,255,255,0.01)' }}>
+      {/* ===== STATS STRIP ===== */}
+      <section style={{ padding: '40px 0', borderTop: '1px solid var(--border-glass)', borderBottom: '1px solid var(--border-glass)', background: 'var(--bg-surface)' }}>
         <div className="container stats-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '24px', textAlign: 'center' }}>
           <div>
             <div style={{ fontSize: '2.5rem', fontWeight: 800 }} className="gradient-text">15K+</div>
@@ -268,16 +250,115 @@ export const Home = () => {
         </div>
       </section>
 
-      {/* Featured Courses Showcase */}
-      <section style={{ padding: '100px 0' }}>
+      {/* ===== FLAGSHIP PROGRAMS ===== */}
+      <section style={{ padding: '100px 0', background: 'var(--bg-main)' }}>
         <div className="container">
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '48px' }}>
+          <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 52px' }}>
+            <div className="badge badge-flagship" style={{ marginBottom: '16px' }}>
+              <Flame size={14} /> Flagship Programs
+            </div>
+            <h2 style={{ fontSize: '2.5rem', fontWeight: 800, marginBottom: '16px' }}>
+              Our Premier <span className="gradient-text">Masterclasses</span>
+            </h2>
+            <p style={{ color: 'var(--text-secondary)', fontSize: '1.05rem', lineHeight: 1.7 }}>
+              Comprehensive, mentor-led flagship programs engineered to take you from fundamentals to enterprise-level expertise in the fastest-growing tech domains.
+            </p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '28px', marginBottom: '40px' }}>
+            {flagshipCourses.map((course, idx) => {
+              const Icon = flagshipIcons[idx % flagshipIcons.length];
+              return (
+                <div key={course.sku} className="glass-card" style={{
+                  display: 'flex', flexDirection: 'column', overflow: 'hidden',
+                  border: '1px solid rgba(79, 70, 229, 0.25)',
+                  background: 'var(--bg-surface)'
+                }}>
+                  <div style={{ position: 'relative', height: '200px', overflow: 'hidden' }}>
+                    <img 
+                      src={course.imageUrl} 
+                      alt={course.name} 
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
+                    />
+                    <div style={{
+                      position: 'absolute', inset: 0,
+                      background: 'linear-gradient(to top, rgba(15, 23, 42, 0.7) 0%, transparent 60%)'
+                    }} />
+                    <div style={{ position: 'absolute', top: '12px', left: '12px' }} className="badge badge-flagship">
+                      <Flame size={11} /> Flagship
+                    </div>
+                    <div style={{ position: 'absolute', top: '12px', right: '12px' }} className="badge badge-gradient">
+                      {course.category}
+                    </div>
+                  </div>
+
+                  <div style={{ padding: '28px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                    <div>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
+                        <div style={{ padding: '8px', background: 'rgba(79, 70, 229, 0.12)', borderRadius: '10px' }}>
+                          <Icon size={18} color="var(--accent-primary)" />
+                        </div>
+                        <h3 style={{ fontSize: '1.2rem', fontWeight: 700, lineHeight: 1.3, color: 'var(--text-primary)' }}>
+                          {course.name}
+                        </h3>
+                      </div>
+                      <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.65, marginBottom: '20px' }}>
+                        {course.summary}
+                      </p>
+
+                      {/* Highlights preview */}
+                      {course.highlights && (
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '20px' }}>
+                          {course.highlights.slice(0, 3).map((h, i) => (
+                            <span key={i} style={{
+                              fontSize: '0.75rem', fontWeight: 600,
+                              padding: '3px 10px', borderRadius: 'var(--radius-full)',
+                              background: 'rgba(79, 70, 229, 0.08)',
+                              border: '1px solid rgba(79, 70, 229, 0.2)',
+                              color: 'var(--accent-primary)'
+                            }}>{h}</span>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+
+                    <div>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '16px', borderTop: '1px solid var(--border-glass)', marginBottom: '18px' }}>
+                        <span style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+                          <Clock size={14} /> {course.duration}
+                        </span>
+                        <span style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--accent-primary)' }}>
+                          {course.price}
+                        </span>
+                      </div>
+                      <Link to={`/courses/${course.sku}`} id={`flagship-enroll-${course.sku}`} className="btn btn-primary" style={{ width: '100%' }}>
+                        Enroll Now <ArrowRight size={16} />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <div style={{ textAlign: 'center' }}>
+            <Link to="/courses" className="btn btn-secondary" style={{ width: 'auto', display: 'inline-flex' }}>
+              <BookOpen size={16} /> View Full Course Catalog <ChevronRight size={16} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== FEATURED COURSES ===== */}
+      <section style={{ padding: '80px 0', background: 'var(--bg-surface-elevated)' }}>
+        <div className="container">
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '48px', flexWrap: 'wrap', gap: '16px' }}>
             <div>
               <div className="badge badge-gradient" style={{ marginBottom: '12px' }}>
-                <BookOpen size={14} color="#A5B4FC" /> Featured Catalog
+                <Star size={14} color="var(--accent-primary)" /> Popular Courses
               </div>
-              <h2 style={{ fontSize: '2.5rem', fontWeight: 800 }}>
-                Explore Premier <span className="gradient-text">Masterclasses</span>
+              <h2 style={{ fontSize: '2.2rem', fontWeight: 800 }}>
+                Explore More <span className="gradient-text">Courses</span>
               </h2>
             </div>
             <Link to="/courses" className="btn btn-secondary">
@@ -286,9 +367,9 @@ export const Home = () => {
           </div>
 
           <div className="grid-responsive">
-            {courses.map((course) => (
-              <div key={course.id || course.sku} className="glass-card" style={{ display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
-                <div style={{ position: 'relative', height: '200px', overflow: 'hidden' }}>
+            {featuredCourses.slice(0, 6).map((course) => (
+              <div key={course.id || course.sku} className="glass-card" style={{ display: 'flex', flexDirection: 'column', overflow: 'hidden', background: 'var(--bg-surface)' }}>
+                <div style={{ position: 'relative', height: '190px', overflow: 'hidden' }}>
                   <img 
                     src={course.imageUrl} 
                     alt={course.name} 
@@ -299,25 +380,24 @@ export const Home = () => {
                   </div>
                 </div>
 
-                <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                <div style={{ padding: '22px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                   <div>
-                    <h3 style={{ fontSize: '1.25rem', marginBottom: '10px', color: 'var(--text-primary)' }}>{course.name}</h3>
-                    <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '20px' }}>
+                    <h3 style={{ fontSize: '1.1rem', marginBottom: '10px', color: 'var(--text-primary)', lineHeight: 1.3 }}>{course.name}</h3>
+                    <p style={{ fontSize: '0.88rem', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '18px' }}>
                       {course.summary}
                     </p>
                   </div>
 
                   <div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '16px', borderTop: '1px solid var(--border-glass)', marginBottom: '18px' }}>
-                      <span style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-                        <Clock size={14} /> {course.duration}
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '14px', borderTop: '1px solid var(--border-glass)', marginBottom: '16px' }}>
+                      <span style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.83rem', color: 'var(--text-muted)' }}>
+                        <Clock size={13} /> {course.duration}
                       </span>
-                      <span style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--accent-secondary)' }}>
-                        ${course.price}
+                      <span style={{ fontSize: '1.3rem', fontWeight: 800, color: 'var(--accent-primary)' }}>
+                        {course.price}
                       </span>
                     </div>
-
-                    <Link to={`/courses/${course.sku}`} className="btn btn-primary" style={{ width: '100%' }}>
+                    <Link to={`/courses/${course.sku}`} id={`featured-enroll-${course.sku}`} className="btn btn-primary" style={{ width: '100%' }}>
                       Enroll Now <ArrowRight size={16} />
                     </Link>
                   </div>
@@ -328,12 +408,12 @@ export const Home = () => {
         </div>
       </section>
 
-      {/* Why Choose DFJJK Global */}
+      {/* ===== WHY CHOOSE DFJJK GLOBAL ===== */}
       <section style={{ padding: '80px 0', background: 'var(--bg-surface)', borderTop: '1px solid var(--border-glass)', borderBottom: '1px solid var(--border-glass)' }}>
         <div className="container">
           <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 60px' }}>
             <div className="badge badge-gradient" style={{ marginBottom: '12px' }}>
-              <Zap size={14} color="#A5B4FC" /> Why Choose Us
+              <Zap size={14} color="var(--accent-primary)" /> Why Choose Us
             </div>
             <h2 style={{ fontSize: '2.5rem', fontWeight: 800, marginBottom: '16px' }}>
               Designed for Enterprise Excellence
@@ -344,9 +424,9 @@ export const Home = () => {
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '32px' }}>
-            <div className="glass-card" style={{ padding: '32px' }}>
-              <div style={{ width: '50px', height: '50px', borderRadius: '14px', background: 'rgba(99, 102, 241, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
-                <Zap size={26} color="#6366F1" />
+            <div className="glass-card" style={{ padding: '32px', background: 'var(--bg-surface)' }}>
+              <div style={{ width: '50px', height: '50px', borderRadius: '14px', background: 'rgba(79, 70, 229, 0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
+                <Zap size={26} color="var(--accent-primary)" />
               </div>
               <h3 style={{ fontSize: '1.2rem', marginBottom: '12px' }}>Production-Ready Tech Stack</h3>
               <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem' }}>
@@ -354,9 +434,9 @@ export const Home = () => {
               </p>
             </div>
 
-            <div className="glass-card" style={{ padding: '32px' }}>
-              <div style={{ width: '50px', height: '50px', borderRadius: '14px', background: 'rgba(6, 182, 212, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
-                <Shield size={26} color="#06B6D4" />
+            <div className="glass-card" style={{ padding: '32px', background: 'var(--bg-surface)' }}>
+              <div style={{ width: '50px', height: '50px', borderRadius: '14px', background: 'rgba(2, 132, 199, 0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
+                <Shield size={26} color="var(--accent-secondary)" />
               </div>
               <h3 style={{ fontSize: '1.2rem', marginBottom: '12px' }}>Enterprise-Grade Security</h3>
               <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem' }}>
@@ -364,9 +444,9 @@ export const Home = () => {
               </p>
             </div>
 
-            <div className="glass-card" style={{ padding: '32px' }}>
-              <div style={{ width: '50px', height: '50px', borderRadius: '14px', background: 'rgba(236, 72, 153, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
-                <Globe2 size={26} color="#EC4899" />
+            <div className="glass-card" style={{ padding: '32px', background: 'var(--bg-surface)' }}>
+              <div style={{ width: '50px', height: '50px', borderRadius: '14px', background: 'rgba(236, 72, 153, 0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
+                <Globe2 size={26} color="var(--accent-pink)" />
               </div>
               <h3 style={{ fontSize: '1.2rem', marginBottom: '12px' }}>Global Community & Mentors</h3>
               <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem' }}>
@@ -377,8 +457,14 @@ export const Home = () => {
         </div>
       </section>
 
-      {/* CTA Banner */}
-      <section style={{ padding: '100px 0' }}>
+      {/* ===== REVIEWS SECTION ===== */}
+      <ReviewsSection />
+
+      {/* ===== TESTIMONIALS SECTION ===== */}
+      <TestimonialsSection />
+
+      {/* ===== CTA BANNER ===== */}
+      <section style={{ padding: '100px 0', background: 'var(--bg-main)' }}>
         <div className="container">
           <div className="glass-card" style={{
             padding: '60px',
@@ -393,8 +479,8 @@ export const Home = () => {
             <p style={{ fontSize: '1.15rem', opacity: 0.9, maxWidth: '650px', margin: '0 auto 36px' }}>
               Join thousands of developers and engineering leaders enrolled in DFJJK Global masterclasses today.
             </p>
-            <div style={{ display: 'flex', gap: '16px', justifyContent: 'center' }}>
-              <Link to="/register" className="btn btn-secondary" style={{ background: '#FFF', color: '#090D16', padding: '16px 36px', fontSize: '1rem', fontWeight: 700 }}>
+            <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <Link to="/register" id="cta-get-started-btn" className="btn btn-secondary" style={{ background: '#FFF', color: '#0F172A', padding: '16px 36px', fontSize: '1rem', fontWeight: 700 }}>
                 Get Started Free
               </Link>
               <Link to="/contact" className="btn btn-outline" style={{ borderColor: '#FFF', color: '#FFF', padding: '16px 36px', fontSize: '1rem' }}>

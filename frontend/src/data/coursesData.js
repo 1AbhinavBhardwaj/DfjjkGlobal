@@ -1,13 +1,438 @@
 export const CATALOG_COURSES = [
   {
+    id: 'data-science-and-ai',
+    sku: 'DFJJK-FLAGSHIP-DS-AI',
+    name: 'Data Science and AI',
+    summary: 'Comprehensive flagship program combining Data Science fundamentals, Artificial Intelligence, Machine Learning, Generative AI, and Prompt Engineering.',
+    description: 'Our premier flagship masterclass designed for future AI leaders. Learn end-to-end Data Science, machine learning algorithms, deep learning neural networks, Generative AI models, and real-world Prompt Engineering for enterprise scale.',
+    price: '₹1,499/-',
+    duration: '16–20 Weeks Live Interactive Masterclass',
+    category: 'AI & Machine Learning',
+    imageUrl: 'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=1200&q=80',
+    active: true,
+    isFlagship: true,
+    featured: true,
+    highlights: [
+      'Flagship Master Certification',
+      'Data Science & ML Core',
+      'Generative AI & LLMs',
+      'Prompt Engineering Labs',
+      'Real-world Capstones',
+      'Interview & Placement Support'
+    ],
+    learningJourney: [
+      'Data Science Foundations',
+      'Python & Statistics',
+      'Machine Learning Models',
+      'Deep Learning & PyTorch',
+      'Generative AI & LLMs',
+      'Prompt Engineering',
+      'Enterprise AI Capstone'
+    ],
+    type: 'module',
+    modules: [
+      {
+        number: 'MODULE 1',
+        title: 'Data Science Foundations & Python Stack',
+        topics: [
+          'Python programming, NumPy, Pandas, and Exploratory Data Analysis (EDA)',
+          'Data wrangling, cleaning, and statistical hypothesis testing',
+          'Data visualization using Seaborn and Matplotlib'
+        ]
+      },
+      {
+        number: 'MODULE 2',
+        title: 'Machine Learning & Predictive Modeling',
+        topics: [
+          'Supervised learning: Regression, Classification, SVM, Decision Trees & Random Forests',
+          'Unsupervised learning: Clustering (K-Means, DBSCAN) and Dimensionality Reduction (PCA)',
+          'Model validation, cross-validation, hyperparameter tuning, and Scikit-Learn pipelines'
+        ]
+      },
+      {
+        number: 'MODULE 3',
+        title: 'Deep Learning & Neural Networks',
+        topics: [
+          'Perceptrons, Feedforward Neural Networks, Backpropagation & Activation Functions',
+          'Convolutional Neural Networks (CNNs) for Computer Vision',
+          'Recurrent Neural Networks (RNNs) and LSTMs for Time-Series Analysis'
+        ]
+      },
+      {
+        number: 'MODULE 4',
+        title: 'Generative AI & Transformer Architectures',
+        topics: [
+          'Attention mechanism, Transformers, BERT, GPT models, and Hugging Face Ecosystem',
+          'Fine-tuning pre-trained Large Language Models (LLMs)',
+          'Vector Databases (ChromaDB, Pinecone) & Semantic Search'
+        ]
+      },
+      {
+        number: 'MODULE 5',
+        title: 'Prompt Engineering & Enterprise Deployment',
+        topics: [
+          'Prompt patterns, Chain-of-Thought prompting, and System Role tuning',
+          'Building AI applications using LangChain and LlamaIndex',
+          'Deploying AI pipelines as scalable microservices'
+        ]
+      }
+    ],
+    learningOutcomes: [
+      'Master Data Science tools, statistics, and machine learning pipelines',
+      'Build and train deep neural networks for vision and text processing',
+      'Fine-tune Generative AI models and implement advanced Prompt Engineering',
+      'Complete end-to-end enterprise AI capstone projects'
+    ],
+    capstones: [
+      {
+        title: 'Enterprise Multi-Modal Generative AI Assistant Capstone',
+        description: 'Design and deploy an enterprise-grade AI system integrating vector search, LLMs, fine-tuned domain models, and custom prompt workflows.'
+      }
+    ],
+    interviewPrep: [
+      'Data Science & AI System Design Interviews',
+      'ML Coding Live Challenges & Resume Portfolio Review'
+    ],
+    faqs: [
+      {
+        question: 'What makes this a Flagship Program?',
+        answer: 'This program brings together our complete Data Science, Machine Learning, Generative AI, and Prompt Engineering curricula into a unified, high-impact career masterclass.'
+      }
+    ]
+  },
+  {
+    id: 'data-analytics',
+    sku: 'DFJJK-FLAGSHIP-DATA-ANALYTICS',
+    name: 'Data Analytics',
+    summary: 'Flagship analytics program combining Power BI visualization, SQL analytical queries, data modeling, business intelligence, and executive dashboard storytelling.',
+    description: 'An all-in-one flagship masterclass empowering learners to transform raw corporate datasets into strategic business decisions. Master SQL query optimization, Power Query, advanced DAX, semantic data modeling, and interactive Power BI report publishing.',
+    price: '₹1,499/-',
+    duration: '14–16 Weeks Live Interactive Masterclass',
+    category: 'Data Science & Analytics',
+    imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
+    active: true,
+    isFlagship: true,
+    featured: true,
+    highlights: [
+      'Flagship Analytics Certification',
+      'Power BI Masterclass Included',
+      'SQL Query Mastery Included',
+      'Executive Dashboard Design',
+      'Business Intelligence Workflows',
+      'PL-300 Certification Ready'
+    ],
+    learningJourney: [
+      'SQL Fundamentals',
+      'Complex SQL Analytics',
+      'Power BI Desktop & Service',
+      'Power Query & Data Modeling',
+      'Advanced DAX Calculations',
+      'Executive Analytics Capstone'
+    ],
+    type: 'module',
+    modules: [
+      {
+        number: 'MODULE 1',
+        title: 'SQL Querying & Database Analytics',
+        topics: [
+          'Relational database design, SELECT, WHERE, ORDER BY, GROUP BY, HAVING',
+          'Joins (INNER, LEFT, RIGHT, FULL), Subqueries, CTEs, and Window Functions',
+          'Indexing, query performance tuning, and analytical SQL case studies'
+        ]
+      },
+      {
+        number: 'MODULE 2',
+        title: 'Data Transformation & Power Query (M)',
+        topics: [
+          'Connecting to SQL, Excel, and Web APIs in Power BI Desktop',
+          'ETL operations, data cleaning, unpivoting, and custom M functions',
+          'Star Schema and Snowflake Schema data modeling architecture'
+        ]
+      },
+      {
+        number: 'MODULE 3',
+        title: 'DAX Calculations & Business Metrics',
+        topics: [
+          'Calculated columns vs. DAX measures',
+          'Row context vs. Filter context and CALCULATE function',
+          'Time intelligence DAX functions (YTD, MTD, SAMEPERIODLASTYEAR)'
+        ]
+      },
+      {
+        number: 'MODULE 4',
+        title: 'Executive Visualizations & Power BI Service',
+        topics: [
+          'Designing interactive dashboards, tooltips, bookmarks, and visual hierarchy',
+          'Publishing to Power BI Service, row-level security (RLS), and scheduled refresh',
+          'Preparing for the Microsoft PL-300 exam'
+        ]
+      }
+    ],
+    learningOutcomes: [
+      'Write complex SQL queries for analytics and reporting',
+      'Build end-to-end star schema semantic models in Power BI',
+      'Calculate critical business KPIs using advanced DAX',
+      'Prepare for Data Analyst & BI Developer roles'
+    ],
+    capstones: [
+      {
+        title: 'End-to-End Corporate Business Intelligence & SQL Analytics Capstone',
+        description: 'Extract insights from an enterprise SQL database, construct semantic data models, and build interactive executive Power BI reports.'
+      }
+    ],
+    interviewPrep: [
+      'SQL Live Coding & DAX Interview Questions',
+      'BI Portfolio Review & Mock Technical Interviews'
+    ],
+    faqs: [
+      {
+        question: 'Does this course cover both SQL and Power BI?',
+        answer: 'Yes! The Data Analytics flagship program covers SQL querying from beginner to advanced alongside complete Power BI visualization.'
+      }
+    ]
+  },
+  {
+    id: 'agentic-ai',
+    sku: 'DFJJK-FLAGSHIP-AGENTIC-AI',
+    name: 'Agentic AI',
+    summary: 'Master Agentic AI, Autonomous AI Agents, Retrieval-Augmented Generation (RAG), Vector Databases, and LLM application development.',
+    description: 'A cutting-edge flagship masterclass dedicated to the next frontier of AI: Agentic Systems. Learn to build autonomous agents, implement Retrieval-Augmented Generation (RAG) architectures, integrate vector databases, and orchestrate LLM workflows with LangChain, AutoGen, and CrewAI.',
+    price: '₹899/-',
+    duration: '8–10 Weeks Hands-on Masterclass',
+    category: 'AI & Machine Learning',
+    imageUrl: 'https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=1200&q=80',
+    active: true,
+    isFlagship: true,
+    featured: true,
+    highlights: [
+      'Autonomous AI Agents',
+      'RAG Architecture & Vector DBs',
+      'LangChain & LlamaIndex',
+      'CrewAI & Multi-Agent Frameworks',
+      'LLM Tool Calling & Memory',
+      'Production AI Deployment'
+    ],
+    learningJourney: [
+      'LLM Fundamentals & APIs',
+      'Vector DBs & Embeddings',
+      'RAG Implementation',
+      'Agentic Tool Use & Memory',
+      'Multi-Agent Orchestration',
+      'Autonomous Agent Capstone'
+    ],
+    type: 'module',
+    modules: [
+      {
+        number: 'MODULE 1',
+        title: 'LLMs, Embeddings & Vector Stores',
+        topics: [
+          'Overview of LLM APIs (OpenAI, Anthropic, Gemini, Open-Source Ollama)',
+          'Understanding embeddings, cosine similarity, and vector search',
+          'Hands-on with Pinecone, ChromaDB, and Qdrant vector databases'
+        ]
+      },
+      {
+        number: 'MODULE 2',
+        title: 'Retrieval-Augmented Generation (RAG)',
+        topics: [
+          'Naïve RAG vs. Advanced RAG pipelines',
+          'Document chunking, hybrid search (keyword + semantic), re-ranking',
+          'Evaluating RAG quality using Ragas and TruLens'
+        ]
+      },
+      {
+        number: 'MODULE 3',
+        title: 'Agentic Workflows & Tool Execution',
+        topics: [
+          'What is Agentic AI? ReAct pattern, Function Calling, and Tool Use',
+          'Equipping agents with web search, database querying, and API tools',
+          'Managing agent memory (short-term, long-term, conversational context)'
+        ]
+      },
+      {
+        number: 'MODULE 4',
+        title: 'Multi-Agent Orchestration & Production Deployment',
+        topics: [
+          'Multi-agent collaboration architectures using CrewAI and AutoGen',
+          'Agent evaluation, human-in-the-loop validation, and guardrails (NeMo Guardrails)',
+          'Deploying Agentic AI systems as scalable API endpoints'
+        ]
+      }
+    ],
+    learningOutcomes: [
+      'Design production-ready RAG architectures',
+      'Build autonomous AI agents with function calling and tool execution',
+      'Orchestrate multi-agent teams for complex enterprise tasks',
+      'Deploy AI agents with security guardrails'
+    ],
+    capstones: [
+      {
+        title: 'Autonomous Enterprise Knowledge & Task Execution Agentic System',
+        description: 'Build a multi-agent system capable of researching company data via RAG, executing database queries, and generating automated reports.'
+      }
+    ],
+    interviewPrep: [
+      'Agentic AI Architecture Interview Readiness',
+      'RAG & Vector DB Coding Challenges'
+    ],
+    faqs: [
+      {
+        question: 'What prior knowledge is needed for Agentic AI?',
+        answer: 'Basic Python knowledge is recommended. We cover RAG, Vector DBs, and Agent frameworks step by step.'
+      }
+    ]
+  },
+  {
+    id: 'computer-training',
+    sku: 'DFJJK-COMP-TRAIN-101',
+    name: 'Computer Training',
+    summary: 'Our comprehensive Computer Training Program is exclusively designed to help learners up-skill or gain the basic knowledge to work with computers.',
+    description: 'Our comprehensive Computer Training Program is exclusively designed to help learners up-skill or gain the basic knowledge to work with computers. Master PC hardware, Windows OS navigating, Microsoft Office (Word, Excel, PowerPoint, Access), Office 365, Internet productivity, AI Copilot, and cloud basics.',
+    price: '₹499/-',
+    duration: '6–8 Weeks Hands-on Training',
+    category: 'Computer Skills',
+    imageUrl: 'https://images.unsplash.com/photo-1587620962725-abab7fe55159?auto=format&fit=crop&w=1200&q=80',
+    active: true,
+    featured: true,
+    highlights: [
+      'Comprehensive Beginner to Skilled Training',
+      'PC Hardware & OS Fundamentals',
+      'Windows & App Management',
+      'MS Office & Office 365 Mastery',
+      'Excel Calculations & Formulas',
+      'PowerPoint, Access & Cloud Intro',
+      'Microsoft Copilot & Online Products',
+      'Hands-on Practical Exercises'
+    ],
+    learningJourney: [
+      'PC & Hardware Basics',
+      'Windows Navigation',
+      'MS Word & Office 365',
+      'Excel Formulas & Data',
+      'PowerPoint & Access',
+      'Cloud & Copilot Essentials'
+    ],
+    type: 'module',
+    modules: [
+      {
+        number: 'MODULE 1',
+        title: 'Introduction to PC',
+        topics: [
+          'Brief background of Computers and Software Concepts',
+          'Hardware Components',
+          'Memory',
+          'Function of the CPU',
+          'Storage, Input and Output Devices',
+          'Identifying errors, issues and troubleshooting techniques',
+          'The Operating Systems',
+          'The Internet and Online Products'
+        ]
+      },
+      {
+        number: 'MODULE 2',
+        title: 'Introduction to Windows (latest versions)',
+        topics: [
+          'The Start Menu',
+          'Pinning of Apps to the Start Menu and the Taskbar',
+          'Application Management',
+          'Navigating the Apps Settings',
+          'Navigating Outlook and the Music Folder',
+          'Importing images and videos',
+          'Modifying images and managing the videos folder',
+          'Managing Documents and Files',
+          'Scanning',
+          'Managing Contacts in Outlook',
+          'Formatting text in email messages',
+          'Browsing the Internet',
+          'Searching and using Maps',
+          'Accessibility Functions',
+          'Using Copilot',
+          'Security Issues'
+        ]
+      },
+      {
+        number: 'MODULE 3',
+        title: 'MS Office (latest version) & Office 365',
+        topics: [
+          'Productivity Apps for business',
+          'File Management',
+          'MS Word',
+          'Creating and editing documents',
+          'Navigating and formatting documents',
+          'Guidelines for MLA Formatting',
+          'Creating tables',
+          'Creating multipage reports',
+          'Page Layout and Design Enhancement'
+        ]
+      },
+      {
+        number: 'MODULE 4',
+        title: 'Excel',
+        topics: [
+          'Getting Started with Excel',
+          'The Excel Workbook',
+          'Formatting Workbook Text and Data',
+          'Calculations with Formulas',
+          'Using Functions',
+          'Analyzing and Charting Financial Data'
+        ]
+      },
+      {
+        number: 'MODULE 5',
+        title: 'Microsoft Access, PowerPoint & Cloud',
+        topics: [
+          'Windows Access / Microsoft Access',
+          'Database and Table Relationships',
+          'Maintaining and Querying a Database',
+          'Creating Forms and Reports',
+          'PowerPoint',
+          'Creating a Presentation',
+          'Saving and Editing a Presentation',
+          'Formatting Text and Working with Photos',
+          'Adding Objects and Tables to Slides',
+          'Graphics and Multimedia in Presentations',
+          'Brief Introduction to Cloud Computing',
+          'MS 365'
+        ]
+      }
+    ],
+    learningOutcomes: [
+      'Gain full confidence in operating desktop and laptop computers',
+      'Master Microsoft Windows app navigation, file management, and Copilot AI tools',
+      'Create formatted documents in MS Word and manage Office 365 cloud files',
+      'Perform data calculations, formatting, and charts in Microsoft Excel',
+      'Design professional presentations in PowerPoint and build basic database forms in Access'
+    ],
+    capstones: [
+      {
+        title: 'Complete Office Productivity & PC Management Practical Capstone',
+        description: 'Demonstrate PC troubleshooting, build a formatted Word report, create a calculated Excel budget sheet, and design a PowerPoint presentation.'
+      }
+    ],
+    interviewPrep: [
+      'Basic Computer Operator & Office Assistant Interview Questions',
+      'Practical MS Office Skills Assessment Readiness'
+    ],
+    faqs: [
+      {
+        question: 'Who is this Computer Training course designed for?',
+        answer: 'This program is exclusively designed for absolute beginners, students, professionals up-skilling, or anyone wanting confident computer skills.'
+      },
+      {
+        question: 'Does this course cover modern tools like Copilot and Office 365?',
+        answer: 'Yes! We cover the latest versions of Windows, MS Office 365, Copilot AI integration, and Cloud basics.'
+      }
+    ]
+  },
+  {
     id: 'power-bi-excellence',
     sku: 'DFJJK-DS-POWERBI',
     name: 'Power BI: Data Visualization Excellence',
     summary: 'Master Power BI, Microsoft Fabric, advanced DAX, data modeling, and performance optimization to build executive-ready interactive dashboards.',
     description: 'An end-to-end professional program transforming raw datasets into high-impact strategic insights. Learn Power Query (M Language), complex DAX calculations, semantic data modeling, Power BI Service administration, and Microsoft Fabric integration while preparing for the Microsoft PL-300 certification.',
-    price: '349.00',
+    price: '₹449/-',
     duration: '10–12 Live Interactive Sessions',
-    category: 'Data Science',
+    category: 'Data Science & Analytics',
     imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
     active: true,
     highlights: [
@@ -177,9 +602,9 @@ export const CATALOG_COURSES = [
     name: 'SQL Unlocked: Path to Data Excellence',
     summary: 'Master hands-on SQL query writing, complex joins, CTEs, subqueries, and window functions to solve real-world analytical problems.',
     description: 'A comprehensive, practice-intensive SQL masterclass designed for aspiring Data Analysts, Data Engineers, and BI Professionals. Go from fundamental data retrieval to advanced analytical queries, window functions, query optimization, and real-world enterprise database case studies.',
-    price: '299.00',
+    price: '₹449/-',
     duration: '10 Live Interactive Sessions',
-    category: 'Data Science',
+    category: 'Data Science & Analytics',
     imageUrl: 'https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=1200&q=80',
     active: true,
     highlights: [
@@ -199,392 +624,143 @@ export const CATALOG_COURSES = [
       'Set Operations',
       'Subqueries & CTEs',
       'Window Functions',
-      'Performance Optimization',
-      'Case Study & Interview Readiness'
+      'Database Design',
+      'Capstone & Case Study'
     ],
     type: 'session',
     sessions: [
-      {
-        sessionNumber: 'Session 1',
-        title: 'SQL Fundamentals',
-        topics: [
-          'Introduction',
-          'SQL Server setup',
-          'first database and tables'
-        ],
-        deliverables: ['Notes', 'Hands-on Lab', 'Assignment']
-      },
-      {
-        sessionNumber: 'Session 2',
-        title: 'Table Design & Data Modification',
-        topics: [
-          'ALTER',
-          'UPDATE',
-          'DELETE',
-          'Constraints'
-        ],
-        deliverables: ['Notes', 'Hands-on Lab', 'Assignment']
-      },
-      {
-        sessionNumber: 'Session 3',
-        title: 'Data Retrieval',
-        topics: [
-          'SELECT',
-          'WHERE',
-          'ORDER BY',
-          'LIKE',
-          'IN'
-        ],
-        deliverables: ['Notes', 'Hands-on Lab', 'Assignment']
-      },
-      {
-        sessionNumber: 'Session 4',
-        title: 'Aggregation',
-        topics: [
-          'SUM',
-          'AVG',
-          'COUNT',
-          'GROUP BY',
-          'HAVING'
-        ],
-        deliverables: ['Notes', 'Hands-on Lab', 'Assignment']
-      },
-      {
-        sessionNumber: 'Session 5',
-        title: 'SQL Joins',
-        topics: [
-          'INNER',
-          'LEFT',
-          'RIGHT',
-          'FULL joins'
-        ],
-        deliverables: ['Notes', 'Hands-on Lab', 'Assignment']
-      },
-      {
-        sessionNumber: 'Session 6',
-        title: 'SQL Functions',
-        topics: [
-          'Date',
-          'String',
-          'CASE WHEN'
-        ],
-        deliverables: ['Notes', 'Hands-on Lab', 'Assignment']
-      },
-      {
-        sessionNumber: 'Session 7',
-        title: 'Set Operations',
-        topics: [
-          'UNION',
-          'UNION ALL',
-          'INTERSECT',
-          'EXCEPT'
-        ],
-        deliverables: ['Notes', 'Hands-on Lab', 'Assignment']
-      },
-      {
-        sessionNumber: 'Session 8',
-        title: 'Subqueries & CTEs',
-        topics: [
-          'Nested Queries',
-          'CTEs'
-        ],
-        deliverables: ['Notes', 'Hands-on Lab', 'Assignment']
-      },
-      {
-        sessionNumber: 'Session 9',
-        title: 'Window Functions',
-        topics: [
-          'ROW_NUMBER',
-          'RANK',
-          'LEAD',
-          'LAG'
-        ],
-        deliverables: ['Notes', 'Hands-on Lab', 'Assignment']
-      },
-      {
-        sessionNumber: 'Session 10',
-        title: 'Performance & Project',
-        topics: [
-          'Indexes',
-          'Optimization',
-          'Case Study',
-          'Doubts'
-        ],
-        deliverables: ['Notes', 'Hands-on Lab', 'Assignment']
-      }
+      { sessionNumber: 'SESSION 01', title: 'Course Overview & SQL Fundamentals', topics: ['Introduction to SQL & Relational Databases (RDBMS)', 'Database Architecture: Tables, Rows, Columns, Keys (PK/FK)', 'Setting up PostgreSQL / MySQL & GUI Client (DBeaver/pgAdmin)', 'First Queries: SELECT, WHERE, ORDER BY, and LIMIT/OFFSET'], deliverables: ['Session 01 Cheat Sheet', 'Practice Problem Set #1'] },
+      { sessionNumber: 'SESSION 02', title: 'Filtering & Sorting Data', topics: ['Comparison Operators (=, !=, <, >, <=, >=)', 'Logical Operators (AND, OR, NOT)', 'Pattern Matching with LIKE, ILIKE, and Wildcards (%, _)', 'Handling NULL values (IS NULL, IS NOT NULL, COALESCE)', 'Sorting multi-column result sets'], deliverables: ['Session 02 Exercises', 'SQL Filtering Quiz'] },
+      { sessionNumber: 'SESSION 03', title: 'Aggregating Data & Summary Statistics', topics: ['Aggregate Functions: COUNT, SUM, AVG, MIN, MAX', 'Grouping Data with GROUP BY clause', 'Filtering Groups with HAVING vs. WHERE', 'Understanding Grouping Sets & Rollup (Intro)'], deliverables: ['Aggregation Practice Labs', 'Sales Summary Queries'] },
+      { sessionNumber: 'SESSION 04', title: 'Combining Tables: Relational Joins', topics: ['Understanding Table Relationships & Cardinality', 'INNER JOIN vs. LEFT JOIN vs. RIGHT JOIN vs. FULL OUTER JOIN', 'Self Joins & Cross Joins', 'Joining multiple tables (3+ tables)', 'Avoiding cartesian products & duplicate rows'], deliverables: ['Joins Visual Cheat Sheet', 'Multi-Table Query Assignments'] },
+      { sessionNumber: 'SESSION 05', title: 'Built-in Functions (String, Numeric, Date)', topics: ['String Functions: CONCAT, SUBSTRING, LENGTH, UPPER, LOWER, TRIM', 'Numeric Functions: ROUND, CEIL, FLOOR, ABS, POWER', 'Date/Time Functions: NOW(), EXTRACT(), DATE_TRUNC(), INTERVAL', 'Conditional Expressions: CASE WHEN ... THEN ... ELSE ... END'], deliverables: ['Data Transformation Scripts', 'Date/Time Analytics Lab'] },
+      { sessionNumber: 'SESSION 06', title: 'Set Operations & Data Combination', topics: ['UNION vs. UNION ALL', 'INTERSECT & EXCEPT / MINUS', 'Rules for Set Operations (Column compatibility, Data types)', 'Real-world use cases for combining dataset snapshots'], deliverables: ['Set Operations Exercises', 'Data Comparison Scenarios'] },
+      { sessionNumber: 'SESSION 07', title: 'Subqueries & Common Table Expressions (CTEs)', topics: ['Single-row vs. Multi-row Subqueries', 'Correlated Subqueries & EXISTS / NOT EXISTS operators', 'Subqueries in WHERE, FROM (Derived Tables), and SELECT clauses', 'Writing clean modular SQL with Common Table Expressions (WITH clause)'], deliverables: ['Complex Query Lab', 'Subquery to CTE Refactoring Assignment'] },
+      { sessionNumber: 'SESSION 08', title: 'Advanced Analytics: Window Functions', topics: ['Understanding OVER() Clause & Partitioning (PARTITION BY)', 'Ranking Functions: ROW_NUMBER(), RANK(), DENSE_RANK(), NTILE()', 'Value Functions: LAG(), LEAD(), FIRST_VALUE(), LAST_VALUE()', 'Aggregate Window Functions (Running Totals, Moving Averages)'], deliverables: ['Window Functions Master Guide', 'Financial Running Total Case Study'] },
+      { sessionNumber: 'SESSION 09', title: 'Data Definition (DDL) & Data Manipulation (DML)', topics: ['Creating & Altering Tables (CREATE TABLE, ALTER TABLE, DROP TABLE)', 'Data Types (INT, VARCHAR, TIMESTAMP, NUMERIC, BOOLEAN, JSONB)', 'Constraints (NOT NULL, UNIQUE, CHECK, PRIMARY KEY, FOREIGN KEY)', 'Inserting, Updating, and Deleting Data (INSERT, UPDATE, DELETE, TRUNCATE)', 'Transactions & Concurrency (BEGIN, COMMIT, ROLLBACK)'], deliverables: ['Database Schema Builder Script', 'DDL/DML Verification Quiz'] },
+      { sessionNumber: 'SESSION 10', title: 'Query Optimization, Indexing & Capstone Presentation', topics: ['Understanding Query Execution Plans (EXPLAIN ANALYZE)', 'B-Tree Indexing Strategies & When NOT to Index', 'Optimizing Slow Joins & Eliminating N+1 Query Anti-patterns', 'Real-world Enterprise E-commerce Case Study Capstone', 'Final SQL Technical Interview Prep & Coding Challenges'], deliverables: ['SQL Capstone Project Repository', 'SQL Technical Interview Question Bank'] }
     ],
     learningOutcomes: [
-      'Write SQL queries confidently',
-      'Analyze datasets',
-      'Optimize queries',
-      'Solve interview questions',
-      'Build real-world SQL projects'
+      'Write complex analytical SQL queries',
+      'Perform data aggregation and reporting',
+      'Master Joins, Subqueries, and CTEs',
+      'Apply Window Functions for advanced analytics',
+      'Optimize query performance',
+      'Prepare for SQL technical interviews'
     ],
     capstones: [
       {
-        title: 'Enterprise E-Commerce Data Analytics & Revenue Audit',
-        description: 'Audit millions of transaction records to compute user retention, customer lifetime value (CLV), churn risk, monthly recurring revenue (MRR), and sales anomalies using window functions and CTEs.'
+        title: 'Enterprise E-Commerce Database Analytics Capstone',
+        description: 'Analyze millions of transactions to calculate customer lifetime value (LTV), cohort retention rates, churn risk, and monthly revenue growth using advanced CTEs and Window Functions.'
       }
     ],
     interviewPrep: [
-      'Curated List of Top 100 Real Interview SQL Questions',
-      'Live Coding & Problem Solving Workshops',
-      '1-on-1 Resume & SQL Portfolio Guidance'
+      'Top 100 Live Coding SQL Interview Challenges',
+      'Interactive Whiteboard Query Problem Solving',
+      'Database Schema Design & Query Tuning Review'
     ],
     faqs: [
       {
-        question: 'Which SQL dialect is used in this course?',
-        answer: 'We cover ANSI SQL standards applicable to SQL Server, PostgreSQL, MySQL, Snowflake, and BigQuery, with practical hands-on examples.'
+        question: 'Which SQL dialect is taught in this course?',
+        answer: 'We focus on ANSI standard SQL using PostgreSQL and MySQL, which applies to SQL Server, Snowflake, BigQuery, and Oracle.'
       },
       {
-        question: 'Will I get practice datasets?',
-        answer: 'Yes! You will receive realistic e-commerce, banking, and SaaS datasets with millions of rows for hands-on practice.'
+        question: 'Are there live coding exercises during the sessions?',
+        answer: 'Yes! Every session includes hands-on live query writing, assignments, and immediate instructor feedback.'
       }
     ]
   },
   {
-    id: 'python-ai-master-program',
+    id: 'python-ai-data-science',
     sku: 'DFJJK-DS-AI',
     name: 'Python → AI → Machine Learning → Deep Learning → NLP → Generative AI',
-    summary: 'A comprehensive end-to-end AI & Data Science program covering Python, Math, ML, Neural Networks, Transformers, LLMs, RAG, and Agentic AI Systems.',
-    description: 'The ultimate zero-to-hero engineering masterclass designed for developers, data scientists, and AI architects. Master Python programming, AI mathematics, Supervised & Unsupervised ML, Deep Learning with PyTorch & TensorFlow, Natural Language Processing with Transformers, and production Generative AI with RAG, Vector DBs, and Agentic Frameworks.',
-    price: '699.00',
-    duration: '16 Weeks Comprehensive Program',
-    category: 'Data Science',
-    imageUrl: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80',
+    summary: 'A comprehensive journey from Python programming to Machine Learning, Deep Learning, Natural Language Processing, Transformers, and Generative AI.',
+    description: 'An industry-leading multi-phase masterclass engineered for developers, data analysts, and computer engineers. Master core Python, Data Science libraries (NumPy, Pandas, Scikit-Learn), Machine Learning algorithms, Deep Learning frameworks (PyTorch, TensorFlow), NLP, Transformers, LLMs, Retrieval-Augmented Generation (RAG), and Agentic Systems.',
+    price: '₹899/-',
+    duration: '16–20 Weeks Comprehensive Curriculum',
+    category: 'AI & Machine Learning',
+    imageUrl: 'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=1200&q=80',
     active: true,
     highlights: [
-      'End-to-End AI & Data Science Program',
-      'Python Programming & DSA Stack',
-      'Mathematics & Intuition Behind AI/ML',
-      'Supervised & Unsupervised Machine Learning',
-      'Deep Learning (ANN, CNN, RNN, LSTM)',
-      'Natural Language Processing & Transformers',
-      'Generative AI, Prompt Engineering & LLMs',
-      'RAG & Vector Databases (FAISS, ChromaDB)',
-      'Agentic AI & Multi-Agent Systems',
-      'Comprehensive Capstone Projects'
+      'Complete End-to-End AI Stack',
+      'Python Data Science Stack',
+      'Machine Learning Algorithms',
+      'Deep Learning & PyTorch',
+      'NLP & Transformers',
+      'Generative AI & LLMs',
+      'Agentic Systems & RAG',
+      'Hands-on Real-World Projects'
     ],
     learningJourney: [
-      'Python Programming',
-      'Mathematics for AI',
-      'Machine Learning',
-      'Deep Learning',
-      'Natural Language Processing',
-      'Generative AI',
-      'Capstone Projects'
+      'Python Core & DSA',
+      'Data Science Stack',
+      'Machine Learning Core',
+      'Deep Learning Architectures',
+      'NLP & Transformers',
+      'Generative AI & Agents'
     ],
     type: 'hierarchical',
     aiModules: [
       {
-        moduleNumber: 'Module 1',
-        title: 'Python Programming',
+        moduleNumber: 'PHASE 1',
+        title: 'Python Core & Data Science Stack',
         subsections: [
-          {
-            name: 'Python Fundamentals',
-            topics: [
-              'Variables and Data Types',
-              'Operators and Expressions',
-              'Control Statements',
-              'Functions and Modules',
-              'Object-Oriented Programming',
-              'Exception Handling',
-              'File Handling'
-            ]
-          },
-          {
-            name: 'Data Structures and Algorithms',
-            topics: [
-              'Practical programming and problem-solving using Python'
-            ]
-          },
-          {
-            name: 'Python Data Science Stack',
-            topics: [
-              'NumPy',
-              'Pandas',
-              'Data Visualization using Matplotlib and Seaborn'
-            ]
-          },
-          {
-            name: 'Projects',
-            topics: [
-              'Hands-on Python projects'
-            ]
-          }
+          { name: 'Python Fundamentals', topics: ['Variables, Data Types, Conditionals, Loops', 'Functions, Modules, Packages, File I/O', 'OOP in Python: Classes, Inheritance, Encapsulation'] },
+          { name: 'Data Structures and Algorithms', topics: ['Lists, Tuples, Sets, Dictionaries', 'Searching & Sorting Algorithms', 'Big-O Time & Space Complexity'] },
+          { name: 'Python Data Science Stack', topics: ['NumPy: N-dimensional arrays, vectorization', 'Pandas: DataFrames, Series, Data Cleaning, Merging', 'Matplotlib & Seaborn: EDA & Visual Storytelling'] }
         ]
       },
       {
-        moduleNumber: 'Module 2',
-        title: 'Mathematics for AI',
+        moduleNumber: 'PHASE 2',
+        title: 'Machine Learning Core & Algorithms',
         subsections: [
-          {
-            name: 'Core Foundations',
-            topics: [
-              'Linear Algebra',
-              'Probability and Statistics',
-              'Calculus Fundamentals',
-              'Optimization Techniques',
-              'Gradient Descent',
-              'Loss Functions',
-              'Feature Scaling',
-              'Mathematical Intuition Behind Machine Learning'
-            ]
-          }
+          { name: 'Core Foundations', topics: ['Supervised vs. Unsupervised vs. Reinforcement Learning', 'Feature Engineering, Scaling, One-Hot Encoding', 'Train/Test Split, Cross-Validation, Bias-Variance Tradeoff'] },
+          { name: 'ML Core & Algorithms', topics: ['Linear & Logistic Regression', 'Decision Trees, Random Forests, Gradient Boosting (XGBoost, LightGBM)', 'K-Means Clustering, Hierarchical Clustering, PCA', 'Evaluation Metrics: Accuracy, Precision, Recall, F1, ROC-AUC, RMSE'] }
         ]
       },
       {
-        moduleNumber: 'Module 3',
-        title: 'Machine Learning',
+        moduleNumber: 'PHASE 3',
+        title: 'Deep Learning & Neural Networks',
         subsections: [
-          {
-            name: 'ML Core & Algorithms',
-            topics: [
-              'Data Preprocessing',
-              'Exploratory Data Analysis',
-              'Feature Engineering',
-              'Feature Selection',
-              'Supervised Learning',
-              'Unsupervised Learning',
-              'Ensemble Learning',
-              'Recommendation Systems',
-              'Time-Series Forecasting',
-              'Model Evaluation',
-              'Hyperparameter Tuning'
-            ]
-          },
-          {
-            name: 'Projects',
-            topics: [
-              'End-to-end Machine Learning projects'
-            ]
-          }
+          { name: 'Deep Architectures & Frameworks', topics: ['Perceptrons, Neural Network Layers, Backpropagation', 'Activation Functions (ReLU, Softmax, Sigmoid)', 'Optimizers (Adam, SGD, RMSprop), Loss Functions', 'PyTorch Framework: Tensors, Autograd, DataLoader', 'Convolutional Neural Networks (CNNs) for Image Recognition', 'Recurrent Neural Networks (RNNs) & LSTMs for Sequential Data'] }
         ]
       },
       {
-        moduleNumber: 'Module 4',
-        title: 'Deep Learning',
+        moduleNumber: 'PHASE 4',
+        title: 'NLP, Transformers & Generative AI',
         subsections: [
-          {
-            name: 'Deep Architectures & Frameworks',
-            topics: [
-              'Artificial Neural Networks (ANN)',
-              'Backpropagation',
-              'Activation Functions',
-              'Optimizers',
-              'Regularization Techniques',
-              'Convolutional Neural Networks (CNN)',
-              'Transfer Learning',
-              'Recurrent Neural Networks (RNN)',
-              'LSTM and GRU',
-              'TensorFlow and Keras',
-              'Deep Learning Projects'
-            ]
-          }
-        ]
-      },
-      {
-        moduleNumber: 'Module 5',
-        title: 'Natural Language Processing',
-        subsections: [
-          {
-            name: 'NLP & Transformers',
-            topics: [
-              'Text Preprocessing',
-              'Tokenization',
-              'Stemming and Lemmatization',
-              'TF-IDF',
-              'Word Embeddings',
-              'Sequence Models',
-              'Attention Mechanism',
-              'Transformers',
-              'Hugging Face Transformers',
-              'Practical NLP Applications'
-            ]
-          }
-        ]
-      },
-      {
-        moduleNumber: 'Module 6',
-        title: 'Generative AI',
-        subsections: [
-          {
-            name: 'Generative AI & Agentic Systems',
-            topics: [
-              'Introduction to Large Language Models (LLMs)',
-              'Prompt Engineering',
-              'OpenAI APIs',
-              'Hugging Face Ecosystem',
-              'LangChain Framework',
-              'Vector Databases (FAISS, ChromaDB)',
-              'Retrieval-Augmented Generation (RAG)',
-              'AI Agents and Agentic AI',
-              'Multi-Agent Systems',
-              'Function Calling and Tool Use',
-              'Memory Management in AI Applications',
-              'Streamlit and FastAPI Deployment',
-              'Building Production-Ready GenAI Applications'
-            ]
-          }
+          { name: 'NLP & Transformers', topics: ['Text Preprocessing, Tokenization, TF-IDF, Word2Vec', 'Attention Mechanism & Transformer Architecture', 'BERT, RoBERTa, GPT Models & Hugging Face Transformers'] },
+          { name: 'Generative AI & Agentic Systems', topics: ['Large Language Models (LLMs) & Fine-tuning (LoRA/QLoRA)', 'Retrieval-Augmented Generation (RAG) with LangChain & LlamaIndex', 'Vector Databases (Chroma, Pinecone)', 'Building Autonomous AI Agents & Tool Integration'] }
         ]
       }
     ],
     learningOutcomes: [
-      'Master Python data science stack and DSA fundamentals',
-      'Build solid mathematical intuition for AI and ML algorithms',
-      'Develop end-to-end Machine Learning and Deep Learning models',
-      'Implement state-of-the-art NLP models using Transformers',
-      'Build production RAG pipelines with Vector Databases',
-      'Create autonomous Agentic AI and multi-agent systems with tool use',
-      'Deploy production-ready GenAI applications with FastAPI & Streamlit'
+      'Write clean, production-grade Python code',
+      'Build end-to-end Machine Learning pipelines',
+      'Develop Neural Networks with PyTorch',
+      'Implement NLP and Transformer models',
+      'Build RAG systems and LLM applications',
+      'Prepare for AI & Data Science Engineering roles'
     ],
     capstones: [
       {
-        title: 'End-to-End Machine Learning Project',
-        description: 'Comprehensive supervised ML pipeline with automated EDA, feature engineering, model tuning, and web deployment.'
-      },
-      {
-        title: 'Recommendation System',
-        description: 'Personalized e-commerce and media content recommendation engine using matrix factorization and collaborative filtering.'
-      },
-      {
-        title: 'Time-Series Forecasting Project',
-        description: 'Multi-step temporal forecasting system for enterprise demand and stock metrics.'
-      },
-      {
-        title: 'Computer Vision Project',
-        description: 'Object detection, image segmentation, and transfer learning pipeline with ResNet and PyTorch.'
-      },
-      {
-        title: 'NLP Project',
-        description: 'Domain-specific text classification, sentiment analysis, and named entity extraction suite.'
-      },
-      {
-        title: 'RAG-based AI Assistant',
-        description: 'Vector search knowledge assistant using FAISS/ChromaDB and LangChain to answer domain-specific documentation queries.'
-      },
-      {
-        title: 'Agentic AI Application',
-        description: 'Autonomous research AI agent capable of multi-step tool execution, function calling, and memory management.'
-      },
-      {
-        title: 'Industry-Level Generative AI Capstone',
-        description: 'Production multi-agent platform combining open-weight LLM fine-tuning, streaming FastAPI backend, and Streamlit dashboard.'
+        title: 'Autonomous Enterprise AI Customer Intelligence & RAG System',
+        description: 'Develop a production-grade AI system featuring automated data preprocessing, predictive customer analytics, custom RAG document search, and LLM agent tool calling.'
       }
     ],
     interviewPrep: [
-      'Comprehensive AI & Data Science Coding Practice Suite',
-      'System Design for Machine Learning & GenAI Architectures',
-      '1-on-1 Mock AI Engineer Technical Interviews & Portfolio Review'
+      'Machine Learning & Deep Learning Coding Interview Prep',
+      'AI System Design & LLM Architecture Mock Interviews',
+      'End-to-End GitHub Portfolio Review'
     ],
     faqs: [
       {
-        question: 'Who is this program suitable for?',
-        answer: 'This program is tailored for software engineers, data analysts, and IT professionals looking to transition into senior Data Science, Machine Learning, and AI Engineering roles.'
+        question: 'Do I need prior programming experience?',
+        answer: 'No! Phase 1 starts from absolute Python fundamentals before building up to advanced AI architectures.'
       },
       {
-        question: 'Are cloud GPU resources provided for Deep Learning?',
-        answer: 'Yes! All students get cloud GPU notebook environment access (Colab Pro / Modal) for model training and fine-tuning experiments.'
+        question: 'Which deep learning framework is emphasized?',
+        answer: 'We emphasize PyTorch due to its modern industry adoption, alongside Hugging Face for Transformers and LLMs.'
       }
     ]
   },
@@ -592,169 +768,123 @@ export const CATALOG_COURSES = [
     id: 'fullstack-architecture',
     sku: 'DFJJK-FULLSTACK-101',
     name: 'Enterprise Full-Stack Architecture Masterclass',
-    summary: 'Master modern Java, Spring Boot, React, and cloud-native deployments for high-scale enterprise applications.',
-    description: 'An intensive 12-week comprehensive program designed for developers aiming to master high-scale architecture, microservices, secure authentication, reactive systems, and state-of-the-art frontend frameworks.',
-    price: '499.00',
-    duration: '12 Weeks',
-    category: 'Software Engineering',
+    summary: 'Master enterprise Java Spring Boot 3 microservices, Spring Security JWT, and high-performance React 18 frontends with production deployment.',
+    description: 'A flagship engineering program designed to transform developers into full-stack software architects. Build production-grade microservices with Java 21, Spring Boot 3, PostgreSQL, Docker, and couple them with dynamic React 18, Vite, and modern CSS user interfaces.',
+    price: '₹899/-',
+    duration: '14–16 Weeks Intensive Program',
+    category: 'Software Development',
     imageUrl: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80',
     active: true,
     highlights: [
-      '12-Week Intensive Curriculum',
-      'Java 21 & Spring Boot 3 Core',
-      'React 18 & Modern Hooks Architecture',
-      'Microservices & REST APIs',
-      'PostgreSQL & Redis Caching',
-      'Docker & Cloud Deployment'
+      'Java 21 & Spring Boot 3',
+      'Spring Security & JWT Auth',
+      'React 18 & Vite Frontend',
+      'PostgreSQL & Hibernate JPA',
+      'REST API Design & Swagger',
+      'Microservices & Docker',
+      'CI/CD Pipelines & Cloud Deploy'
     ],
     learningJourney: [
-      'Core Java & Spring Boot',
-      'Data Access & JPA',
-      'React Frontend Architecture',
-      'Security & OAuth2',
-      'Microservices',
-      'DevOps & Capstone'
+      'Java 21 Core',
+      'Spring Boot REST',
+      'Database & JPA',
+      'Spring Security',
+      'React 18 Fundamentals',
+      'Full-Stack Integration',
+      'Microservices & Cloud'
     ],
     type: 'module',
     modules: [
-      {
-        number: 'Module 1',
-        title: 'Enterprise Java & Spring Core',
-        topics: [
-          'Java 21 Features, Virtual Threads & Memory Model',
-          'Spring Framework Architecture & Dependency Injection',
-          'Spring Boot 3 Configuration & Actuator Health Diagnostics'
-        ]
-      },
-      {
-        number: 'Module 2',
-        title: 'Persistence Layer & Query Optimization',
-        topics: [
-          'Spring Data JPA & Hibernate Performance Tuning',
-          'PostgreSQL Indexing, Connection Pooling (HikariCP)',
-          'Redis Caching Strategies & Cache Invalidation Patterns'
-        ]
-      },
-      {
-        number: 'Module 3',
-        title: 'React 18 & Modern Frontend Architecture',
-        topics: [
-          'React 18 State Management & Custom Hooks',
-          'Vite Build Setup, Code Splitting & Performance',
-          'Consuming REST APIs with Axios Interceptors'
-        ]
-      },
-      {
-        number: 'Module 4',
-        title: 'Security, Microservices & Cloud Deployment',
-        topics: [
-          'Spring Security 6, JWT & Stateless Authentication',
-          'Dockerizing Spring Boot & React Applications',
-          'Production CI/CD Pipelines & Cloud Hosting'
-        ]
-      }
+      { number: 'Module 1', title: 'Java 21 Core & Modern Syntax', topics: ['OOP principles, Records, Pattern Matching, Sealed Classes', 'Java Collections Framework, Streams API, Lambda Expressions', 'Exception handling, multithreading, and Virtual Threads'] },
+      { number: 'Module 2', title: 'Spring Boot 3 & RESTful API Design', topics: ['Spring IoC Container, Dependency Injection, Bean Lifecycle', 'Building REST endpoints with @RestController, @RequestMapping', 'DTO patterns, Request Validation, and Global Exception Handling'] },
+      { number: 'Module 3', title: 'Persistence with Spring Data JPA & PostgreSQL', topics: ['Object-Relational Mapping (ORM) with Hibernate', 'Entity relationships (@OneToMany, @ManyToMany, @JoinColumn)', 'Spring Data JPA repositories, JPQL queries, and database migrations'] },
+      { number: 'Module 4', title: 'Spring Security & JWT Authentication', topics: ['Authentication vs. Authorization workflows', 'Configuring SecurityFilterChain and CORS policies', 'Generating, parsing, and validating JSON Web Tokens (JWT)'] },
+      { number: 'Module 5', title: 'Modern React 18 & State Management', topics: ['React components, JSX, props, state, and hooks (useState, useEffect)', 'Context API and global authentication state management', 'Routing with React Router v6 and Axios HTTP interceptors'] },
+      { number: 'Module 6', title: 'Full-Stack Integration & Production Cloud Deployment', topics: ['Connecting React SPA frontend to Spring Boot backend', 'Containerizing Java & React apps with Docker and Docker Compose', 'CI/CD deployment pipelines on Vercel and Render/AWS'] }
     ],
     learningOutcomes: [
-      'Architect robust production-grade backend microservices in Spring Boot',
-      'Build responsive, reactive React 18 single-page applications',
-      'Implement enterprise security, RBAC, and JWT authentication filters',
-      'Containerize applications and deploy to production cloud infrastructure'
+      'Architect full-stack web applications',
+      'Build secure RESTful APIs with Spring Boot 3',
+      'Implement JWT authentication and RBAC',
+      'Develop modern React 18 user interfaces',
+      'Containerize applications using Docker'
     ],
     capstones: [
       {
-        title: 'Distributed Enterprise E-Commerce System',
-        description: 'Full-stack platform with microservices backend, React frontend, payment integration, and Docker deployment.'
+        title: 'Enterprise Multi-Tenant E-Learning & Commerce Platform',
+        description: 'Build a production full-stack application complete with JWT authentication, role-based access control, Stripe payment gateway, course management, and cloud container deployment.'
       }
     ],
     interviewPrep: [
-      'Java & Spring Boot System Design Mock Interviews',
-      'Full-Stack Architecture Portfolio Review'
+      'Java & Spring Boot System Design Interviews',
+      'React Frontend Architecture & State Management Prep',
+      'Live Full-Stack Coding Practice'
     ],
     faqs: [
       {
-        question: 'What are the prerequisites?',
-        answer: 'Basic understanding of programming concepts and Java or JavaScript syntax.'
-      },
-      {
-        question: 'Will I receive a certificate?',
-        answer: 'Yes, a verified DFJJK Global Industry Certificate is awarded upon successful project completion.'
+        question: 'Is this masterclass suitable for beginners?',
+        answer: 'Basic programming knowledge is helpful, but Module 1 covers Java 21 fundamentals from scratch before building up to enterprise architecture.'
       }
     ]
   },
   {
     id: 'cloud-devops',
     sku: 'DFJJK-CLOUD-DEVOP',
-    name: 'Cloud DevOps & Kubernetes Specialization',
-    summary: 'Deploy, auto-scale, and secure containerized infrastructure with AWS, Docker, and Kubernetes.',
-    description: 'Learn production-grade CI/CD pipelines, GitOps with ArgoCD, Infrastructure as Code using Terraform, and multi-region Kubernetes clusters monitoring with Prometheus and Grafana.',
-    price: '399.00',
-    duration: '8 Weeks',
-    category: 'Cloud & Infrastructure',
-    imageUrl: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80',
+    name: 'Cloud Computing and DevOps Specialisation',
+    summary: 'Master multi-cloud architecture on AWS/GCP, Docker containerization, Kubernetes orchestration, Terraform IaC, and GitOps CI/CD pipelines.',
+    description: 'An advanced cloud engineering specialization designed for DevOps engineers, sysadmins, and software developers. Learn to automate cloud infrastructure using Terraform, containerize applications with Docker, orchestrate production clusters with Kubernetes (EKS/GKE), and build resilient GitOps CI/CD pipelines.',
+    price: '₹899/-',
+    duration: '12–14 Weeks Specialization',
+    category: 'Cloud & DevOps',
+    imageUrl: 'https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?auto=format&fit=crop&w=1200&q=80',
     active: true,
     highlights: [
-      '8-Week Intensive Hands-on Specialization',
-      'AWS Cloud Infrastructure Management',
-      'Docker & Container Orchestration',
-      'Kubernetes Cluster Architecture',
+      'AWS & GCP Cloud Services',
+      'Docker Containerization',
+      'Kubernetes Cluster Management',
       'Terraform Infrastructure as Code',
-      'Prometheus & Grafana Observability'
+      'GitHub Actions & Jenkins CI/CD',
+      'Prometheus & Grafana Monitoring'
     ],
     learningJourney: [
-      'Container Foundations',
-      'Kubernetes Basics',
-      'Infrastructure as Code',
-      'GitOps & CI/CD Pipelines',
-      'Observability & Security',
-      'Multi-Region Production Deployment'
+      'Cloud Core (AWS/GCP)',
+      'Docker Containers',
+      'Kubernetes (K8s)',
+      'Terraform IaC',
+      'GitOps & CI/CD',
+      'Observability & Monitoring'
     ],
     type: 'module',
     modules: [
-      {
-        number: 'Module 1',
-        title: 'Docker Containerization & Registry Management',
-        topics: ['Dockerfile Optimization', 'Multi-Stage Builds', 'Docker Compose Setup']
-      },
-      {
-        number: 'Module 2',
-        title: 'Kubernetes Cluster Architecture & Management',
-        topics: ['Pods, Deployments & Services', 'Ingress Controllers', 'ConfigMaps & Secrets']
-      },
-      {
-        number: 'Module 3',
-        title: 'Terraform & Infrastructure as Code (IaC)',
-        topics: ['AWS VPC & EC2 Provisioning', 'State File Management', 'Modular Terraform Setup']
-      },
-      {
-        number: 'Module 4',
-        title: 'GitOps CI/CD & Observability',
-        topics: ['GitHub Actions Pipelines', 'ArgoCD Deployment', 'Prometheus Metrics & Grafana Dashboards']
-      }
+      { number: 'Module 1', title: 'Cloud Architecture & AWS Core Services', topics: ['Cloud computing paradigms (IaaS, PaaS, SaaS)', 'AWS IAM, EC2, S3, VPC networking, security groups', 'Auto-Scaling Groups, Application Load Balancers (ALB)'] },
+      { number: 'Module 2', title: 'Docker Containerization Masterclass', topics: ['Container architecture vs. Virtual Machines', 'Writing efficient Dockerfiles and multi-stage builds', 'Docker Compose multi-container application orchestration'] },
+      { number: 'Module 3', title: 'Kubernetes (K8s) Cluster Orchestration', topics: ['Kubernetes architecture: Control Plane, Nodes, Pods, Deployments', 'Services, Ingress Controllers, ConfigMaps, and Secrets', 'Managing Managed Kubernetes (AWS EKS & GCP GKE)'] },
+      { number: 'Module 4', title: 'Infrastructure as Code (IaC) with Terraform', topics: ['Terraform HCL syntax, providers, state management', 'Writing reusable Terraform modules for cloud infrastructure', 'Automating VPC, EKS clusters, and RDS databases'] },
+      { number: 'Module 5', title: 'CI/CD Pipelines & GitOps Workflows', topics: ['Building automated CI/CD with GitHub Actions & Jenkins', 'ArgoCD GitOps deployment strategies (Blue/Green, Canary)', 'Container vulnerability scanning with Trivy'] },
+      { number: 'Module 6', title: 'Cloud Observability, Monitoring & Security', topics: ['Prometheus metric collection and Grafana visualization dashboard', 'Centralized logging with ELK / Grafana Loki', 'Zero-trust cloud security and compliance hardening'] }
     ],
     learningOutcomes: [
-      'Containerize enterprise workloads with minimal Docker image size',
-      'Manage production Kubernetes clusters on AWS EKS',
-      'Automate infrastructure provisioning using Terraform modules',
-      'Establish GitOps deployment pipelines with full observability'
+      'Architect fault-tolerant cloud infrastructure on AWS',
+      'Containerize enterprise applications with Docker',
+      'Deploy and manage Kubernetes clusters in production',
+      'Automate infrastructure provisioning with Terraform',
+      'Implement automated CI/CD and GitOps pipelines'
     ],
     capstones: [
       {
-        title: 'Multi-Region Kubernetes Cloud Deployment',
-        description: 'Provision AWS infrastructure via Terraform and deploy auto-scaling Kubernetes microservices with ArgoCD CI/CD.'
+        title: 'Production Kubernetes Microservices & GitOps Deployment Capstone',
+        description: 'Provision a production AWS EKS cluster with Terraform, configure ArgoCD GitOps, set up Prometheus monitoring, and deploy microservices with zero downtime.'
       }
     ],
     interviewPrep: [
-      'DevOps Scenario & Troubleshooting Technical Interviews',
-      'CKA / AWS Certified Solutions Architect Exam Guide'
+      'Cloud & DevOps Technical Scenario Interviews',
+      'Kubernetes & Terraform Live Architecture Challenges',
+      'DevOps Portfolio & Resume Showcase'
     ],
     faqs: [
       {
-        question: 'Are cloud credits provided?',
-        answer: 'Yes, students receive $200 in free AWS cloud lab credits during the course.'
-      },
-      {
-        question: 'Is this course live or self-paced?',
-        answer: 'It includes live weekly interactive workshops along with on-demand HD video content.'
+        question: 'Do I need prior cloud experience?',
+        answer: 'Basic Linux command line knowledge is recommended. We cover AWS, Docker, Kubernetes, and Terraform step by step.'
       }
     ]
   },
@@ -762,72 +892,55 @@ export const CATALOG_COURSES = [
     id: 'applied-ai-ml',
     sku: 'DFJJK-AI-DATA-301',
     name: 'Applied AI & Machine Learning Engineering',
-    summary: 'Build intelligent LLM applications, custom neural networks, and scalable data pipelines.',
-    description: 'Dive deep into PyTorch, LangChain, vector databases (Pinecone/Milvus), fine-tuning open-weight LLMs, and deploying AI models into low-latency production APIs.',
-    price: '599.00',
-    duration: '10 Weeks',
-    category: 'Artificial Intelligence',
-    imageUrl: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80',
+    summary: 'Build production AI models, RAG pipelines, fine-tune LLMs, vector search indexing, and real-time AI API integration.',
+    description: 'A hands-on applied AI engineering masterclass focused on embedding artificial intelligence into business applications. Learn model training with Scikit-Learn and PyTorch, LLM fine-tuning, vector database indexing, RAG architectures, and deploying AI models as resilient microservices.',
+    price: '₹899/-',
+    duration: '12 Weeks Applied Program',
+    category: 'AI & Machine Learning',
+    imageUrl: 'https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=1200&q=80',
     active: true,
     highlights: [
-      '10-Week AI Engineering Immersion',
-      'PyTorch Neural Networks',
-      'LangChain & Vector Databases',
-      'Fine-Tuning Open-Source LLMs',
-      'RAG System Architecture',
-      'Low-Latency AI API Deployment'
+      'Applied ML Algorithms',
+      'PyTorch Model Training',
+      'RAG & Vector Databases',
+      'LLM Fine-Tuning',
+      'FastAPI Model Deployment',
+      'Production AI Monitoring'
     ],
     learningJourney: [
-      'Python AI Stack',
-      'Machine Learning Models',
-      'Deep Learning & PyTorch',
-      'Transformers & LLMs',
-      'LangChain & RAG',
-      'Production AI Deployment'
+      'ML Pipeline Engineering',
+      'Deep Learning Models',
+      'Vector Search & RAG',
+      'LLM Customization',
+      'API Deployment'
     ],
     type: 'module',
     modules: [
-      {
-        number: 'Module 1',
-        title: 'Foundational Machine Learning & PyTorch',
-        topics: ['Data Wrangling', 'Supervised ML', 'PyTorch Tensor Mechanics']
-      },
-      {
-        number: 'Module 2',
-        title: 'Transformers & Large Language Models',
-        topics: ['Attention Mechanisms', 'Hugging Face API', 'LoRA Fine-tuning']
-      },
-      {
-        number: 'Module 3',
-        title: 'RAG & Vector Database Systems',
-        topics: ['Embedding Generation', 'Vector Search with Pinecone/Milvus', 'LangChain Workflows']
-      },
-      {
-        number: 'Module 4',
-        title: 'Production AI Deployment & MLOps',
-        topics: ['FastAPI Microservices', 'Model Quantization', 'GPU Inference Serving']
-      }
+      { number: 'Module 1', title: 'Applied Machine Learning Pipelines', topics: ['Scikit-Learn pipeline construction and custom transformers', 'Classification, Regression, and Ensemble Models (XGBoost)', 'Model evaluation and hyperparameter tuning (Optuna)'] },
+      { number: 'Module 2', title: 'Deep Learning with PyTorch', topics: ['PyTorch tensor operations, custom Neural Network modules', 'Training CNNs for image classification and RNNs for text', 'Transfer learning with pre-trained models'] },
+      { number: 'Module 3', title: 'Vector Search & Retrieval-Augmented Generation', topics: ['Understanding embeddings and vector similarity', 'Pinecone, Chroma, and Qdrant vector database integration', 'Building RAG systems with LangChain and LlamaIndex'] },
+      { number: 'Module 4', title: 'LLM Fine-Tuning & AI Microservice Deployment', topics: ['Parameter-Efficient Fine-Tuning (PEFT) and LoRA', 'Serving AI models using FastAPI and Docker containers', 'Model monitoring, drift detection, and rate limiting'] }
     ],
     learningOutcomes: [
-      'Train custom ML models and PyTorch deep learning architectures',
-      'Fine-tune open-weight LLMs like Llama and Mistral for domain tasks',
-      'Build scalable RAG applications using vector databases and LangChain',
-      'Serve low-latency AI endpoints using FastAPI and Docker containers'
+      'Train and evaluate machine learning models in Python',
+      'Build vector search and RAG applications',
+      'Fine-tune Large Language Models for domain tasks',
+      'Deploy production AI microservices via REST APIs'
     ],
     capstones: [
       {
-        title: 'Enterprise Multi-Modal RAG AI Platform',
-        description: 'Deploy a production vector search engine answering queries from technical PDFs and enterprise DBs.'
+        title: 'Enterprise Enterprise Document AI & RAG Search Engine',
+        description: 'Build an end-to-end RAG system capable of ingesting PDF/Word documents, indexing vectors, and answering queries via fine-tuned LLMs.'
       }
     ],
     interviewPrep: [
-      'AI System Design & LLM Fine-Tuning Technical Interviews',
-      'MLOps & Portfolio Architecture Showcase'
+      'Applied AI Engineering Coding Interviews',
+      'RAG & LLM System Design Mock Interviews'
     ],
     faqs: [
       {
-        question: 'Do I need a GPU machine?',
-        answer: 'No, cloud GPU notebooks (Google Colab Pro & Modal) will be provided for training runs.'
+        question: 'How is this different from the Data Science course?',
+        answer: 'This program focuses specifically on applied engineering—deploying ML/AI models, vector search, RAG, and microservice APIs.'
       }
     ]
   },
@@ -835,728 +948,283 @@ export const CATALOG_COURSES = [
     id: 'offensive-security',
     sku: 'DFJJK-CYBER-SEC-202',
     name: 'Offensive Security & Ethical Hacking',
-    summary: 'Practical penetration testing, zero-trust network defense, and smart contract vulnerability auditing.',
-    description: 'Hands-on labs covering web app vulnerability assessment, privilege escalation, memory exploitation, threat hunting, and modern red team tradecraft.',
-    price: '449.00',
-    duration: '9 Weeks',
-    category: 'Cybersecurity',
-    imageUrl: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80',
-    active: true,
-    highlights: [
-      '9-Week Practical Cybersecurity Lab',
-      'Web Vulnerability Assessment (OWASP Top 10)',
-      'Penetration Testing Tradecraft',
-      'Privilege Escalation & Memory Exploitation',
-      'Network Packet Inspection & Threat Hunting',
-      'Smart Contract Auditing'
-    ],
-    learningJourney: [
-      'Security Fundamentals',
-      'Web Exploitation',
-      'Network Security',
-      'Privilege Escalation',
-      'Defensive Security & SIEM',
-      'Ethical Hacking Capstone'
-    ],
-    type: 'module',
-    modules: [
-      {
-        number: 'Module 1',
-        title: 'Reconnaissance & Web Application Vulnerabilities',
-        topics: ['Nmap Scanning', 'Burp Suite Pro', 'OWASP Top 10 Exploitation']
-      },
-      {
-        number: 'Module 2',
-        title: 'Network Penetration & Active Directory Security',
-        topics: ['Metasploit Framework', 'Kerberoasting', 'Lateral Movement']
-      },
-      {
-        number: 'Module 3',
-        title: 'Linux & Windows Privilege Escalation',
-        topics: ['Kernel Exploits', 'Misconfigurations', 'Token Manipulation']
-      },
-      {
-        number: 'Module 4',
-        title: 'Defensive SIEM & Threat Hunting',
-        topics: ['Splunk Logging', 'Wireshark Analysis', 'Incident Response']
-      }
-    ],
-    learningOutcomes: [
-      'Identify and remediate web application security vulnerabilities',
-      'Perform penetration tests following industry standard frameworks (PTES)',
-      'Analyze network traffic to detect intrusions and malware activity',
-      'Execute ethical hacking operations and write vulnerability reports'
-    ],
-    capstones: [
-      {
-        title: 'Enterprise Red Team Vulnerability Assessment & Report',
-        description: 'Audit a simulated corporate network environment, exploit security gaps, and draft a professional remediation report.'
-      }
-    ],
-    interviewPrep: [
-      'OSCP / CEH Technical Interview Practice',
-      'Penetration Testing Report Writing Guidance'
-    ],
-    faqs: [
-      {
-        question: 'Is legal permission required for lab exercises?',
-        answer: 'All exercises are conducted in isolated sandbox environment labs owned by DFJJK Global.'
-      }
-    ]
-  },
-  {
-    id: 'scrum-master-certification',
-    sku: 'DFJJK-AGILE-SM-101',
-    name: 'Scrum Master Certification & Ceremonies Masterclass',
-    summary: 'Master Agile Scrum ceremonies, Daily Standups, Jira & Confluence workflows, and complete PSM / CSM exam preparation.',
-    description: 'A practical, industry-focused course designed for current and aspiring Scrum Masters. Master the Agile Manifesto, facilitate high-impact Scrum ceremonies (Daily Standups, Sprint Planning, Reviews, Retrospectives), manage team workflows in Jira & Confluence, and prepare thoroughly for PSM I / CSM certification.',
-    price: '349.00',
-    duration: '4 Weeks (6 Live Workshops)',
-    category: 'Agile & Project Management',
-    imageUrl: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1200&q=80',
-    active: true,
-    highlights: [
-      'Agile Manifesto & Scrum Values',
-      'Scrum Ceremonies Facilitation',
-      'Daily Standups & Retrospectives',
-      'Jira Board & Backlog Setup',
-      'Confluence Team Workspaces',
-      'PSM I / CSM Exam Preparation'
-    ],
-    learningJourney: [
-      'Module I: Agile Scrum Ceremonies',
-      'Module II: Jira & Confluence',
-      'Module III: Exam Prep & Certification'
-    ],
-    type: 'module',
-    modules: [
-      {
-        number: 'Module I',
-        title: 'What is Agile Scrum Ceremonies?',
-        topics: [
-          'Agile Manifesto Principles & Core Values',
-          'Daily Standups: Purpose, Facilitation & Common Pitfalls',
-          'Sprint Planning & Commitment Techniques',
-          'Sprint Review & Stakeholder Demo Practices',
-          'Sprint Retrospectives & Continuous Action Items'
-        ]
-      },
-      {
-        number: 'Module II',
-        title: 'Jira & Confluence Workflows',
-        topics: [
-          'Configuring Scrum Boards & Backlogs in Jira',
-          'Writing User Stories, Story Points & Estimation',
-          'Building Team Knowledge Bases in Confluence',
-          'Tracking Burndown Charts, Velocity & Sprint Reports'
-        ]
-      },
-      {
-        number: 'Module III',
-        title: 'Exam Prep and Certification',
-        topics: [
-          'PSM I / CSM Exam Structure, Strategy & Time Management',
-          'Full-Length Mock Exams with Detailed Question Analysis',
-          'Real-World Scenario Questions & Defensive Coaching'
-        ]
-      }
-    ],
-    learningOutcomes: [
-      'Facilitate effective Scrum events (Daily Standups, Planning, Reviews, Retrospectives)',
-      'Manage Agile project delivery using Jira boards and Confluence documentation',
-      'Coach cross-functional engineering teams on self-organization and velocity',
-      'Pass Professional Scrum Master (PSM I) or Certified ScrumMaster (CSM) exams'
-    ],
-    capstones: [
-      {
-        title: 'Enterprise Agile Transformation & Jira Workspace Setup',
-        description: 'Set up an end-to-end Agile Scrum workspace for a software product team in Jira and Confluence, including backlog grooming, sprint setup, burndown metrics, and retrospective action board.'
-      }
-    ],
-    interviewPrep: [
-      'Top 50 Scrum Master Interview Questions & Defensive Answers',
-      'Live Mock Retrospective & Conflict Facilitation Simulations',
-      'Agile Resume Optimization & LinkedIn Portfolio Setup'
-    ],
-    faqs: [
-      {
-        question: 'Does this course prepare me for PSM I or CSM certifications?',
-        answer: 'Yes! The curriculum aligns directly with Scrum.org (PSM I) and Scrum Alliance (CSM) competencies, complete with mock exam practice.'
-      },
-      {
-        question: 'Will I get hands-on experience with Jira and Confluence?',
-        answer: 'Yes, you will work directly inside live Jira & Confluence cloud instances to configure boards, backlogs, and team documentation.'
-      }
-    ]
-  },
-  {
-    id: 'product-owner-masterclass',
-    sku: 'DFJJK-AGILE-PO-201',
-    name: 'Agile Product Owner Masterclass',
-    summary: 'Master product vision, customer discovery, backlog management, user stories, acceptance criteria, and product roadmapping.',
-    description: 'An intensive masterclass for Product Owners, Product Managers, and Business Analysts. Learn to define compelling product visions, identify stakeholders, construct prioritized product backlogs based on value and risk, write clear user stories with acceptance criteria, and collaborate effectively with Scrum Developers and Scrum Masters.',
-    price: '399.00',
-    duration: '6 Weeks Interactive Program',
-    category: 'Agile & Project Management',
-    imageUrl: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80',
-    active: true,
-    highlights: [
-      'Agile Product Owner Role Foundations',
-      'Product Vision & Customer Personas',
-      'Product Backlog Management',
-      'User Story Writing & Acceptance Criteria',
-      'Value & Risk Prioritization Frameworks',
-      'Product Discovery & Roadmapping',
-      'Developer & Scrum Master Collaboration',
-      'Outcome Measurement & KPI Metrics'
-    ],
-    learningJourney: [
-      'Module I: Agile PO & Product Vision',
-      'Module II: Backlog & User Stories',
-      'Module III: Discovery & Roadmaps'
-    ],
-    type: 'module',
-    modules: [
-      {
-        number: 'Module I',
-        title: 'Agile Product Ownership & Vision',
-        topics: [
-          'Understand Agile, Scrum, and the Product Owner role.',
-          'Define and communicate a compelling product vision.',
-          'Identify customers, users, and stakeholders.'
-        ]
-      },
-      {
-        number: 'Module II',
-        title: 'Product Backlog & User Story Engineering',
-        topics: [
-          'Develop and manage a Product Backlog.',
-          'Write effective user stories and acceptance criteria.',
-          'Prioritize work based on value, risk, and customer needs.'
-        ]
-      },
-      {
-        number: 'Module III',
-        title: 'Product Discovery & Stakeholder Alignment',
-        topics: [
-          'Facilitate product discovery and stakeholder collaboration.',
-          'Create and communicate product goals and roadmaps.',
-          'Work effectively with Scrum Developers and Scrum Masters.',
-          'Measure product outcomes and continuously improve the product.'
-        ]
-      }
-    ],
-    learningOutcomes: [
-      'Craft clear, outcome-driven product visions aligned with business goals',
-      'Define target personas, user segments, and key enterprise stakeholders',
-      'Write high-quality user stories using Given-When-Then acceptance criteria',
-      'Prioritize backlogs using MoSCoW, RICE, and value vs. risk matrices',
-      'Build visual product roadmaps and facilitate continuous product discovery',
-      'Partner with Scrum Developers and Scrum Masters for predictable sprint execution'
-    ],
-    capstones: [
-      {
-        title: 'SaaS Product Roadmap & Backlog Master Blueprint',
-        description: 'Construct a complete Product Owner artifact package for a SaaS application: Product Vision Statement, User Personas, Prioritized Backlog (Epics & Stories with Acceptance Criteria), and a 12-Month Interactive Roadmap.'
-      }
-    ],
-    interviewPrep: [
-      'Product Owner & Product Manager Scenario Interview Guide',
-      'Mock User Story Grooming & Stakeholder Alignment Interviews',
-      'Product Portfolio Review & Resume Coaching'
-    ],
-    faqs: [
-      {
-        question: 'Who should enroll in this Product Owner course?',
-        answer: 'Ideal for aspiring Product Owners, Product Managers, Business Analysts, Project Managers, and domain experts moving into product leadership.'
-      },
-      {
-        question: 'Will I learn prioritization frameworks like RICE and MoSCoW?',
-        answer: 'Yes! You will apply RICE, MoSCoW, Kano Model, and WSJF frameworks directly on real product backlogs.'
-      }
-    ]
-  },
-  {
-    id: 'project-management-professional',
-    sku: 'DFJJK-PM-PROFESSIONAL',
-    name: 'Comprehensive Project Management Professional (PMP, Agile & Hybrid)',
-    summary: 'Master PM Fundamentals, Methodologies (Waterfall, Agile, Kanban, Hybrid), Initiation, Stakeholder RACI, Scope & WBS, and Scheduling.',
-    description: 'An intensive 8-module enterprise project management program. Go from project initiation to full project lifecycle execution covering the Triple Constraint, project charters, power/interest grids, scope baselines, requirements traceability matrices (RTM), Work Breakdown Structure (WBS) decomposition, and activity dependency scheduling.',
-    price: '449.00',
-    duration: '8 Modules Comprehensive Program',
-    category: 'Agile & Project Management',
-    imageUrl: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80',
-    active: true,
-    highlights: [
-      '8 PM Modules & Hands-on Workshops',
-      'Triple Constraint: Scope, Schedule & Cost',
-      'Waterfall, Agile, Scrum, Kanban & Hybrid',
-      'Complete Project Charter Development',
-      'Power/Interest Grid & RACI Matrix',
-      'Requirements Traceability Matrix (RTM)',
-      'Work Breakdown Structure (WBS)',
-      'Activity Dependencies & Critical Path'
-    ],
-    learningJourney: [
-      'Module 1: PM Fundamentals',
-      'Module 2: Methodologies',
-      'Module 3: Project Initiation',
-      'Module 4: Stakeholders',
-      'Module 5: Scope Management',
-      'Module 6: Requirements',
-      'Module 7: WBS',
-      'Module 8: Scheduling'
-    ],
-    type: 'module',
-    modules: [
-      {
-        number: 'MODULE 1',
-        title: 'Project Management Fundamentals',
-        topics: [
-          'What is a project?',
-          'What is project management?',
-          'Project vs. operations',
-          'Project manager responsibilities',
-          'Project lifecycle & success criteria',
-          'Project constraints & governance',
-          'Project management methodologies',
-          'The Triple Constraint: Scope, Schedule, Cost (Also consider Quality, Resources, Risk, Stakeholders)',
-          'Workshop: Identify the characteristics and constraints of a real-world project.'
-        ]
-      },
-      {
-        number: 'MODULE 2',
-        title: 'Project Management Methodologies',
-        topics: [
-          'Waterfall (Best used for stable requirements)',
-          'Agile (Best used for changing requirements)',
-          'Scrum (Best used for iterative product development)',
-          'Kanban (Best used for continuous flow)',
-          'Hybrid (Best used for combination of approaches)',
-          'Lean, Iterative & Incremental approaches',
-          'Workshop: Select the appropriate methodology for five different projects.'
-        ]
-      },
-      {
-        number: 'MODULE 3',
-        title: 'Project Initiation',
-        topics: [
-          'Project idea, Business case & Feasibility analysis',
-          'Project selection & objectives',
-          'Project charter, sponsor & manager authority',
-          'Initial stakeholder identification & high-level requirements',
-          'Developing Project Charter: Purpose, Objectives, Scope, Deliverables, Stakeholders, Budget/Schedule assumptions, Risks',
-          'Workshop: Create a complete Project Charter.'
-        ]
-      },
-      {
-        number: 'MODULE 4',
-        title: 'Stakeholder Management',
-        topics: [
-          'Identifying stakeholders & stakeholder analysis',
-          'Managing stakeholder expectations & influence',
-          'Stakeholder engagement & communication requirements',
-          'Managing difficult stakeholders',
-          'Tools: Stakeholder Register, Power/Interest Grid, RACI Matrix, Stakeholder Engagement Assessment',
-          'Workshop: Create a stakeholder management plan.'
-        ]
-      },
-      {
-        number: 'MODULE 5',
-        title: 'Project Scope Management',
-        topics: [
-          'Project scope vs. Product scope',
-          'Scope boundaries & Scope baseline',
-          'Scope validation, control & preventing scope creep',
-          'Scope Statement: In-scope, Out-of-scope, Deliverables, Assumptions, Constraints, Acceptance criteria',
-          'Workshop: Develop a Project Scope Statement.'
-        ]
-      },
-      {
-        number: 'MODULE 6',
-        title: 'Requirements Management',
-        topics: [
-          'Requirements gathering: Business, Functional & Non-functional requirements',
-          'Requirements analysis, prioritization, validation & traceability',
-          'Techniques: Interviews, Workshops, Surveys, Observation, Document analysis, Brainstorming',
-          'Workshop: Create a Requirements Traceability Matrix.'
-        ]
-      },
-      {
-        number: 'MODULE 7',
-        title: 'Work Breakdown Structure (WBS)',
-        topics: [
-          'What is a WBS? & WBS principles',
-          'Deliverable decomposition & Work packages',
-          'Activities & WBS Dictionary',
-          'Example WBS: Project → Planning → Design → Development → Testing → Deployment → Training → Project Closure',
-          'Workshop: Create a complete WBS for an IT project.'
-        ]
-      },
-      {
-        number: 'MODULE 8',
-        title: 'Project Scheduling',
-        topics: [
-          'Project activities & activity sequencing',
-          'Dependencies & milestones',
-          'Duration estimates & schedule development',
-          'Schedule baseline & schedule control',
-          'Dependency Types: Finish-to-Start (FS), Start-to-Start (SS), Finish-to-Finish (FF), Start-to-Finish (SF)'
-        ]
-      }
-    ],
-    learningOutcomes: [
-      'Distinguish between projects and operations while selecting appropriate methodologies (Waterfall, Agile, Hybrid)',
-      'Author robust Project Charters with business cases, budget/schedule assumptions, and sponsor sign-off',
-      'Build Stakeholder Registers, Power/Interest Grids, and RACI Matrices for organizational alignment',
-      'Create Project Scope Statements and implement change control to prevent scope creep',
-      'Conduct requirements gathering using 6 key techniques and build Requirements Traceability Matrices',
-      'Decompose enterprise projects into Work Breakdown Structures (WBS) and detailed WBS Dictionaries',
-      'Sequence project activities using 4 dependency types and construct schedule baselines'
-    ],
-    capstones: [
-      {
-        title: 'Enterprise IT Infrastructure & Software Project Management Blueprint',
-        description: 'Build a full project management execution binder for an enterprise IT project: Business Case, Project Charter, RACI Matrix, Scope Statement, Requirements Traceability Matrix, WBS Dictionary, and Activity Schedule Baseline.'
-      }
-    ],
-    interviewPrep: [
-      'PMP Scenario-Based Technical Interview Questions & Solutions',
-      'Mock Project Manager Stakeholder & Risk Mitigation Discussions',
-      'Project Management Resume & PMO Portfolio Coaching'
-    ],
-    faqs: [
-      {
-        question: 'Does this course align with PMI PMP standards?',
-        answer: 'Yes! The course curriculum incorporates PMBOK 7th Edition concepts, Agile Practice Guide principles, and hybrid project management frameworks.'
-      },
-      {
-        question: 'Are practical workshops included in every module?',
-        answer: 'Yes! Every module includes hands-on workshops where you build real PM artifacts like Charters, RACI matrices, WBS diagrams, and RTMs.'
-      }
-    ]
-  },
-  {
-    id: 'cybersecurity-professional-program',
-    sku: 'DFJJK-CYBER-FULL-28',
-    name: 'Cybersecurity Professional Training Program (28 Modules & Capstone)',
-    summary: 'Master end-to-end Cybersecurity: Fundamentals, Threat Landscape, Networking, OS Security, IAM, Cryptography, SOC, Forensics, Cloud, Zero Trust, GRC & Capstone.',
-    description: 'A comprehensive, zero-to-hero 28-module cybersecurity professional program taking students from foundational security principles to practical SOC operations, threat hunting, digital forensics, cloud security, zero trust architecture, GRC compliance frameworks (NIST, ISO 27001, CIS), ethical hacking, leadership, and certification pathways (Security+, CySA+, CISSP). Includes a full 4-phase capstone project.',
-    price: '599.00',
-    duration: '12-Week Comprehensive Program',
+    summary: 'Master penetration testing, web app vulnerability exploitation, network hacking, Wireshark, Metasploit, and OWASP Top 10 defenses.',
+    description: 'An intensive hands-on ethical hacking masterclass designed for security analysts, penetration testers, and cybersecurity enthusiasts. Learn active reconnaissance, network exploitation with Metasploit, web vulnerability analysis (SQLi, XSS, CSRF), Wireshark packet capture, and red team methodology.',
+    price: '₹649/-',
+    duration: '10–12 Weeks Practical Bootcamp',
     category: 'Cybersecurity',
     imageUrl: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80',
     active: true,
     highlights: [
-      '28 Modules + 4-Phase Capstone Project',
-      '12-Week Structured Learning Path',
-      'CIA Triad & Threat Actor Analysis',
-      'Networking & Operating System Security',
-      'IAM, RBAC, MFA & SSO Implementation',
-      'Cryptography, PKI & TLS Security',
-      'SOC Operations & SIEM (Splunk, Sentinel)',
-      'Incident Response & Digital Forensics',
-      'Cloud Security (AWS, Azure, GCP)',
-      'Zero Trust Security Architecture',
-      'GRC Frameworks (NIST CSF/RMF, ISO 27001, CIS)',
-      'Privacy (GDPR, CCPA, HIPAA) & BCP/DR',
-      'Hands-on Tools (Wireshark, Nmap, Splunk, Nessus)',
-      'Ethical Hacking & Defensive Security',
-      'Career Prep & Certifications (Security+, CISSP)'
+      'Ethical Hacking Methodology',
+      'Network Penetration Testing',
+      'OWASP Top 10 Web Security',
+      'Metasploit & Nmap Hands-on',
+      'Wireshark Traffic Analysis',
+      'CEH & Security+ Exam Prep'
     ],
     learningJourney: [
-      'Week 1: Fundamentals & Threats (Mod 1–2)',
-      'Week 2: Networking & OS Security (Mod 3–4)',
-      'Week 3: IAM & Cryptography (Mod 5–6)',
-      'Week 4: Network, Endpoint & Malware (Mod 7–9)',
-      'Week 5: Phishing & Vulnerability (Mod 10–11)',
-      'Week 6: SOC, IR & Forensics (Mod 12–14)',
-      'Week 7: Cloud, App & Data Security (Mod 15–17)',
-      'Week 8: Wireless, Zero Trust & Risk (Mod 18–20)',
-      'Week 9: GRC, Privacy & DR (Mod 21–23)',
-      'Week 10: Awareness, Tools & Hacking (Mod 24–26)',
-      'Week 11: Leadership & Career Prep (Mod 27–28)',
-      'Week 12: Cybersecurity Capstone Project'
+      'Reconnaissance & Nmap',
+      'Network Exploitation',
+      'Web App Vulnerabilities',
+      'Privilege Escalation',
+      'Report Writing & Mitigation'
     ],
     type: 'module',
     modules: [
+      { number: 'Module 1', title: 'Reconnaissance & Network Scanning', topics: ['Footprinting, OSINT, DNS enumeration', 'Network scanning with Nmap, Masscan, and Zenmap', 'Vulnerability identification with Nessus scanner'] },
+      { number: 'Module 2', title: 'Network Exploitation & Packet Analysis', topics: ['Packet sniffing & analysis with Wireshark', 'Man-in-the-Middle (MitM) attacks and ARP spoofing', 'Exploit execution with Metasploit Framework'] },
+      { number: 'Module 3', title: 'Web Application Security & OWASP Top 10', topics: ['SQL Injection (SQLi) discovery and exploitation', 'Cross-Site Scripting (XSS) and CSRF vulnerabilities', 'Burp Suite proxy intercepting and active scanning'] },
+      { number: 'Module 4', title: 'Privilege Escalation & Security Reporting', topics: ['Linux and Windows privilege escalation vectors', 'Post-exploitation enumeration and persistence', 'Writing professional penetration testing reports'] }
+    ],
+    learningOutcomes: [
+      'Conduct authorized penetration tests on networks and web apps',
+      'Identify and remediate OWASP Top 10 vulnerabilities',
+      'Operate industry tools: Nmap, Wireshark, Metasploit, Burp Suite',
+      'Prepare for CEH and CompTIA Security+ certifications'
+    ],
+    capstones: [
       {
-        number: 'MODULE 1',
-        title: 'Introduction to Cybersecurity',
-        topics: [
-          'What is cybersecurity?',
-          'Information security vs. cybersecurity',
-          'Cybersecurity career landscape & objectives',
-          'Threats, vulnerabilities, and risks',
-          'Security controls, policies, and security awareness',
-          'CIA Triad: Confidentiality, Integrity, Availability',
-          'Workshop: Analyze a simulated security breach and identify CIA issues.'
-        ]
-      },
-      {
-        number: 'MODULE 2',
-        title: 'Cybersecurity Threat Landscape',
-        topics: [
-          'Threat actors: Cybercriminals, Insider threats, Nation-states, Hacktivists, Organized cybercrime',
-          'Attack surfaces & Cyber kill chain concepts',
-          'Common Threats: Phishing, Malware, Ransomware, Credential theft, Social engineering, DoS, Data breaches, Supply-chain attacks',
-          'Workshop: Analyze a fictional cyberattack and identify attacker objectives and methods.'
-        ]
-      },
-      {
-        number: 'MODULE 3',
-        title: 'Networking Fundamentals',
-        topics: [
-          'LAN/WAN, TCP/IP, OSI 7-Layer model, IP addresses, Subnets, DNS, DHCP, HTTP/HTTPS, TCP/UDP, Ports and protocols',
-          'Routers, Switches, Firewalls, VPNs',
-          'Practical Lab: Use a controlled lab environment to examine network traffic and identify protocols.'
-        ]
-      },
-      {
-        number: 'MODULE 4',
-        title: 'Operating System Security',
-        topics: [
-          'Windows and Linux security fundamentals',
-          'User accounts, Permissions, File systems, Processes, Services',
-          'System logs, Security updates, Patch management, Configuration management',
-          'Practical Lab: Review operating-system security settings in a sandbox environment.'
-        ]
-      },
-      {
-        number: 'MODULE 5',
-        title: 'Identity & Access Management (IAM)',
-        topics: [
-          'Authentication, Authorization, Accounting (AAA)',
-          'Identity lifecycle, User provisioning, Access reviews, Least privilege, Privileged accounts',
-          'Role-Based Access Control (RBAC), Multi-Factor Authentication (MFA), Single Sign-On (SSO)',
-          'Practical Exercise: Design an access-control model for a fictional organization.'
-        ]
-      },
-      {
-        number: 'MODULE 6',
-        title: 'Cryptography',
-        topics: [
-          'Encryption fundamentals: Symmetric vs. Asymmetric encryption',
-          'Hashing, Digital signatures, Certificates, Public Key Infrastructure (PKI)',
-          'TLS, Encryption at rest & in transit, Key management',
-          'Practical Exercise: Compare encryption, hashing, and digital signatures and determine usage.'
-        ]
-      },
-      {
-        number: 'MODULE 7',
-        title: 'Network Security',
-        topics: [
-          'Firewalls, IDS, IPS, Network segmentation, VLANs, VPN, Proxy servers',
-          'Secure network architecture, Zero Trust, Network Access Control, Wireless security',
-          'Practical Lab: Design a secure network architecture for a small company.'
-        ]
-      },
-      {
-        number: 'MODULE 8',
-        title: 'Endpoint Security',
-        topics: [
-          'Endpoint protection, Antivirus, EDR, Mobile device security & management',
-          'Patch management, Application control, Host-based firewalls, Endpoint monitoring',
-          'Workshop: Develop an endpoint security policy for an organization.'
-        ]
-      },
-      {
-        number: 'MODULE 9',
-        title: 'Malware & Ransomware',
-        topics: [
-          'Viruses, Worms, Trojans, Spyware, Rootkits, Keyloggers, Ransomware, Botnets',
-          'Malware delivery mechanisms, prevention & response strategies',
-          'Case Study: Analyze a fictional ransomware incident and develop a response plan.'
-        ]
-      },
-      {
-        number: 'MODULE 10',
-        title: 'Social Engineering & Phishing',
-        topics: [
-          'Phishing, Spear phishing, Whaling, Smishing, Vishing, Business Email Compromise (BEC)',
-          'Social engineering tactics, Credential harvesting, Security awareness training',
-          'Practical Exercise: Analyze simulated email examples and identify suspicious indicators.'
-        ]
-      },
-      {
-        number: 'MODULE 11',
-        title: 'Vulnerability Management',
-        topics: [
-          'Vulnerability, Threat, Risk, Exposure concepts',
-          'Vulnerability identification, scanning, Risk scoring (CVE, CVSS)',
-          'Patch management, Remediation & Verification workflows',
-          'Practical Lab: Perform a vulnerability assessment against intentionally vulnerable systems.'
-        ]
-      },
-      {
-        number: 'MODULE 12',
-        title: 'Security Operations Center (SOC)',
-        topics: [
-          'What is a SOC?, SOC roles, Security monitoring, Alert management',
-          'Log management, Event correlation, Threat detection & Escalation workflows',
-          'SIEM Concepts: Log collection, Event correlation, Alerts, Dashboards, Detection rules',
-          'Practical Lab: Analyze sample security logs and identify suspicious activity.'
-        ]
-      },
-      {
-        number: 'MODULE 13',
-        title: 'Incident Response',
-        topics: [
-          'Incident identification, classification & Incident response lifecycle',
-          'Lifecycle steps: Preparation → Detection → Analysis → Containment → Eradication → Recovery → Lessons Learned',
-          'Incident documentation & Evidence preservation',
-          'Workshop: Respond to a simulated cybersecurity incident.'
-        ]
-      },
-      {
-        number: 'MODULE 14',
-        title: 'Digital Forensics Fundamentals',
-        topics: [
-          'Digital evidence, Evidence handling & Chain of custody',
-          'Disk images, File metadata, System logs, Network evidence, Timeline analysis, Forensic reporting',
-          'Practical Lab: Examine a provided forensic dataset in a controlled environment.'
-        ]
-      },
-      {
-        number: 'MODULE 15',
-        title: 'Cloud Security',
-        topics: [
-          'Cloud fundamentals (IaaS, PaaS, SaaS) & Shared responsibility model',
-          'Cloud identity, access controls, encryption, logging & security monitoring',
-          'Misconfiguration risks across AWS, Azure, and Google Cloud',
-          'Workshop: Develop a basic cloud security architecture.'
-        ]
-      },
-      {
-        number: 'MODULE 16',
-        title: 'Application Security & OWASP Top 10',
-        topics: [
-          'Secure Software Development Lifecycle (SSDL) & Secure coding',
-          'Application vulnerabilities, Authentication, Authorization, Input validation, Session & API security',
-          'OWASP Top 10 Risks: Broken access control, Injection, Authentication failures, Security misconfiguration, Cryptographic failures',
-          'Lab: Identify security weaknesses in an intentionally vulnerable training application.'
-        ]
-      },
-      {
-        number: 'MODULE 17',
-        title: 'Database & Data Security',
-        topics: [
-          'Database security, Data loss prevention (DLP), Data encryption, Access controls, Auditing',
-          'Data classification levels: Public, Internal, Confidential, Restricted',
-          'Backup security, Data retention & Data destruction policies',
-          'Workshop: Create a data classification policy.'
-        ]
-      },
-      {
-        number: 'MODULE 18',
-        title: 'Mobile & Wireless Security',
-        topics: [
-          'Wireless & Wi-Fi security (WPA2/WPA3), Mobile security & BYOD',
-          'Mobile app security, Device encryption, Mobile Device Management (MDM), Remote wipe',
-          'Workshop: Develop a secure BYOD policy.'
-        ]
-      },
-      {
-        number: 'MODULE 19',
-        title: 'Zero Trust Security',
-        topics: [
-          'Zero Trust core principles ("Never trust, always verify")',
-          'Identity-based security, Least privilege, Continuous verification',
-          'Micro-segmentation, Device trust & Application access controls',
-          'Workshop: Transform a traditional network architecture into a Zero Trust model.'
-        ]
-      },
-      {
-        number: 'MODULE 20',
-        title: 'Cybersecurity Risk Management',
-        topics: [
-          'Risk identification, assessment, analysis & treatment (Acceptance, Mitigation, Transfer, Avoidance)',
-          'Risk register & Risk Formula: Risk = Likelihood × Impact',
-          'Workshop: Create a cybersecurity risk register and risk treatment plan.'
-        ]
-      },
-      {
-        number: 'MODULE 21',
-        title: 'Governance, Risk & Compliance (GRC)',
-        topics: [
-          'Cybersecurity governance: Policies, Standards, Procedures, Controls',
-          'Risk management, Compliance & Auditing',
-          'Security Frameworks: NIST Cybersecurity Framework, NIST RMF, ISO 27001, CIS Controls, COBIT, SOC 2',
-          'Workshop: Map organizational security controls to a cybersecurity framework.'
-        ]
-      },
-      {
-        number: 'MODULE 22',
-        title: 'Privacy & Data Protection',
-        topics: [
-          'Data privacy, Personal information, Sensitive data & Privacy principles',
-          'Data minimization, retention, consent & breach notification concepts',
-          'Regulations: GDPR, CCPA/CPRA, HIPAA security/privacy, State privacy laws'
-        ]
-      },
-      {
-        number: 'MODULE 23',
-        title: 'Business Continuity & Disaster Recovery',
-        topics: [
-          'Business continuity & Disaster recovery planning',
-          'Business Impact Analysis (BIA), Recovery Time Objective (RTO), Recovery Point Objective (RPO)',
-          'Backup strategies, Disaster recovery testing & Crisis management',
-          'Workshop: Create a Business Continuity and Disaster Recovery plan.'
-        ]
-      },
-      {
-        number: 'MODULE 24',
-        title: 'Security Awareness & Human Risk',
-        topics: [
-          'Security awareness programs & Employee training',
-          'Password security, MFA, Phishing awareness & Social engineering prevention',
-          'Insider risk & Security culture building',
-          'Workshop: Create a cybersecurity awareness campaign for employees.'
-        ]
-      },
-      {
-        number: 'MODULE 25',
-        title: 'Cybersecurity Tools & Hands-On Labs',
-        topics: [
-          'Network Tools: Wireshark, Nmap',
-          'Security Monitoring: Splunk, Microsoft Sentinel',
-          'Vulnerability Management: Nessus scanner',
-          'Endpoint & OS: Microsoft Defender, Linux command line',
-          'Framework Resources: NIST resources, CIS Controls'
-        ]
-      },
-      {
-        number: 'MODULE 26',
-        title: 'Ethical Hacking Fundamentals',
-        topics: [
-          'Ethical hacking concepts, Authorization & Rules of engagement',
-          'Reconnaissance concepts & Vulnerability identification methodology',
-          'Penetration testing lifecycle, Reporting & Remediation',
-          'Emphasis on defensive security and authorized testing'
-        ]
-      },
-      {
-        number: 'MODULE 27',
-        title: 'Cybersecurity Leadership & Management',
-        topics: [
-          'Security leadership, program management & security policies',
-          'Security budgets, metrics & executive reporting',
-          'Security risk communication, Vendor risk & Third-party risk management',
-          'Cybersecurity strategy',
-          'Workshop: Create a cybersecurity strategy for a mid-sized organization.'
-        ]
-      },
-      {
-        number: 'MODULE 28',
-        title: 'Cybersecurity Career & Certification Preparation',
-        topics: [
-          'Entry-Level Paths: Security Analyst, SOC Analyst, GRC Analyst, Vulnerability Analyst, IAM Analyst, Security Admin',
-          'Beginner Certs: CompTIA Security+',
-          'Intermediate Certs: CySA+, SSCP, Certified Ethical Hacker (CEH)',
-          'Advanced Certs: CISSP, CISM, CRISC',
-          'Exam requirements & career preparation strategies'
-        ]
+        title: 'Full Penetration Testing & Vulnerability Assessment Engagement',
+        description: 'Perform a comprehensive penetration test on a multi-server target environment, discover vulnerabilities, execute authorized exploits, and write a mitigation report.'
       }
+    ],
+    interviewPrep: [
+      'Penetration Tester & Ethical Hacker Technical Interviews',
+      'OWASP & Network Security Scenario Practice'
+    ],
+    faqs: [
+      {
+        question: 'Are all labs legal and authorized?',
+        answer: 'Yes! All practical labs are conducted within isolated, legal sandbox environments.'
+      }
+    ]
+  },
+  {
+    id: 'scrum-master',
+    sku: 'DFJJK-AGILE-SM-101',
+    name: 'Scrum Master Certification & Ceremonies Masterclass',
+    summary: 'Master Agile Scrum frameworks, Jira & Confluence administration, sprint ceremonies, backlog refinement, and PSM / CSM certification prep.',
+    description: 'A comprehensive Scrum Master training program empowering professionals to facilitate high-performing Agile teams. Learn the Scrum Guide, sprint planning, daily standups, retrospectives, story sizing, Jira software configuration, Confluence documentation, and PSM I / CSM certification exam preparation.',
+    price: '₹549/-',
+    duration: '6–8 Weeks Masterclass',
+    category: 'Management & Agile',
+    imageUrl: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1200&q=80',
+    active: true,
+    highlights: [
+      'Scrum Framework & Values',
+      'Sprint Ceremonies Facilitation',
+      'Jira & Confluence Setup',
+      'Agile Metrics & Velocity',
+      'Conflict Resolution & Coaching',
+      'PSM I & CSM Exam Prep'
+    ],
+    learningJourney: [
+      'Agile Fundamentals',
+      'Scrum Roles & Ceremonies',
+      'Jira Tool Mastery',
+      'Metrics & Burndown Charts',
+      'Certification Practice'
+    ],
+    type: 'module',
+    modules: [
+      { number: 'Module 1', title: 'Agile Manifesto & Scrum Ceremonies', topics: ['Agile Manifesto values and 12 principles', 'Scrum roles: Scrum Master, Product Owner, Developers', 'Sprint Planning, Daily Standup, Sprint Review, Retrospective'] },
+      { number: 'Module 2', title: 'Jira & Confluence Administration', topics: ['Setting up Scrum boards, backlogs, and epics in Jira', 'Writing user stories, acceptance criteria, and story point estimation', 'Confluence wiki documentation, meeting notes, and sprint retrospective templates'] },
+      { number: 'Module 3', title: 'Agile Metrics, Artifacts & Certification Prep', topics: ['Product Backlog, Sprint Backlog, Increment, Definition of Done (DoD)', 'Tracking Velocity, Burndown/Burnup charts, Cumulative Flow Diagrams', 'PSM I / CSM practice exams, scenario questions, and interview prep'] }
+    ],
+    learningOutcomes: [
+      'Facilitate all Scrum ceremonies effectively',
+      'Administer Jira software for sprint management',
+      'Coach cross-functional development teams',
+      'Prepare for PSM I & CSM certification exams'
+    ],
+    capstones: [
+      {
+        title: 'Full Agile Sprint Simulation & Jira Workspace Setup',
+        description: 'Configure an enterprise Jira & Confluence workspace, conduct sprint planning, manage backlog items, calculate team velocity, and run a retrospective.'
+      }
+    ],
+    interviewPrep: [
+      'Scrum Master Scenario & Behavioral Interviews',
+      'Agile Coaching & Conflict Resolution Practice'
+    ],
+    faqs: [
+      {
+        question: 'Does this course prepare me for Scrum certifications?',
+        answer: 'Yes! The curriculum aligns with Professional Scrum Master (PSM I) and Certified ScrumMaster (CSM) exam objectives.'
+      }
+    ]
+  },
+  {
+    id: 'product-owner',
+    sku: 'DFJJK-AGILE-PO-201',
+    name: 'Agile Product Owner Masterclass',
+    summary: 'Master product vision, backlog prioritization, user story writing, stakeholder collaboration, roadmapping, and value delivery.',
+    description: 'A dedicated masterclass for aspiring Product Owners and Product Managers. Learn to translate customer needs into compelling product visions, build and prioritize Product Backlogs, write precise acceptance criteria, collaborate with Scrum teams, and measure product metrics.',
+    price: '₹499/-',
+    duration: '6–8 Weeks Masterclass',
+    category: 'Management & Agile',
+    imageUrl: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80',
+    active: true,
+    highlights: [
+      'Product Vision & Strategy',
+      'Product Backlog Management',
+      'User Story & INVEST Matrix',
+      'Prioritization Frameworks (MoSCoW, RICE)',
+      'Stakeholder Management',
+      'PSPO I Certification Prep'
+    ],
+    learningJourney: [
+      'Product Discovery',
+      'Backlog Management',
+      'User Stories & Acceptance Criteria',
+      'Roadmapping & Value',
+      'PSPO Certification'
+    ],
+    type: 'module',
+    modules: [
+      { number: 'Module 1', title: 'Agile Scrum & Product Owner Role', topics: ['Understand Agile, Scrum, and the Product Owner role', 'Define and communicate a compelling product vision', 'Identify customers, users, and business stakeholders'] },
+      { number: 'Module 2', title: 'Product Backlog & User Story Mastery', topics: ['Develop and manage a Product Backlog', 'Write effective user stories using INVEST criteria and acceptance criteria', 'Prioritize work based on business value, risk, and customer feedback (MoSCoW, WSJF, RICE)'] },
+      { number: 'Module 3', title: 'Product Discovery & Stakeholder Alignment', topics: ['Facilitate product discovery workshops and stakeholder collaboration', 'Create and communicate product goals, release plans, and roadmaps', 'Work effectively with Scrum Developers and Scrum Masters', 'Measure product outcomes, OKRs, and continuously improve product ROI'] }
+    ],
+    learningOutcomes: [
+      'Define clear product vision and strategic roadmaps',
+      'Build and groom prioritized Product Backlogs',
+      'Write INVEST user stories with crisp acceptance criteria',
+      'Prepare for PSPO I certification exams'
+    ],
+    capstones: [
+      {
+        title: 'Product Backlog & Product Roadmap Capstone Project',
+        description: 'Develop a complete product backlog for a digital application, define epics/user stories, apply prioritization frameworks, and present a 12-month product roadmap.'
+      }
+    ],
+    interviewPrep: [
+      'Product Owner & Product Manager Scenario Interviews',
+      'Backlog Prioritization & Stakeholder Case Studies'
+    ],
+    faqs: [
+      {
+        question: 'What is the difference between Scrum Master and Product Owner?',
+        answer: 'The Scrum Master focuses on process facilitation and team enablement, while the Product Owner owns product vision, backlog prioritization, and business value.'
+      }
+    ]
+  },
+  {
+    id: 'project-management-pro',
+    sku: 'DFJJK-PM-PROFESSIONAL',
+    name: 'Comprehensive Project Management Professional (PMP, Agile & Hybrid)',
+    summary: 'Master end-to-end project management across Predictive (Waterfall), Agile, and Hybrid frameworks while preparing for PMP certification.',
+    description: 'A complete, rigorous project management masterclass covering PMBOK Guide 7th Edition concepts. Learn project charter creation, scope management (WBS), schedule estimation (CPM/Gantt), cost budgeting (EVM), risk management, team leadership, and hybrid delivery.',
+    price: '₹899/-',
+    duration: '12–14 Weeks Masterclass',
+    category: 'Management & Agile',
+    imageUrl: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80',
+    active: true,
+    highlights: [
+      'PMBOK 7th Edition & PMP Exam Alignment',
+      'Predictive, Agile & Hybrid Frameworks',
+      'Work Breakdown Structure (WBS)',
+      'Earned Value Management (EVM)',
+      'Risk & Stakeholder Management',
+      'PMP / CAPM Exam Preparation'
+    ],
+    learningJourney: [
+      'PM Fundamentals',
+      'Scope, Schedule & Budget',
+      'Quality & Risk',
+      'Agile & Hybrid PM',
+      'PMP Exam Mastery'
+    ],
+    type: 'module',
+    modules: [
+      { number: 'Module 1', title: 'Project Management Fundamentals & Initiation', topics: ['What is a project? Project vs. Operations', 'Project Lifecycle & PMBOK 7th Edition Performance Domains', 'Developing the Project Charter and identifying stakeholders'] },
+      { number: 'Module 2', title: 'Scope, Schedule & Cost Planning', topics: ['Creating the Work Breakdown Structure (WBS) and WBS Dictionary', 'Schedule management: Network Diagrams, Critical Path Method (CPM), Gantt Charts', 'Cost estimation, budgeting, and Earned Value Management (EVM: CPI, SPI, EV, PV, AC)'] },
+      { number: 'Module 3', title: 'Quality, Risk & Procurement Management', topics: ['Quality planning, assurance, and control tools', 'Risk identification, Qualitative & Quantitative Risk Analysis, Risk Response Strategies', 'Procurement management, contract types (FFP, T&M, Cost-Reimbursable)'] },
+      { number: 'Module 4', title: 'Agile & Hybrid Project Management', topics: ['Applying Agile & Hybrid frameworks to traditional projects', 'Managing team performance, conflict resolution, and leadership styles', 'Project closing, lessons learned, and PMP exam preparation strategy'] }
+    ],
+    learningOutcomes: [
+      'Manage complex projects from initiation to closing',
+      'Develop WBS, critical path schedules, and EVM budgets',
+      'Apply predictive, agile, and hybrid methodologies',
+      'Prepare for PMP and CAPM certification exams'
+    ],
+    capstones: [
+      {
+        title: 'Full Enterprise Hybrid Project Management Plan Capstone',
+        description: 'Construct a complete Project Management Plan including Project Charter, WBS, Critical Path Schedule, EVM Budget, Risk Register, and Agile Hybrid Delivery Plan.'
+      }
+    ],
+    interviewPrep: [
+      'Project Manager Scenario & EVM Calculation Interviews',
+      'PMP Exam Strategy & Mock Question Review'
+    ],
+    faqs: [
+      {
+        question: 'Does this course cover PMP exam requirements?',
+        answer: 'Yes! The curriculum aligns directly with PMI PMP exam content outlines across People, Process, and Business Environment domains.'
+      }
+    ]
+  },
+  {
+    id: 'cybersecurity-28-module',
+    sku: 'DFJJK-CYBER-FULL-28',
+    name: 'Cybersecurity Professional Training Program (28 Modules & Capstone)',
+    summary: 'Comprehensive 28-module cybersecurity training program covering SOC operations, cloud security, network defense, ethical hacking, GRC, and capstone.',
+    description: 'An elite 28-module career program transforming learners into certified cybersecurity professionals. Master network security, Linux administration, SOC operations, SIEM tools (Splunk, Sentinel), vulnerability scanning (Nessus), cloud security, zero trust, Incident Response, Digital Forensics, GRC, and Ethical Hacking.',
+    price: '₹899/-',
+    duration: '24–28 Weeks Comprehensive Career Program',
+    category: 'Cybersecurity',
+    imageUrl: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80',
+    active: true,
+    highlights: [
+      '28 Comprehensive Modules',
+      'SOC Analyst & SIEM Labs (Splunk, Sentinel)',
+      'Ethical Hacking & Network Scanning',
+      'Cloud & Zero Trust Security',
+      'Incident Response & Digital Forensics',
+      'GRC, NIST CSF & ISO 27001',
+      'Security+, CySA+, CEH Exam Prep',
+      'Real-world Simulated Enterprise Capstone'
+    ],
+    learningJourney: [
+      'Cyber Foundations (Mod 1-5)',
+      'Security Architecture (Mod 6-10)',
+      'SOC & Defense (Mod 11-15)',
+      'Cloud & Zero Trust (Mod 16-20)',
+      'GRC & Forensics (Mod 21-25)',
+      'Hacking & Capstone (Mod 26-28)'
+    ],
+    type: 'module',
+    modules: [
+      { number: 'MODULE 1', title: 'Introduction to Cybersecurity & Threat Landscape', topics: ['Cybersecurity fundamentals, CIA Triad', 'Threat actors, vulnerabilities, exposures, attack vectors', 'Cyber Kill Chain, MITRE ATT&CK framework'] },
+      { number: 'MODULE 2', title: 'Computer Networking & Protocols for Security', topics: ['OSI model & TCP/IP suite', 'Network protocols: HTTP/S, DNS, DHCP, SSH, FTP, RDP', 'Packet structure, IP addressing, subnetting, NAT'] },
+      { number: 'MODULE 3', title: 'Network Defense & Infrastructure Security', topics: ['Firewalls (Packet filtering, Stateful, NGFW)', 'IDS/IPS (Snort, Suricata)', 'VPNs, Network Segmentation, DMZ'] },
+      { number: 'MODULE 4', title: 'Operating System Security (Windows & Linux)', topics: ['Linux command line, permissions, user management', 'Windows OS security, Active Directory, GPOs', 'OS hardening, patch management'] },
+      { number: 'MODULE 5', title: 'Identity & Access Management (IAM)', topics: ['Authentication, Authorization, Accounting (AAA)', 'Multi-Factor Authentication (MFA), SSO, SAML, OAuth', 'Least privilege, Role-Based Access Control (RBAC)'] },
+      { number: 'MODULE 6', title: 'Cryptography & Data Protection', topics: ['Symmetric vs. Asymmetric encryption (AES, RSA)', 'Hashing algorithms (SHA-256), data integrity', 'PKI, Digital Certificates, TLS/SSL'] },
+      { number: 'MODULE 7', title: 'Vulnerability Management', topics: ['Vulnerability lifecycle: Discovery to remediation', 'Vulnerability scanners (Nessus, OpenVAS)', 'CVSS scoring, risk prioritization'] },
+      { number: 'MODULE 8', title: 'Security Operations Center (SOC) Fundamentals', topics: ['SOC roles, workflows, shift handovers', 'SIEM overview (Splunk, Microsoft Sentinel)', 'Log collection, normalization, correlation rules'] },
+      { number: 'MODULE 9', title: 'Incident Response & Handling', topics: ['NIST SP 800-61 Incident Response Lifecycle', 'Triage, containment, eradication, recovery', 'Playbooks for Phishing, Malware, Ransomware'] },
+      { number: 'MODULE 10', title: 'Digital Forensics & Evidence Handling', topics: ['Digital forensics principles, Chain of Custody', 'Disk forensics, Memory forensics (Volatility)', 'Timeline analysis, evidence artifacts'] },
+      { number: 'MODULE 11', title: 'Threat Intelligence & Analysis', topics: ['Cyber Threat Intelligence (CTI) lifecycle', 'STIX/TAXII, OSINT tools', 'Threat hunting methodologies'] },
+      { number: 'MODULE 12', title: 'Endpoint Security & EDR', topics: ['Antivirus vs. EDR vs. XDR', 'Endpoint hardening, host firewalls', 'Detecting malicious processes, registry changes'] },
+      { number: 'MODULE 13', title: 'Web Application Security', topics: ['OWASP Top 10 vulnerabilities (SQLi, XSS, CSRF)', 'Web Application Firewalls (WAF)', 'Secure coding practices'] },
+      { number: 'MODULE 14', title: 'Cloud Security Fundamentals', topics: ['Shared Responsibility Model (AWS/GCP/Azure)', 'Cloud IAM, Security Groups, S3 bucket security', 'Cloud Security Posture Management (CSPM)'] },
+      { number: 'MODULE 15', title: 'Zero Trust Architecture', topics: ['Zero Trust Principles: Never Trust, Always Verify', 'Micro-segmentation, Identity-centric security', 'NIST SP 800-207 Zero Trust Architecture'] },
+      { number: 'MODULE 16', title: 'Wireless & Mobile Security', topics: ['Wi-Fi security protocols (WPA2/WPA3)', 'Rogue APs, evil twin attacks', 'Mobile Device Management (MDM)'] },
+      { number: 'MODULE 17', title: 'IoT & Operational Technology (OT) Security', topics: ['IoT vulnerabilities & security controls', 'SCADA / ICS overview & Purdue Model', 'Protecting critical infrastructure'] },
+      { number: 'MODULE 18', title: 'Governance, Risk & Compliance (GRC)', topics: ['Cybersecurity frameworks: NIST CSF, ISO 27001, CIS Controls', 'Regulatory compliance: GDPR, CCPA, HIPAA, PCI-DSS', 'Risk assessment frameworks (NIST SP 800-30)'] },
+      { number: 'MODULE 19', title: 'Security Policies & Standards', topics: ['Developing security policies, standards, procedures', 'Acceptable Use Policy (AUP), Incident Response Policy', 'Policy enforcement & compliance monitoring'] },
+      { number: 'MODULE 20', title: 'Third-Party & Supply Chain Risk', topics: ['Vendor risk assessments, due diligence', 'Supply chain attacks (SolarWinds analysis)', 'Contractual security requirements'] },
+      { number: 'MODULE 21', title: 'Business Continuity & Disaster Recovery', topics: ['BIA, RTO, RPO metrics', 'Backup strategies (3-2-1 rule)', 'Disaster recovery plan testing & tabletop exercises'] },
+      { number: 'MODULE 22', title: 'Security Awareness & Human Risk', topics: ['Designing security awareness campaigns', 'Phishing simulations & employee training', 'Mitigating social engineering risks'] },
+      { number: 'MODULE 23', title: 'Cybersecurity Tools & Hands-on Labs', topics: ['Wireshark, Nmap, Metasploit, Nessus', 'Splunk / Sentinel SIEM hands-on', 'Linux CLI for security analysis'] },
+      { number: 'MODULE 24', title: 'Ethical Hacking Fundamentals', topics: ['Authorized penetration testing methodology', 'Reconnaissance & vulnerability exploitation', 'Reporting findings & mitigation recommendations'] },
+      { number: 'MODULE 25', title: 'Security Metrics & Executive Reporting', topics: ['KPIs / KRIs for security programs', 'Dashboard creation for CISO & Board', 'Communicating cyber risk to non-technical leaders'] },
+      { number: 'MODULE 26', title: 'Cybersecurity Strategy & Leadership', topics: ['Building a cybersecurity roadmap', 'Budgeting & resource allocation', 'Leading security teams & crisis management'] },
+      { number: 'MODULE 27', title: 'Certification Preparation (Security+, CySA+, CEH)', topics: ['Domain review for CompTIA Security+', 'CySA+ & CEH exam structures', 'Practice exams & study strategies'] },
+      { number: 'MODULE 28', title: 'Cybersecurity Career & Resume Workshop', topics: ['Cybersecurity job roles & career pathways', 'Resume optimization & LinkedIn branding', 'Technical interview prep & portfolio building'] }
     ],
     learningOutcomes: [
       'Explain core cybersecurity concepts and analyze cyber threats and vulnerabilities',
@@ -1602,3 +1270,15 @@ export const getCourseBySku = (skuOrId) => {
   );
 };
 
+export const getFeaturedCourses = () => {
+  return CATALOG_COURSES.filter((c) => c.featured);
+};
+
+export const getFlagshipCourses = () => {
+  return CATALOG_COURSES.filter((c) => c.isFlagship);
+};
+
+export const getCoursesByCategory = (category) => {
+  if (!category || category === 'All') return CATALOG_COURSES;
+  return CATALOG_COURSES.filter((c) => c.category === category);
+};

@@ -55,7 +55,7 @@ export const CourseDetail = () => {
             name: res.data.name || localMeta?.name || 'Untitled Course',
             summary: res.data.summary || localMeta?.summary || '',
             description: res.data.description || localMeta?.description || '',
-            price: res.data.price != null ? res.data.price : (localMeta?.price || '0.00'),
+            price: localMeta?.price ?? (res.data.price != null ? `₹${res.data.price}/-` : '₹0/-'),
             duration: res.data.duration || localMeta?.duration || 'Self-Paced',
             category: res.data.category || localMeta?.category || 'General',
             imageUrl: res.data.imageUrl || localMeta?.imageUrl || '',
@@ -542,7 +542,7 @@ export const CourseDetail = () => {
           <div style={{ position: 'sticky', top: '100px' }}>
             <div className="glass-card" style={{ padding: '32px' }}>
               <div style={{ fontSize: '2.5rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '8px' }}>
-                ${course.price}
+                {course.price}
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '24px' }}>
                 <Clock size={16} /> Duration: <span style={{ color: 'var(--text-secondary)', fontWeight: 600 }}>{course.duration}</span>
@@ -606,7 +606,7 @@ export const CourseDetail = () => {
 
                 <div className="form-group">
                   <label className="form-label">Total Course Fee</label>
-                  <div style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--accent-secondary)' }}>${course.price}</div>
+                  <div style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--accent-primary)' }}>{course.price}</div>
                 </div>
 
                 <div className="form-group">

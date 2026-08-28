@@ -12,13 +12,14 @@ export const Courses = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
 
   const categories = [
-    'All', 
-    'Agile & Project Management',
+    'All',
+    'AI & Machine Learning',
+    'Data Science & Analytics',
+    'Software Development',
+    'Cloud & DevOps',
     'Cybersecurity',
-    'Data Science', 
-    'Software Engineering', 
-    'Cloud & Infrastructure', 
-    'Artificial Intelligence'
+    'Management & Agile',
+    'Computer Skills'
   ];
 
   useEffect(() => {
@@ -36,7 +37,7 @@ export const Courses = () => {
               summary: apiCourse.summary || local?.summary || '',
               category: apiCourse.category || local?.category || 'General',
               duration: apiCourse.duration || local?.duration || 'Self-Paced',
-              price: apiCourse.price != null ? apiCourse.price : (local?.price || '0.00'),
+              price: local?.price ?? (apiCourse.price != null ? `₹${apiCourse.price}/-` : '₹0/-'),
               imageUrl: apiCourse.imageUrl || local?.imageUrl || '',
               highlights: local?.highlights || [],
               learningJourney: local?.learningJourney || [],
@@ -125,8 +126,8 @@ export const Courses = () => {
                   padding: '8px 18px',
                   borderRadius: 'var(--radius-full)',
                   border: selectedCategory === cat ? '1px solid var(--accent-primary)' : '1px solid var(--border-glass)',
-                  background: selectedCategory === cat ? 'rgba(99, 102, 241, 0.2)' : 'transparent',
-                  color: selectedCategory === cat ? '#A5B4FC' : 'var(--text-secondary)',
+                  background: selectedCategory === cat ? 'rgba(79, 70, 229, 0.12)' : 'transparent',
+                  color: selectedCategory === cat ? 'var(--accent-primary)' : 'var(--text-secondary)',
                   cursor: 'pointer',
                   fontWeight: 600,
                   fontSize: '0.85rem',
@@ -195,7 +196,7 @@ export const Courses = () => {
                               fontSize: '0.75rem',
                               padding: '3px 10px',
                               borderRadius: 'var(--radius-sm)',
-                              background: 'rgba(255, 255, 255, 0.04)',
+                              background: 'var(--bg-surface-elevated)',
                               border: '1px solid var(--border-glass)',
                               color: 'var(--text-secondary)'
                             }}>
@@ -211,8 +212,8 @@ export const Courses = () => {
                         <span style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
                           <Clock size={14} /> {course.duration}
                         </span>
-                        <span style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--accent-secondary)' }}>
-                          ${course.price}
+                        <span style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--accent-primary)' }}>
+                          {course.price}
                         </span>
                       </div>
 
