@@ -6,7 +6,7 @@ import {
   Users, 
   BookOpen, 
   ShoppingBag, 
-  DollarSign, 
+  IndianRupee, 
   Plus, 
   ToggleLeft, 
   ToggleRight, 
@@ -162,9 +162,9 @@ export const AdminDashboard = () => {
           <div className="glass-card" style={{ padding: '24px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
               <span style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', fontWeight: 600 }}>Total Revenue</span>
-              <DollarSign size={20} color="#34D399" />
+              <IndianRupee size={20} color="#34D399" />
             </div>
-            <div style={{ fontSize: '1.8rem', fontWeight: 800 }} className="gradient-text">${stats.totalRevenue || 0}</div>
+            <div style={{ fontSize: '1.8rem', fontWeight: 800 }} className="gradient-text">₹{stats.totalRevenue || 0}</div>
           </div>
 
           <div className="glass-card" style={{ padding: '24px' }}>
@@ -275,7 +275,7 @@ export const AdminDashboard = () => {
                           <td style={{ padding: '16px 12px' }}>
                             <span className="badge badge-gradient">{course.category}</span>
                           </td>
-                          <td style={{ padding: '16px 12px', fontWeight: 700, color: 'var(--accent-secondary)' }}>${course.price}</td>
+                          <td style={{ padding: '16px 12px', fontWeight: 700, color: 'var(--accent-primary)' }}>₹{course.price}</td>
                           <td style={{ padding: '16px 12px' }}>
                             <button
                               onClick={() => handleToggleCourseStatus(course.sku)}
@@ -458,7 +458,7 @@ export const AdminDashboard = () => {
 
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
                 <div className="form-group">
-                  <label className="form-label">Price ($)</label>
+                   <label className="form-label">Price (₹)</label>
                   <input
                     type="number"
                     step="0.01"

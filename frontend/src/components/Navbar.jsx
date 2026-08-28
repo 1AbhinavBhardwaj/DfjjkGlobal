@@ -180,7 +180,7 @@ export const Navbar = () => {
                             className="mega-course-item"
                             onClick={() => setMegaOpen(false)}
                           >
-                            <span style={{ flex: 1, lineHeight: 1.3 }}>{course.title}</span>
+                            <span style={{ flex: 1, lineHeight: 1.3 }}>{course.name}</span>
                             <span className="mega-price-tag">{course.price}</span>
                           </Link>
                         ))}
@@ -350,7 +350,7 @@ export const Navbar = () => {
                               transition: 'all 0.2s'
                             }}
                           >
-                            <span>{course.title}</span>
+                            <span>{course.name}</span>
                             <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--accent-orange)', background: 'rgba(234, 88, 12, 0.1)', padding: '1px 7px', borderRadius: 'var(--radius-full)' }}>
                               {course.price}
                             </span>

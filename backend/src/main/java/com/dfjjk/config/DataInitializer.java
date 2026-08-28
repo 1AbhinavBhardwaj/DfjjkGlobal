@@ -59,8 +59,8 @@ public class DataInitializer implements CommandLineRunner {
             userRepository.saveAll(List.of(admin, student));
         }
 
-        // Seed/Update Courses if not all present
-        if (courseRepository.count() < 15) {
+        // Seed/Update Courses to synchronize database with seed data
+        {
             Course f1 = new Course(
                     "DFJJK-FLAGSHIP-DS-AI",
                     "Data Science and AI",
@@ -91,7 +91,7 @@ public class DataInitializer implements CommandLineRunner {
                     new BigDecimal("899.00"),
                     "8–10 Weeks Hands-on Masterclass",
                     "AI & Machine Learning",
-                    "https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=1200&q=80"
+                    "https://images.unsplash.com/photo-1680814908456-621666378270?auto=format&fit=crop&w=1200&q=80"
             );
 
             Course cComp = new Course(
@@ -135,7 +135,7 @@ public class DataInitializer implements CommandLineRunner {
                     new BigDecimal("899.00"),
                     "12 Weeks",
                     "AI & Machine Learning",
-                    "https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=1200&q=80"
+                    "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80"
             );
 
             Course c4 = new Course(
@@ -238,6 +238,8 @@ public class DataInitializer implements CommandLineRunner {
                         existing.setCategory(c.getCategory());
                         existing.setSummary(c.getSummary());
                         existing.setDescription(c.getDescription());
+                        existing.setImageUrl(c.getImageUrl());
+                        existing.setDuration(c.getDuration());
                         courseRepository.save(existing);
                     });
                 }

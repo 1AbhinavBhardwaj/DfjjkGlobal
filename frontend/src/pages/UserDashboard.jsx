@@ -222,7 +222,7 @@ export const UserDashboard = () => {
                         </div>
 
                         <div style={{ textAlign: 'right' }}>
-                          <div style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--accent-secondary)' }}>${ord.totalAmount}</div>
+                          <div style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--accent-primary)' }}>₹{ord.totalAmount}/-</div>
                           <span className="badge badge-success" style={{ marginTop: '4px' }}>{ord.status}</span>
                         </div>
                       </div>
