@@ -112,19 +112,12 @@ export const Navbar = () => {
         height: '72px'
       }}>
         {/* Brand Logo */}
-        <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none', flexShrink: 0 }}>
-          <div style={{
-            width: '40px',
-            height: '40px',
-            borderRadius: '12px',
-            background: 'var(--gradient-primary)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            boxShadow: '0 4px 15px rgba(79, 70, 229, 0.4)'
-          }}>
-            <Sparkles size={20} color="#FFF" />
-          </div>
+        <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none', flexShrink: 0 }}>
+          <img
+            src="/logo.png"
+            alt="DFJJK Global Logo"
+            style={{ width: '44px', height: '44px', borderRadius: '10px', objectFit: 'cover' }}
+          />
           <div>
             <span style={{ fontSize: '1.35rem', fontWeight: 800, letterSpacing: '-0.03em', color: 'var(--text-primary)' }}>
               DFJJK <span className="gradient-text">GLOBAL</span>
