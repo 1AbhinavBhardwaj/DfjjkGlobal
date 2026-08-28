@@ -21,18 +21,12 @@ export const Footer = () => {
         }}>
           {/* Brand Col */}
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
-              <div style={{
-                width: '36px',
-                height: '36px',
-                borderRadius: '10px',
-                background: 'var(--gradient-primary)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
-              }}>
-                <Sparkles size={18} color="#FFF" />
-              </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
+              <img
+                src="/logo.png"
+                alt="DFJJK Global Logo"
+                style={{ width: '40px', height: '40px', borderRadius: '10px', objectFit: 'cover' }}
+              />
               <span style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--text-primary)' }}>
                 DFJJK <span className="gradient-text">GLOBAL</span>
               </span>
