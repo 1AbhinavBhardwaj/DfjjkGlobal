@@ -45,6 +45,7 @@ export const Home = () => {
               imageUrl: local?.imageUrl || apiCourse.imageUrl || '',
               featured: local?.featured || false,
               isFlagship: local?.isFlagship || false,
+              badgeLabel: local?.badgeLabel || null,
             };
           });
 
@@ -288,7 +289,7 @@ export const Home = () => {
                       <Flame size={11} /> Flagship
                     </div>
                     <div style={{ position: 'absolute', top: '12px', right: '12px' }} className="badge badge-gradient">
-                      {course.category}
+                      {course.badgeLabel || course.category}
                     </div>
                   </div>
 

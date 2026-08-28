@@ -103,7 +103,8 @@ export const CATALOG_COURSES = [
   {
     id: 'data-analytics',
     sku: 'DFJJK-FLAGSHIP-DATA-ANALYTICS',
-    name: 'Data Analytics',
+    name: 'Data Analytics and AI',
+    badgeLabel: 'Data Analytics',
     summary: 'Flagship analytics program combining Power BI visualization, SQL analytical queries, data modeling, business intelligence, and executive dashboard storytelling.',
     description: 'An all-in-one flagship masterclass empowering learners to transform raw corporate datasets into strategic business decisions. Master SQL query optimization, Power Query, advanced DAX, semantic data modeling, and interactive Power BI report publishing.',
     price: '$1,499.00',
@@ -202,8 +203,6 @@ export const CATALOG_COURSES = [
     category: 'AI & Machine Learning',
     imageUrl: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1200&q=80',
     active: true,
-    isFlagship: true,
-    featured: true,
     highlights: [
       'Autonomous AI Agents',
       'RAG Architecture & Vector DBs',
@@ -1121,6 +1120,8 @@ export const CATALOG_COURSES = [
     category: 'Management & Agile',
     imageUrl: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80',
     active: true,
+    isFlagship: true,
+    featured: true,
     highlights: [
       'PMBOK 7th Edition & PMP Exam Alignment',
       'Predictive, Agile & Hybrid Frameworks',
