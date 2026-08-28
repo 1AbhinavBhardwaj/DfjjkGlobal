@@ -41,8 +41,8 @@ export const Home = () => {
               summary: apiCourse.summary || local?.summary || '',
               category: apiCourse.category || local?.category || 'General',
               duration: apiCourse.duration || local?.duration || 'Self-Paced',
-              price: local?.price ?? (apiCourse.price != null ? `₹${apiCourse.price}/-` : '₹0/-'),
-              imageUrl: apiCourse.imageUrl || local?.imageUrl || '',
+              price: local?.price ?? (apiCourse.price != null ? `$${apiCourse.price}` : '$0'),
+              imageUrl: local?.imageUrl || apiCourse.imageUrl || '',
               featured: local?.featured || false,
               isFlagship: local?.isFlagship || false,
             };
