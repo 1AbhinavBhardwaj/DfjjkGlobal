@@ -22,7 +22,7 @@ export const Footer = () => {
           {/* Brand Col */}
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
-              <div className="navbar-logo-badge" style={{ width: '48px', height: '48px' }}>
+              <div className="navbar-logo-badge" style={{ width: '56px', height: '56px' }}>
                 <img
                   src="/logo.png"
                   alt="DFJJK Global Logo"

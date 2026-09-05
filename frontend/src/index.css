@@ -627,13 +627,13 @@ h1, h2, h3, h4, h5, h6 {
    =================================================== */
 .navbar-logo-badge {
   position: relative;
-  width: 52px;
-  height: 52px;
+  width: 62px;
+  height: 62px;
   border-radius: 50%;
   overflow: hidden;
   background: #ffffff;
-  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.1);
-  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 3px 12px rgba(15, 23, 42, 0.12);
+  border: 1.5px solid rgba(15, 23, 42, 0.08);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -642,8 +642,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 [data-theme='dark'] .navbar-logo-badge {
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.5);
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
 }
 
 .navbar-logo-badge:hover {
@@ -667,13 +667,13 @@ h1, h2, h3, h4, h5, h6 {
 .navbar-brand-link {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   text-decoration: none;
   flex-shrink: 0;
 }
 
 .navbar-brand-title {
-  font-size: 1.35rem;
+  font-size: 1.45rem;
   font-weight: 800;
   letter-spacing: -0.03em;
   color: var(--text-primary);
@@ -683,34 +683,40 @@ h1, h2, h3, h4, h5, h6 {
 
 .navbar-brand-subtitle {
   display: block;
-  font-size: 0.62rem;
+  font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   color: var(--text-muted);
   text-transform: uppercase;
-  margin-top: 2px;
+  margin-top: 3px;
 }
 
 @media (max-width: 768px) {
   .navbar-logo-badge {
-    width: 46px;
-    height: 46px;
+    width: 56px;
+    height: 56px;
+  }
+  .navbar-brand-title {
+    font-size: 1.32rem;
+  }
+  .navbar-brand-subtitle {
+    font-size: 0.62rem;
   }
 }
 
 @media (max-width: 480px) {
   .navbar-brand-link {
-    gap: 9px;
+    gap: 10px;
   }
   .navbar-logo-badge {
-    width: 42px;
-    height: 42px;
+    width: 50px;
+    height: 50px;
   }
   .navbar-brand-title {
-    font-size: 1.18rem;
+    font-size: 1.22rem;
   }
   .navbar-brand-subtitle {
-    font-size: 0.54rem;
+    font-size: 0.58rem;
     letter-spacing: 0.12em;
   }
 }

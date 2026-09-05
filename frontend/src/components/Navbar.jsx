@@ -109,7 +109,7 @@ export const Navbar = () => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        height: '72px'
+        height: '80px'
       }}>
         {/* Brand Logo */}
         <Link to="/" className="navbar-brand-link">
@@ -273,7 +273,7 @@ export const Navbar = () => {
       {mobileMenuOpen && (
         <div style={{
           position: 'fixed',
-          top: '72px',
+          top: '80px',
           left: 0,
           right: 0,
           bottom: 0,
