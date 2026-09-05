@@ -21,13 +21,15 @@ export const Footer = () => {
         }}>
           {/* Brand Col */}
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
-              <img
-                src="/logo.png"
-                alt="DFJJK Global Logo"
-                style={{ width: '48px', height: '48px', borderRadius: '50%', objectFit: 'contain', background: '#ffffff', padding: '2px' }}
-              />
-              <span style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--text-primary)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
+              <div className="navbar-logo-badge" style={{ width: '48px', height: '48px' }}>
+                <img
+                  src="/logo.png"
+                  alt="DFJJK Global Logo"
+                  className="navbar-logo-img"
+                />
+              </div>
+              <span style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-primary)' }}>
                 DFJJK <span className="gradient-text">GLOBAL</span>
               </span>
             </div>

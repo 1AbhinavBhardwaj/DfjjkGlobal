@@ -620,6 +620,101 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/* ===================================================
+   DFJJK GLOBAL LOGO BADGE (PRESERVES EXACT ASSET)
+   Compensates for canvas whitespace using container clipping
+   so the circular DFJJK emblem is prominent, crisp & centered.
+   =================================================== */
+.navbar-logo-badge {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.1);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+[data-theme='dark'] .navbar-logo-badge {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.navbar-logo-badge:hover {
+  transform: scale(1.05);
+}
+
+.navbar-logo-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 114%;
+  width: auto;
+  max-width: none;
+  /* Centering formula based on exact bounding box of emblem inside 508x364 canvas */
+  transform: translate(-45.7%, -50%);
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+}
+
+.navbar-brand-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.navbar-brand-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  line-height: 1.1;
+  display: block;
+}
+
+.navbar-brand-subtitle {
+  display: block;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+@media (max-width: 768px) {
+  .navbar-logo-badge {
+    width: 46px;
+    height: 46px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-brand-link {
+    gap: 9px;
+  }
+  .navbar-logo-badge {
+    width: 42px;
+    height: 42px;
+  }
+  .navbar-brand-title {
+    font-size: 1.18rem;
+  }
+  .navbar-brand-subtitle {
+    font-size: 0.54rem;
+    letter-spacing: 0.12em;
+  }
+}
+
 /* Print styles for downloadable/printable syllabus */
 @media print {
   nav, footer, .desktop-links, .no-print {

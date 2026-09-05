@@ -112,17 +112,19 @@ export const Navbar = () => {
         height: '72px'
       }}>
         {/* Brand Logo */}
-        <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none', flexShrink: 0 }}>
-          <img
-            src="/logo.png"
-            alt="DFJJK Global Logo"
-            style={{ width: '50px', height: '50px', borderRadius: '50%', objectFit: 'contain', background: '#ffffff', padding: '2px' }}
-          />
+        <Link to="/" className="navbar-brand-link">
+          <div className="navbar-logo-badge">
+            <img
+              src="/logo.png"
+              alt="DFJJK Global Logo"
+              className="navbar-logo-img"
+            />
+          </div>
           <div>
-            <span style={{ fontSize: '1.35rem', fontWeight: 800, letterSpacing: '-0.03em', color: 'var(--text-primary)' }}>
+            <span className="navbar-brand-title">
               DFJJK <span className="gradient-text">GLOBAL</span>
             </span>
-            <span style={{ display: 'block', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.15em', color: 'var(--text-muted)', textTransform: 'uppercase' }}>
+            <span className="navbar-brand-subtitle">
               Enterprise Platform
             </span>
           </div>
