@@ -187,42 +187,44 @@ export const Home = () => {
 
           {/* Hero Visual */}
           <div style={{ position: 'relative' }}>
-            <div className="glass-card" style={{ padding: '16px', overflow: 'hidden', position: 'relative' }}>
+            <div className="glass-card" style={{ padding: '12px', borderRadius: 'var(--radius-lg)', boxShadow: '0 20px 40px -15px rgba(15, 23, 42, 0.15)' }}>
               <img 
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1200&q=80" 
-                alt="DFJJK Global — Diverse Multicultural Engineering Team Collaboration" 
-                style={{ width: '100%', height: '380px', objectFit: 'cover', borderRadius: 'var(--radius-md)' }}
+                src="/hero-banner.jpg" 
+                alt="DFJJK Global — A Global Community, A Brighter Tomorrow" 
+                style={{ width: '100%', height: 'auto', display: 'block', borderRadius: 'var(--radius-md)' }}
               />
+            </div>
               
-              {/* Floating Stat Card 1 */}
-              <div className="glass-card animate-float" style={{
-                position: 'absolute', bottom: '10px', left: '10px',
-                padding: '12px 20px', display: 'flex', alignItems: 'center', gap: '12px',
-                background: 'rgba(255, 255, 255, 0.97)', border: '1px solid rgba(79, 70, 229, 0.2)'
-              }}>
-                <div style={{ padding: '10px', background: 'rgba(79, 70, 229, 0.12)', borderRadius: '10px' }}>
-                  <Award size={20} color="#4F46E5" />
-                </div>
-                <div>
-                  <div style={{ fontSize: '1.2rem', fontWeight: 800, color: '#0F172A' }}>99.4%</div>
-                  <div style={{ fontSize: '0.75rem', color: '#64748B' }}>Graduation Rate</div>
-                </div>
+            {/* Floating Stat Card 1 */}
+            <div className="glass-card animate-float" style={{
+              position: 'absolute', bottom: '-16px', left: '-12px',
+              padding: '10px 18px', display: 'flex', alignItems: 'center', gap: '10px',
+              background: 'rgba(255, 255, 255, 0.98)', border: '1px solid rgba(79, 70, 229, 0.25)',
+              boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.12)', zIndex: 2
+            }}>
+              <div style={{ padding: '8px', background: 'rgba(79, 70, 229, 0.12)', borderRadius: '10px' }}>
+                <Award size={18} color="#4F46E5" />
               </div>
+              <div>
+                <div style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0F172A', lineHeight: 1.1 }}>99.4%</div>
+                <div style={{ fontSize: '0.72rem', color: '#64748B' }}>Graduation Rate</div>
+              </div>
+            </div>
 
-              {/* Floating Stat Card 2 */}
-              <div className="glass-card animate-float" style={{
-                position: 'absolute', top: '10px', right: '10px',
-                padding: '12px 18px', display: 'flex', alignItems: 'center', gap: '10px',
-                background: 'rgba(255, 255, 255, 0.97)', border: '1px solid rgba(2, 132, 199, 0.2)',
-                animationDelay: '3s'
-              }}>
-                <div style={{ padding: '8px', background: 'rgba(2, 132, 199, 0.12)', borderRadius: '8px' }}>
-                  <Users size={18} color="#0284C7" />
-                </div>
-                <div>
-                  <div style={{ fontSize: '1.05rem', fontWeight: 800, color: '#0F172A' }}>15,000+</div>
-                  <div style={{ fontSize: '0.7rem', color: '#64748B' }}>Engineers Trained</div>
-                </div>
+            {/* Floating Stat Card 2 */}
+            <div className="glass-card animate-float" style={{
+              position: 'absolute', top: '-14px', right: '-12px',
+              padding: '10px 16px', display: 'flex', alignItems: 'center', gap: '10px',
+              background: 'rgba(255, 255, 255, 0.98)', border: '1px solid rgba(2, 132, 199, 0.25)',
+              boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.12)',
+              animationDelay: '3s', zIndex: 2
+            }}>
+              <div style={{ padding: '8px', background: 'rgba(2, 132, 199, 0.12)', borderRadius: '8px' }}>
+                <Users size={18} color="#0284C7" />
+              </div>
+              <div>
+                <div style={{ fontSize: '1.05rem', fontWeight: 800, color: '#0F172A', lineHeight: 1.1 }}>15,000+</div>
+                <div style={{ fontSize: '0.7rem', color: '#64748B' }}>Engineers Trained</div>
               </div>
             </div>
           </div>
