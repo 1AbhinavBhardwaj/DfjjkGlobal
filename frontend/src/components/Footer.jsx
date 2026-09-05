@@ -25,7 +25,7 @@ export const Footer = () => {
               <img
                 src="/logo.png"
                 alt="DFJJK Global Logo"
-                style={{ width: '40px', height: '40px', borderRadius: '10px', objectFit: 'cover' }}
+                style={{ width: '48px', height: '48px', borderRadius: '50%', objectFit: 'contain', background: '#ffffff', padding: '2px' }}
               />
               <span style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--text-primary)' }}>
                 DFJJK <span className="gradient-text">GLOBAL</span>

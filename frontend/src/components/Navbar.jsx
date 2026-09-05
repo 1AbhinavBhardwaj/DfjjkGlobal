@@ -116,7 +116,7 @@ export const Navbar = () => {
           <img
             src="/logo.png"
             alt="DFJJK Global Logo"
-            style={{ width: '44px', height: '44px', borderRadius: '10px', objectFit: 'cover' }}
+            style={{ width: '50px', height: '50px', borderRadius: '50%', objectFit: 'contain', background: '#ffffff', padding: '2px' }}
           />
           <div>
             <span style={{ fontSize: '1.35rem', fontWeight: 800, letterSpacing: '-0.03em', color: 'var(--text-primary)' }}>

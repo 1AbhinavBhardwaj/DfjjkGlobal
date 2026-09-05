@@ -189,8 +189,8 @@ export const Home = () => {
           <div style={{ position: 'relative' }}>
             <div className="glass-card" style={{ padding: '16px', overflow: 'hidden', position: 'relative' }}>
               <img 
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" 
-                alt="DFJJK Global — Engineering Team Collaboration" 
+                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1200&q=80" 
+                alt="DFJJK Global — Diverse Multicultural Engineering Team Collaboration" 
                 style={{ width: '100%', height: '380px', objectFit: 'cover', borderRadius: 'var(--radius-md)' }}
               />
               
