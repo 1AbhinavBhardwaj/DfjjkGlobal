@@ -22,7 +22,11 @@ import {
   Terminal,
   Zap,
   Layers,
-  ArrowRight
+  ArrowRight,
+  Download,
+  Printer,
+  MessageSquare,
+  X
 } from 'lucide-react';
 
 export const CourseDetail = () => {
@@ -33,6 +37,7 @@ export const CourseDetail = () => {
   const [course, setCourse] = useState(null);
   const [loading, setLoading] = useState(true);
   const [showCheckoutModal, setShowCheckoutModal] = useState(false);
+  const [showSyllabusModal, setShowSyllabusModal] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState('Card');
   const [processing, setProcessing] = useState(false);
   const [orderSuccess, setOrderSuccess] = useState(false);
@@ -52,7 +57,7 @@ export const CourseDetail = () => {
           setCourse({
             ...res.data,
             sku: res.data.sku || localMeta?.sku || cleanSku,
-            name: res.data.name || localMeta?.name || 'Untitled Course',
+            name: localMeta?.name || res.data.name || 'Untitled Course',
             summary: res.data.summary || localMeta?.summary || '',
             description: res.data.description || localMeta?.description || '',
             price: localMeta?.price ?? (res.data.price != null ? `$${res.data.price}` : '$0'),
@@ -111,6 +116,133 @@ export const CourseDetail = () => {
 
   const toggleAccordion = (index) => {
     setExpandedIndex(expandedIndex === index ? null : index);
+  };
+
+  const generateSyllabusText = (c) => {
+    let text = `============================================================\n`;
+    text += `DFJJK GLOBAL — OFFICIAL COURSE SYLLABUS\n`;
+    text += `============================================================\n\n`;
+    text += `COURSE: ${c.name}\n`;
+    text += `SKU: ${c.sku}\n`;
+    text += `CATEGORY: ${c.category}\n`;
+    text += `DURATION: ${c.duration}\n`;
+    text += `TOTAL FEE: ${c.price}\n`;
+    text += `OFFICIAL PORTAL: https://dfjjkglobal.com/courses/${c.sku}\n\n`;
+    text += `------------------------------------------------------------\n`;
+    text += `COURSE OVERVIEW\n`;
+    text += `------------------------------------------------------------\n`;
+    text += `${c.description || c.summary}\n\n`;
+
+    if (c.highlights && c.highlights.length > 0) {
+      text += `------------------------------------------------------------\n`;
+      text += `PROGRAM HIGHLIGHTS\n`;
+      text += `------------------------------------------------------------\n`;
+      c.highlights.forEach(h => {
+        text += `• ${h}\n`;
+      });
+      text += `\n`;
+    }
+
+    if (c.learningJourney && c.learningJourney.length > 0) {
+      text += `------------------------------------------------------------\n`;
+      text += `LEARNING JOURNEY PATH\n`;
+      text += `------------------------------------------------------------\n`;
+      c.learningJourney.forEach((step, idx) => {
+        text += `${idx + 1}. ${step}\n`;
+      });
+      text += `\n`;
+    }
+
+    text += `------------------------------------------------------------\n`;
+    text += `CURRICULUM & MODULE BREAKDOWN\n`;
+    text += `------------------------------------------------------------\n`;
+
+    if (c.type === 'session' && c.sessions && c.sessions.length > 0) {
+      c.sessions.forEach(sess => {
+        text += `\n[${sess.sessionNumber}] ${sess.title}\n`;
+        if (sess.topics) {
+          sess.topics.forEach(t => text += `  - ${t}\n`);
+        }
+        if (sess.deliverables && sess.deliverables.length > 0) {
+          text += `  Deliverables: ${sess.deliverables.join(', ')}\n`;
+        }
+      });
+    } else if (c.type === 'hierarchical' && c.aiModules && c.aiModules.length > 0) {
+      c.aiModules.forEach(mod => {
+        text += `\n[${mod.moduleNumber}] ${mod.title}\n`;
+        if (mod.subsections) {
+          mod.subsections.forEach(sub => {
+            text += `  • ${sub.name}\n`;
+            if (sub.topics) {
+              sub.topics.forEach(t => text += `    - ${t}\n`);
+            }
+          });
+        }
+      });
+    } else if (c.modules && c.modules.length > 0) {
+      c.modules.forEach(mod => {
+        text += `\n[${mod.number || 'Module'}] ${mod.title}\n`;
+        if (mod.topics) {
+          mod.topics.forEach(t => text += `  - ${t}\n`);
+        }
+      });
+    }
+
+    if (c.learningOutcomes && c.learningOutcomes.length > 0) {
+      text += `\n------------------------------------------------------------\n`;
+      text += `LEARNING OUTCOMES\n`;
+      text += `------------------------------------------------------------\n`;
+      c.learningOutcomes.forEach(out => {
+        text += `• ${out}\n`;
+      });
+      text += `\n`;
+    }
+
+    if (c.capstones && c.capstones.length > 0) {
+      text += `------------------------------------------------------------\n`;
+      text += `CAPSTONE PROJECTS\n`;
+      text += `------------------------------------------------------------\n`;
+      c.capstones.forEach(cap => {
+        text += `• ${cap.title}: ${cap.description}\n`;
+      });
+      text += `\n`;
+    }
+
+    text += `============================================================\n`;
+    text += `VERIFIED ACCREDITATION & ADMISSIONS\n`;
+    text += `DFJJK Global provides verified course completion credentials,\n`;
+    text += `1-on-1 industry mentorship, and real-world project portfolios.\n`;
+    text += `Admissions & Inquiries: support@dfjjkglobal.com\n`;
+    text += `Official Website: https://dfjjkglobal.com\n`;
+    text += `============================================================\n`;
+
+    return text;
+  };
+
+  const handleDownloadSyllabusFile = () => {
+    if (!course) return;
+    const text = generateSyllabusText(course);
+    const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${course.sku}-DFJJK-Global-Syllabus.txt`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
+  const handlePrintSyllabus = () => {
+    window.print();
+  };
+
+  const handleScrollToCurriculum = () => {
+    setShowSyllabusModal(false);
+    const el = document.getElementById('curriculum-section');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   if (loading) {
@@ -304,7 +436,7 @@ export const CourseDetail = () => {
             )}
 
             {/* 5. Course Curriculum & Modules (Accordions) */}
-            <div className="glass-card" style={{ padding: '32px', marginBottom: '40px' }}>
+            <div id="curriculum-section" className="glass-card" style={{ padding: '32px', marginBottom: '40px' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px', flexWrap: 'wrap', gap: '12px' }}>
                 <div>
                   <h2 style={{ fontSize: '1.4rem' }}>Course Curriculum & Modules</h2>
@@ -549,12 +681,50 @@ export const CourseDetail = () => {
               </div>
 
               <button 
+                id="enroll-masterclass-btn"
                 onClick={handleEnrollClick}
                 className="btn btn-primary" 
-                style={{ width: '100%', padding: '16px', fontSize: '1.05rem', marginBottom: '20px' }}
+                style={{ width: '100%', padding: '16px', fontSize: '1.05rem', marginBottom: '12px' }}
               >
                 Enroll in Masterclass <ArrowRight size={18} />
               </button>
+
+              <button 
+                id="download-syllabus-btn"
+                onClick={() => setShowSyllabusModal(true)}
+                className="btn btn-secondary" 
+                style={{ 
+                  width: '100%', 
+                  padding: '14px', 
+                  fontSize: '0.98rem', 
+                  marginBottom: '14px', 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  justifyContent: 'center', 
+                  gap: '8px',
+                  fontWeight: 600,
+                  cursor: 'pointer'
+                }}
+              >
+                <Download size={17} /> Download Syllabus
+              </button>
+
+              <div style={{ textAlign: 'center', marginBottom: '20px' }}>
+                <Link 
+                  to="/contact" 
+                  style={{ 
+                    display: 'inline-flex', 
+                    alignItems: 'center', 
+                    gap: '6px', 
+                    color: 'var(--accent-primary)', 
+                    fontSize: '0.86rem', 
+                    fontWeight: 600, 
+                    textDecoration: 'none' 
+                  }}
+                >
+                  <MessageSquare size={14} /> Have questions? Speak with an Advisor
+                </Link>
+              </div>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', fontSize: '0.88rem', color: 'var(--text-secondary)' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -662,6 +832,208 @@ export const CourseDetail = () => {
                 </div>
               </div>
             )}
+          </div>
+        </div>
+      )}
+
+      {/* Syllabus Download & Preview Modal */}
+      {showSyllabusModal && (
+        <div style={{
+          position: 'fixed',
+          top: 0, left: 0, right: 0, bottom: 0,
+          background: 'rgba(0, 0, 0, 0.85)',
+          backdropFilter: 'blur(10px)',
+          WebkitBackdropFilter: 'blur(10px)',
+          zIndex: 1000,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: '20px'
+        }}>
+          <div 
+            className="glass-card printable-syllabus" 
+            style={{ 
+              maxWidth: '680px', 
+              width: '100%', 
+              maxHeight: '90vh', 
+              display: 'flex', 
+              flexDirection: 'column',
+              padding: '0', 
+              background: 'var(--bg-surface)',
+              overflow: 'hidden'
+            }}
+          >
+            {/* Modal Header */}
+            <div className="no-print" style={{ 
+              padding: '24px 28px', 
+              borderBottom: '1px solid var(--border-glass)',
+              display: 'flex', 
+              alignItems: 'flex-start', 
+              justifyContent: 'space-between', 
+              gap: '16px' 
+            }}>
+              <div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px', flexWrap: 'wrap' }}>
+                  <span className="badge badge-gradient">{course.category}</span>
+                  <span style={{ fontSize: '0.82rem', color: 'var(--text-muted)', fontWeight: 600 }}>SKU: {course.sku}</span>
+                </div>
+                <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--text-primary)', lineHeight: 1.25 }}>
+                  {course.name}
+                </h3>
+                <div style={{ display: 'flex', gap: '16px', marginTop: '6px', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+                  <span>Duration: <strong style={{ color: 'var(--text-secondary)' }}>{course.duration}</strong></span>
+                  <span>Fee: <strong style={{ color: 'var(--accent-primary)' }}>{course.price}</strong></span>
+                </div>
+              </div>
+              <button 
+                onClick={() => setShowSyllabusModal(false)}
+                style={{
+                  background: 'transparent',
+                  border: 'none',
+                  color: 'var(--text-muted)',
+                  cursor: 'pointer',
+                  padding: '4px',
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}
+                title="Close"
+              >
+                <X size={22} />
+              </button>
+            </div>
+
+            {/* Scrollable Syllabus Content */}
+            <div style={{ 
+              padding: '24px 28px', 
+              overflowY: 'auto', 
+              flex: 1, 
+              fontSize: '0.92rem', 
+              lineHeight: 1.65 
+            }}>
+              <div style={{ marginBottom: '20px' }}>
+                <h4 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '8px' }}>
+                  Course Summary
+                </h4>
+                <p style={{ color: 'var(--text-secondary)', margin: 0 }}>
+                  {course.description || course.summary}
+                </p>
+              </div>
+
+              {course.highlights && course.highlights.length > 0 && (
+                <div style={{ marginBottom: '24px' }}>
+                  <h4 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '10px' }}>
+                    Key Program Highlights
+                  </h4>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '8px' }}>
+                    {course.highlights.map((h, i) => (
+                      <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-secondary)', fontSize: '0.88rem' }}>
+                        <CheckCircle2 size={15} color="#34D399" style={{ flexShrink: 0 }} />
+                        <span>{h}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              <div>
+                <h4 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '12px' }}>
+                  Curriculum Overview
+                </h4>
+
+                {course.type === 'session' && course.sessions && course.sessions.length > 0 && (
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                    {course.sessions.map((sess, idx) => (
+                      <div key={idx} style={{ padding: '12px 16px', background: 'rgba(255, 255, 255, 0.03)', border: '1px solid var(--border-glass)', borderRadius: 'var(--radius-sm)' }}>
+                        <div style={{ fontWeight: 700, color: 'var(--text-primary)', marginBottom: '4px' }}>
+                          <span style={{ color: 'var(--accent-primary)', marginRight: '8px' }}>{sess.sessionNumber}:</span>
+                          {sess.title}
+                        </div>
+                        {sess.topics && (
+                          <div style={{ fontSize: '0.84rem', color: 'var(--text-muted)' }}>
+                            {sess.topics.slice(0, 3).join(' • ')} {sess.topics.length > 3 ? `+ ${sess.topics.length - 3} more` : ''}
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {course.type === 'hierarchical' && course.aiModules && course.aiModules.length > 0 && (
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                    {course.aiModules.map((mod, idx) => (
+                      <div key={idx} style={{ padding: '12px 16px', background: 'rgba(255, 255, 255, 0.03)', border: '1px solid var(--border-glass)', borderRadius: 'var(--radius-sm)' }}>
+                        <div style={{ fontWeight: 700, color: 'var(--text-primary)', marginBottom: '4px' }}>
+                          <span style={{ color: 'var(--accent-secondary)', marginRight: '8px' }}>{mod.moduleNumber}:</span>
+                          {mod.title}
+                        </div>
+                        {mod.subsections && (
+                          <div style={{ fontSize: '0.84rem', color: 'var(--text-muted)' }}>
+                            {mod.subsections.map(s => s.name).join(' • ')}
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {(course.type === 'module' || (!course.type && course.modules)) && course.modules && course.modules.length > 0 && (
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                    {course.modules.map((mod, idx) => (
+                      <div key={idx} style={{ padding: '12px 16px', background: 'rgba(255, 255, 255, 0.03)', border: '1px solid var(--border-glass)', borderRadius: 'var(--radius-sm)' }}>
+                        <div style={{ fontWeight: 700, color: 'var(--text-primary)', marginBottom: '4px' }}>
+                          <span style={{ color: 'var(--accent-primary)', marginRight: '8px' }}>{mod.number || `Module ${idx + 1}`}:</span>
+                          {mod.title}
+                        </div>
+                        {mod.topics && (
+                          <div style={{ fontSize: '0.84rem', color: 'var(--text-muted)' }}>
+                            {mod.topics.slice(0, 3).join(' • ')} {mod.topics.length > 3 ? `+ ${mod.topics.length - 3} more` : ''}
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Modal Actions Footer */}
+            <div className="no-print" style={{ 
+              padding: '18px 28px', 
+              borderTop: '1px solid var(--border-glass)', 
+              background: 'rgba(0, 0, 0, 0.1)',
+              display: 'flex', 
+              gap: '12px', 
+              flexWrap: 'wrap', 
+              alignItems: 'center', 
+              justifyContent: 'space-between' 
+            }}>
+              <button
+                onClick={handleScrollToCurriculum}
+                className="btn btn-outline btn-sm"
+                style={{ display: 'flex', alignItems: 'center', gap: '6px' }}
+              >
+                <BookOpen size={15} /> View Full Interactive Curriculum
+              </button>
+
+              <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+                <button
+                  onClick={handleDownloadSyllabusFile}
+                  className="btn btn-secondary btn-sm"
+                  style={{ display: 'flex', alignItems: 'center', gap: '6px' }}
+                >
+                  <Download size={15} /> Save File (.txt)
+                </button>
+                <button
+                  onClick={handlePrintSyllabus}
+                  className="btn btn-primary btn-sm"
+                  style={{ display: 'flex', alignItems: 'center', gap: '6px' }}
+                >
+                  <Printer size={15} /> Print / Save PDF
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       )}

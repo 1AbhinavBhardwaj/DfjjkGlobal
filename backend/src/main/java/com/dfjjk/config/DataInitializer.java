@@ -74,7 +74,7 @@ public class DataInitializer implements CommandLineRunner {
 
             Course f2 = new Course(
                     "DFJJK-FLAGSHIP-DATA-ANALYTICS",
-                    "Data Analytics",
+                    "Data Analytics and AI",
                     "Flagship analytics program combining Power BI visualization, SQL analytical queries, data modeling, business intelligence, and executive dashboard storytelling.",
                     "An all-in-one flagship masterclass empowering learners to transform raw corporate datasets into strategic business decisions. Master SQL query optimization, Power Query, advanced DAX, semantic data modeling, and interactive Power BI report publishing.",
                     new BigDecimal("1499.00"),

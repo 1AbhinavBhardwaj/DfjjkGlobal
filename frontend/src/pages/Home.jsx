@@ -37,7 +37,7 @@ export const Home = () => {
             return {
               ...apiCourse,
               sku: apiCourse.sku || local?.sku || `CRS-${apiCourse.id}`,
-              name: apiCourse.name || local?.name || 'Untitled Course',
+              name: local?.name || apiCourse.name || 'Untitled Course',
               summary: apiCourse.summary || local?.summary || '',
               category: apiCourse.category || local?.category || 'General',
               duration: apiCourse.duration || local?.duration || 'Self-Paced',
