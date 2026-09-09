@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import API from '../api';
 import { CATALOG_COURSES, getFlagshipCourses, getFeaturedCourses } from '../data/coursesData';
 import { SEO } from '../components/SEO';
 import { ReviewsSection } from '../components/ReviewsSection';
 import { TestimonialsSection } from '../components/TestimonialsSection';
+import { createWhatsAppEnrollmentLink } from '../utils/whatsapp';
 import { 
   Sparkles, 
   ArrowRight, 
@@ -24,45 +24,8 @@ import {
 } from 'lucide-react';
 
 export const Home = () => {
-  const [featuredCourses, setFeaturedCourses] = useState(() => getFeaturedCourses());
+  const featuredCourses = getFeaturedCourses();
   const flagshipCourses = getFlagshipCourses();
-
-  useEffect(() => {
-    API.get('/courses')
-      .then((res) => {
-        if (res && res.data && Array.isArray(res.data) && res.data.length > 0) {
-          const merged = res.data.map((apiCourse) => {
-            const apiSku = (apiCourse.sku || '').toUpperCase();
-            const local = CATALOG_COURSES.find(c => (c.sku || '').toUpperCase() === apiSku);
-            return {
-              ...apiCourse,
-              sku: apiCourse.sku || local?.sku || `CRS-${apiCourse.id}`,
-              name: local?.name || apiCourse.name || 'Untitled Course',
-              summary: apiCourse.summary || local?.summary || '',
-              category: apiCourse.category || local?.category || 'General',
-              duration: apiCourse.duration || local?.duration || 'Self-Paced',
-              price: local?.price ?? (apiCourse.price != null ? `$${apiCourse.price}` : '$0'),
-              imageUrl: local?.imageUrl || apiCourse.imageUrl || '',
-              featured: local?.featured || false,
-              isFlagship: local?.isFlagship || false,
-              badgeLabel: local?.badgeLabel || null,
-            };
-          });
-
-          CATALOG_COURSES.forEach(localCourse => {
-            const localSku = (localCourse.sku || '').toUpperCase();
-            if (!merged.some(m => (m.sku || '').toUpperCase() === localSku)) {
-              merged.push(localCourse);
-            }
-          });
-          setFeaturedCourses(merged.filter(c => c.featured));
-        }
-      })
-      .catch((err) => {
-        console.warn('Backend API offline. Using local catalog:', err);
-        setFeaturedCourses(getFeaturedCourses());
-      });
-  }, []);
 
   const homeSchema = {
     '@context': 'https://schema.org',
@@ -278,14 +241,17 @@ export const Home = () => {
                   background: 'var(--bg-surface)'
                 }}>
                   <div style={{ position: 'relative', height: '200px', overflow: 'hidden' }}>
-                    <img 
-                      src={course.imageUrl} 
-                      alt={course.name} 
-                      style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
-                    />
+                    <Link to={`/courses/${course.sku}`} style={{ display: 'block', width: '100%', height: '100%' }}>
+                      <img 
+                        src={course.imageUrl} 
+                        alt={course.name} 
+                        style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
+                      />
+                    </Link>
                     <div style={{
                       position: 'absolute', inset: 0,
-                      background: 'linear-gradient(to top, rgba(15, 23, 42, 0.7) 0%, transparent 60%)'
+                      background: 'linear-gradient(to top, rgba(15, 23, 42, 0.7) 0%, transparent 60%)',
+                      pointerEvents: 'none'
                     }} />
                     <div style={{ position: 'absolute', top: '12px', left: '12px' }} className="badge badge-flagship">
                       <Flame size={11} /> Flagship
@@ -301,9 +267,11 @@ export const Home = () => {
                         <div style={{ padding: '8px', background: 'rgba(79, 70, 229, 0.12)', borderRadius: '10px' }}>
                           <Icon size={18} color="var(--accent-primary)" />
                         </div>
-                        <h3 style={{ fontSize: '1.2rem', fontWeight: 700, lineHeight: 1.3, color: 'var(--text-primary)' }}>
-                          {course.name}
-                        </h3>
+                        <Link to={`/courses/${course.sku}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                          <h3 style={{ fontSize: '1.2rem', fontWeight: 700, lineHeight: 1.3, color: 'var(--text-primary)' }}>
+                            {course.name}
+                          </h3>
+                        </Link>
                       </div>
                       <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.65, marginBottom: '20px' }}>
                         {course.summary}
@@ -334,9 +302,16 @@ export const Home = () => {
                           {course.price}
                         </span>
                       </div>
-                      <Link to={`/courses/${course.sku}`} id={`flagship-enroll-${course.sku}`} className="btn btn-primary" style={{ width: '100%' }}>
+                      <a
+                        href={createWhatsAppEnrollmentLink(course.name)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        id={`flagship-enroll-${course.sku}`}
+                        className="btn btn-primary"
+                        style={{ width: '100%', textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}
+                      >
                         Enroll Now <ArrowRight size={16} />
-                      </Link>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -373,11 +348,13 @@ export const Home = () => {
             {featuredCourses.slice(0, 6).map((course) => (
               <div key={course.id || course.sku} className="glass-card" style={{ display: 'flex', flexDirection: 'column', overflow: 'hidden', background: 'var(--bg-surface)' }}>
                 <div style={{ position: 'relative', height: '190px', overflow: 'hidden' }}>
-                  <img 
-                    src={course.imageUrl} 
-                    alt={course.name} 
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
-                  />
+                  <Link to={`/courses/${course.sku}`} style={{ display: 'block', width: '100%', height: '100%' }}>
+                    <img 
+                      src={course.imageUrl} 
+                      alt={course.name} 
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
+                    />
+                  </Link>
                   <div style={{ position: 'absolute', top: '12px', left: '12px' }} className="badge badge-gradient">
                     {course.category}
                   </div>
@@ -385,7 +362,9 @@ export const Home = () => {
 
                 <div style={{ padding: '22px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                   <div>
-                    <h3 style={{ fontSize: '1.1rem', marginBottom: '10px', color: 'var(--text-primary)', lineHeight: 1.3 }}>{course.name}</h3>
+                    <Link to={`/courses/${course.sku}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                      <h3 style={{ fontSize: '1.1rem', marginBottom: '10px', color: 'var(--text-primary)', lineHeight: 1.3 }}>{course.name}</h3>
+                    </Link>
                     <p style={{ fontSize: '0.88rem', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '18px' }}>
                       {course.summary}
                     </p>
@@ -400,9 +379,16 @@ export const Home = () => {
                         {course.price}
                       </span>
                     </div>
-                    <Link to={`/courses/${course.sku}`} id={`featured-enroll-${course.sku}`} className="btn btn-primary" style={{ width: '100%' }}>
+                    <a
+                      href={createWhatsAppEnrollmentLink(course.name)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      id={`featured-enroll-${course.sku}`}
+                      className="btn btn-primary"
+                      style={{ width: '100%', textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}
+                    >
                       Enroll Now <ArrowRight size={16} />
-                    </Link>
+                    </a>
                   </div>
                 </div>
               </div>

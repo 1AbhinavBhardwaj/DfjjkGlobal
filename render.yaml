@@ -7,19 +7,6 @@ services:
     dockerfilePath: ./backend/Dockerfile
     region: oregon
     plan: free
-    envVars:
-      - key: SPRING_DATASOURCE_URL
-        fromDatabase:
-          name: dfjjkglobal-db
-          property: connectionString
-      - key: SPRING_DATASOURCE_USERNAME
-        fromDatabase:
-          name: dfjjkglobal-db
-          property: user
-      - key: SPRING_DATASOURCE_PASSWORD
-        fromDatabase:
-          name: dfjjkglobal-db
-          property: password
 
 databases:
   # Free PostgreSQL Database Service on Render

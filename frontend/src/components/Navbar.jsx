@@ -16,6 +16,8 @@ import {
 } from 'lucide-react';
 import { getCoursesByCategory } from '../data/coursesData';
 
+import { createWhatsAppGeneralInquiryLink } from '../utils/whatsapp';
+
 const MEGA_CATEGORIES = [
   'AI & Machine Learning',
   'Data Science & Analytics',
@@ -65,7 +67,7 @@ export const Navbar = () => {
 
   const handleLogout = () => {
     logout();
-    navigate('/login');
+    navigate('/');
   };
 
   const isActive = (path) => location.pathname === path;
@@ -226,27 +228,17 @@ export const Navbar = () => {
             {theme === 'dark' ? <Sun size={17} color="#FBBF24" /> : <Moon size={17} color="#6366F1" />}
           </button>
 
-          {user ? (
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }} className="desktop-links">
-              {user.role === 'ROLE_ADMIN' ? (
-                <Link to="/admin" className="btn btn-secondary btn-sm">
-                  <ShieldCheck size={15} color="#0284C7" /> Admin
-                </Link>
-              ) : (
-                <Link to="/dashboard" className="btn btn-secondary btn-sm">
-                  <UserIcon size={15} /> Dashboard
-                </Link>
-              )}
-              <button onClick={handleLogout} className="btn btn-outline btn-sm" title="Log Out">
-                <LogOut size={15} />
-              </button>
-            </div>
-          ) : (
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }} className="desktop-links">
-              <Link to="/login" className="btn btn-secondary btn-sm">Log In</Link>
-              <Link to="/register" className="btn btn-primary btn-sm">Get Started</Link>
-            </div>
-          )}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }} className="desktop-links">
+            <a
+              href={createWhatsAppGeneralInquiryLink()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-primary btn-sm"
+              id="navbar-get-started-btn"
+            >
+              Get Started
+            </a>
+          </div>
 
           {/* Mobile Menu Button */}
           <button
@@ -373,31 +365,17 @@ export const Navbar = () => {
 
           {/* Mobile Footer CTAs */}
           <div style={{ paddingTop: '24px', borderTop: '1px solid var(--border-glass)', display: 'flex', flexDirection: 'column', gap: '12px', marginTop: '24px' }}>
-            {user ? (
-              <>
-                {user.role === 'ROLE_ADMIN' ? (
-                  <Link to="/admin" onClick={() => setMobileMenuOpen(false)} className="btn btn-secondary" style={{ width: '100%' }}>
-                    <ShieldCheck size={17} color="#0284C7" /> Admin Portal
-                  </Link>
-                ) : (
-                  <Link to="/dashboard" onClick={() => setMobileMenuOpen(false)} className="btn btn-secondary" style={{ width: '100%' }}>
-                    <UserIcon size={17} /> My Student Dashboard
-                  </Link>
-                )}
-                <button onClick={() => { handleLogout(); setMobileMenuOpen(false); }} className="btn btn-outline" style={{ width: '100%' }}>
-                  <LogOut size={17} /> Log Out
-                </button>
-              </>
-            ) : (
-              <>
-                <Link to="/login" onClick={() => setMobileMenuOpen(false)} className="btn btn-secondary" style={{ width: '100%' }}>
-                  Log In
-                </Link>
-                <Link to="/register" onClick={() => setMobileMenuOpen(false)} className="btn btn-primary" style={{ width: '100%' }}>
-                  Get Started
-                </Link>
-              </>
-            )}
+            <a
+              href={createWhatsAppGeneralInquiryLink()}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileMenuOpen(false)}
+              className="btn btn-primary"
+              style={{ width: '100%', justifyContent: 'center' }}
+              id="mobile-get-started-btn"
+            >
+              Get Started
+            </a>
           </div>
         </div>
       )}

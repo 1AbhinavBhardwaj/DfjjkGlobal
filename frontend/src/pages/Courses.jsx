@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import API from '../api';
 import { CATALOG_COURSES } from '../data/coursesData';
 import { SEO } from '../components/SEO';
+import { createWhatsAppEnrollmentLink } from '../utils/whatsapp';
 import { Search, Clock, ArrowRight, BookOpen, Layers, Sparkles } from 'lucide-react';
 
 export const Courses = () => {
-  const [courses, setCourses] = useState(CATALOG_COURSES);
-  const [loading, setLoading] = useState(true);
+  const courses = CATALOG_COURSES;
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
 
@@ -21,50 +20,6 @@ export const Courses = () => {
     'Management & Agile',
     'Computer Skills'
   ];
-
-  useEffect(() => {
-    API.get('/courses')
-      .then((res) => {
-        if (res && res.data && Array.isArray(res.data) && res.data.length > 0) {
-          // Merge API results with rich local metadata
-          const merged = res.data.map((apiCourse) => {
-            const apiSku = (apiCourse.sku || '').toUpperCase();
-            const local = CATALOG_COURSES.find(c => (c.sku || '').toUpperCase() === apiSku);
-            return {
-              ...apiCourse,
-              sku: apiCourse.sku || local?.sku || `CRS-${apiCourse.id}`,
-              name: apiCourse.name || local?.name || 'Untitled Course',
-              summary: apiCourse.summary || local?.summary || '',
-              category: apiCourse.category || local?.category || 'General',
-              duration: apiCourse.duration || local?.duration || 'Self-Paced',
-              price: local?.price ?? (apiCourse.price != null ? `$${apiCourse.price}` : '$0'),
-              imageUrl: local?.imageUrl || apiCourse.imageUrl || '',
-              highlights: local?.highlights || [],
-              learningJourney: local?.learningJourney || [],
-              modules: local?.modules || [],
-              sessions: local?.sessions || [],
-              aiModules: local?.aiModules || []
-            };
-          });
-
-          // Ensure any catalog courses missing from API are present
-          CATALOG_COURSES.forEach(localCourse => {
-            const localSku = (localCourse.sku || '').toUpperCase();
-            if (!merged.some(m => (m.sku || '').toUpperCase() === localSku)) {
-              merged.push(localCourse);
-            }
-          });
-          setCourses(merged);
-        } else {
-          setCourses(CATALOG_COURSES);
-        }
-      })
-      .catch((err) => {
-        console.warn('API connection offline/unreachable. Falling back to catalog store:', err);
-        setCourses(CATALOG_COURSES);
-      })
-      .finally(() => setLoading(false));
-  }, []);
 
   const filteredCourses = courses.filter((c) => {
     const courseName = (c.name || '').toLowerCase();
@@ -169,11 +124,13 @@ export const Courses = () => {
               return (
                 <div key={course.id || course.sku} className="glass-card" style={{ display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
                   <div style={{ position: 'relative', height: '220px', overflow: 'hidden' }}>
-                    <img
-                      src={course.imageUrl}
-                      alt={course.name}
-                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                    />
+                    <Link to={`/courses/${course.sku}`} style={{ display: 'block', width: '100%', height: '100%' }}>
+                      <img
+                        src={course.imageUrl}
+                        alt={course.name}
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                      />
+                    </Link>
                     <div style={{ position: 'absolute', top: '14px', left: '14px' }} className="badge badge-gradient">
                       {course.category}
                     </div>
@@ -181,9 +138,11 @@ export const Courses = () => {
 
                   <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                     <div>
-                      <h3 style={{ fontSize: '1.25rem', marginBottom: '12px', color: 'var(--text-primary)', lineHeight: 1.3 }}>
-                        {course.name}
-                      </h3>
+                      <Link to={`/courses/${course.sku}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                        <h3 style={{ fontSize: '1.25rem', marginBottom: '12px', color: 'var(--text-primary)', lineHeight: 1.3 }}>
+                          {course.name}
+                        </h3>
+                      </Link>
                       <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '16px' }}>
                         {course.summary}
                       </p>
@@ -217,9 +176,20 @@ export const Courses = () => {
                         </span>
                       </div>
 
-                      <Link to={`/courses/${course.sku}`} className="btn btn-primary" style={{ width: '100%' }}>
-                        View Details & Enroll <ArrowRight size={16} />
-                      </Link>
+                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
+                        <Link to={`/courses/${course.sku}`} className="btn btn-secondary" style={{ padding: '12px 8px', fontSize: '0.88rem', justifyContent: 'center' }}>
+                          View Details
+                        </Link>
+                        <a
+                          href={createWhatsAppEnrollmentLink(course.name)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn btn-primary"
+                          style={{ padding: '12px 8px', fontSize: '0.88rem', textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}
+                        >
+                          Enroll Now <ArrowRight size={15} />
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>

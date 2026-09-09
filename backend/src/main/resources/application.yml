@@ -8,11 +8,11 @@ spring:
     name: dfjjk-backend
   
   datasource:
-    # PostgreSQL Configuration (Default)
-    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/dfjjkglobal}
-    username: ${SPRING_DATASOURCE_USERNAME:postgres}
-    password: ${SPRING_DATASOURCE_PASSWORD:postgres}
-    driver-class-name: org.postgresql.Driver
+    # Persistent File-Based H2 Database Configuration
+    url: ${SPRING_DATASOURCE_URL:jdbc:h2:file:./data/dfjjkdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;AUTO_SERVER=TRUE}
+    username: ${SPRING_DATASOURCE_USERNAME:sa}
+    password: ${SPRING_DATASOURCE_PASSWORD:}
+    driver-class-name: org.h2.Driver
   
   jpa:
     hibernate:
@@ -21,13 +21,12 @@ spring:
     properties:
       hibernate:
         format_sql: true
-        dialect: org.hibernate.dialect.PostgreSQLDialect
+        dialect: org.hibernate.dialect.H2Dialect
 
-  # H2 Fallback configuration profile if postgres is disabled
+  # Disable H2 console in production to prevent exposing DB admin interface publicly
   h2:
     console:
-      enabled: true
-      path: /h2-console
+      enabled: false
 
 jwt:
   secret: DFJJKGlobalSuperSecretKeyForJWTSigningAndAuthenticationTokenValidation2026!

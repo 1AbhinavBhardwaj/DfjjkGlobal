@@ -9,19 +9,8 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (token) {
-      API.get('/auth/me')
-        .then((res) => {
-          setUser(res.data);
-        })
-        .catch(() => {
-          logout();
-        })
-        .finally(() => setLoading(false));
-    } else {
-      setLoading(false);
-    }
-  }, [token]);
+    setLoading(false);
+  }, []);
 
   const login = async (email, password) => {
     const res = await API.post('/auth/login', { email, password });

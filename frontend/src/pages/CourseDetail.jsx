@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import API from '../api';
 import { getCourseBySku, CATALOG_COURSES } from '../data/coursesData';
 import { AuthContext } from '../context/AuthContext';
 import { SEO } from '../components/SEO';
+import { createWhatsAppEnrollmentLink } from '../utils/whatsapp';
 import { 
   Clock, 
   CheckCircle2, 
@@ -47,72 +47,11 @@ export const CourseDetail = () => {
   const [expandedIndex, setExpandedIndex] = useState(0);
 
   useEffect(() => {
-    setLoading(true);
     const cleanSku = (sku || '').trim().toUpperCase();
     const localMeta = getCourseBySku(cleanSku);
-
-    API.get(`/courses/${sku}`)
-      .then((res) => {
-        if (res && res.data && typeof res.data === 'object' && res.data.name) {
-          setCourse({
-            ...res.data,
-            sku: res.data.sku || localMeta?.sku || cleanSku,
-            name: localMeta?.name || res.data.name || 'Untitled Course',
-            summary: res.data.summary || localMeta?.summary || '',
-            description: res.data.description || localMeta?.description || '',
-            price: localMeta?.price ?? (res.data.price != null ? `$${res.data.price}` : '$0'),
-            duration: res.data.duration || localMeta?.duration || 'Self-Paced',
-            category: res.data.category || localMeta?.category || 'General',
-            imageUrl: localMeta?.imageUrl || res.data.imageUrl || '',
-            highlights: localMeta?.highlights || [],
-            learningJourney: localMeta?.learningJourney || [],
-            type: localMeta?.type || 'module',
-            modules: localMeta?.modules || [],
-            sessions: localMeta?.sessions || [],
-            aiModules: localMeta?.aiModules || [],
-            learningOutcomes: localMeta?.learningOutcomes || [],
-            capstones: localMeta?.capstones || [],
-            interviewPrep: localMeta?.interviewPrep || [],
-            faqs: (res.data.faqs && res.data.faqs.length > 0) ? res.data.faqs : (localMeta?.faqs || [])
-          });
-        } else {
-          setCourse(localMeta);
-        }
-      })
-      .catch((err) => {
-        console.warn('API error or offline, retrieving from local catalog store:', err);
-        setCourse(localMeta);
-      })
-      .finally(() => setLoading(false));
+    setCourse(localMeta);
+    setLoading(false);
   }, [sku]);
-
-  const handleEnrollClick = () => {
-    if (!user) {
-      navigate('/login');
-      return;
-    }
-    setShowCheckoutModal(true);
-  };
-
-  const handleConfirmOrder = async () => {
-    setProcessing(true);
-    setErrorMsg('');
-    try {
-      await API.post('/orders/checkout', {
-        courseSku: course.sku,
-        paymentMethod: paymentMethod
-      });
-      setOrderSuccess(true);
-      setTimeout(() => {
-        setShowCheckoutModal(false);
-        navigate('/dashboard');
-      }, 2000);
-    } catch (err) {
-      setErrorMsg(err.response?.data?.message || 'Enrollment failed. Please try again.');
-    } finally {
-      setProcessing(false);
-    }
-  };
 
   const toggleAccordion = (index) => {
     setExpandedIndex(expandedIndex === index ? null : index);
@@ -680,14 +619,26 @@ export const CourseDetail = () => {
                 <Clock size={16} /> Duration: <span style={{ color: 'var(--text-secondary)', fontWeight: 600 }}>{course.duration}</span>
               </div>
 
-              <button 
+              <a 
                 id="enroll-masterclass-btn"
-                onClick={handleEnrollClick}
+                href={createWhatsAppEnrollmentLink(course.name)}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn btn-primary" 
-                style={{ width: '100%', padding: '16px', fontSize: '1.05rem', marginBottom: '12px' }}
+                style={{ 
+                  width: '100%', 
+                  padding: '16px', 
+                  fontSize: '1.05rem', 
+                  marginBottom: '12px',
+                  textDecoration: 'none',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '8px'
+                }}
               >
                 Enroll in Masterclass <ArrowRight size={18} />
-              </button>
+              </a>
 
               <button 
                 id="download-syllabus-btn"

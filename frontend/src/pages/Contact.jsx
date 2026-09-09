@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import API from '../api';
 import { SEO } from '../components/SEO';
 import { Mail, Phone, MapPin, Send, CheckCircle2, MessageSquare } from 'lucide-react';
+import { WHATSAPP_PHONE_NUMBER, createWhatsAppGeneralInquiryLink } from '../utils/whatsapp';
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
@@ -19,18 +19,27 @@ export const Contact = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
     setSuccessMsg('');
     setErrorMsg('');
 
     try {
-      const res = await API.post('/contact', formData);
-      setSuccessMsg(res.data.message || 'Message sent successfully!');
+      const inquiryText = `Hello DFJJK Global,
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone || 'N/A'}
+Subject: ${formData.subject || 'Course / Training Inquiry'}
+Message: ${formData.message}`;
+
+      const waUrl = `https://wa.me/${WHATSAPP_PHONE_NUMBER}?text=${encodeURIComponent(inquiryText)}`;
+      window.open(waUrl, '_blank', 'noopener,noreferrer');
+
+      setSuccessMsg('Thank you! Your message was opened in WhatsApp. You can also reach us anytime at admissions@dfjjkglobal.com.');
       setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
     } catch (err) {
-      setErrorMsg(err.response?.data?.message || 'Failed to submit contact message. Please try again.');
+      setErrorMsg('Failed to open WhatsApp. Please email us directly at admissions@dfjjkglobal.com.');
     } finally {
       setLoading(false);
     }
